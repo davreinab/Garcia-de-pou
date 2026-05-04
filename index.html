@@ -1,0 +1,1665 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>García de Pou — Suministros Hostelería y Restauración</title>
+
+  <!-- DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,300&family=Caveat:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════
+       ANNOUNCEMENT BAR
+  ════════════════════════════════════════ -->
+  <div class="announcement" aria-hidden="true">
+    <div class="announcement-track" id="annTrack">
+      <div class="ann-item"><span class="ann-dot"></span>Envío gratuito en pedidos +150€</div>
+      <div class="ann-item"><span class="ann-dot"></span>Más de 10.000 referencias</div>
+      <div class="ann-item"><span class="ann-dot"></span>Entrega 24 / 48h</div>
+      <div class="ann-item"><span class="ann-dot"></span>Catálogo 2025 disponible</div>
+      <div class="ann-item"><span class="ann-dot"></span>Comprometidos con el medio ambiente</div>
+      <!-- duplicado para loop sin corte -->
+      <div class="ann-item"><span class="ann-dot"></span>Envío gratuito en pedidos +150€</div>
+      <div class="ann-item"><span class="ann-dot"></span>Más de 10.000 referencias</div>
+      <div class="ann-item"><span class="ann-dot"></span>Entrega 24 / 48h</div>
+      <div class="ann-item"><span class="ann-dot"></span>Catálogo 2025 disponible</div>
+      <div class="ann-item"><span class="ann-dot"></span>Comprometidos con el medio ambiente</div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       HEADER
+  ════════════════════════════════════════ -->
+  <header class="header" id="header">
+
+    <!-- ── Fila 1: barra de utilidades ── -->
+    <div class="header-utility">
+      <div class="wrap header-utility-inner">
+        <div class="util-left">
+          <a href="#" class="util-partner" aria-label="WeForest — Comprometidos con el medio ambiente">
+            <img src="https://www.garciadepou.com/media/cms/cms/WF_Logo-whiteandcolord-.png" alt="WeForest" class="util-partner-logo">
+          </a>
+          <span class="util-sep" aria-hidden="true"></span>
+          <nav class="util-nav" aria-label="Accesos rápidos">
+            <a href="#">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Looks
+            </a>
+            <a href="#">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><polyline points="14 2 14 8 20 8" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+              Blog
+            </a>
+            <a href="#">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M4 19.5A2.5 2.5 0 016.5 17H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+              Catálogos
+            </a>
+            <a href="#">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Compra rápida
+            </a>
+            <a href="#">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+              Mis productos
+            </a>
+          </nav>
+        </div>
+        <div class="util-right">
+          <a href="#" class="util-account">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M4 20c0-4 3.582-7 8-7s8 3 8 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Mi cuenta
+          </a>
+          <div class="cart-pill" role="button" aria-label="Carrito de compra, 0 artículos">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="1.5"/><path d="M16 10a4 4 0 01-8 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Cesta
+            <span class="cart-count">0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Fila 2: barra de marca ── -->
+    <div class="header-brand">
+      <div class="wrap header-brand-inner">
+
+        <!-- Burger: solo visible en mobile -->
+        <button class="burger-btn" id="burgerBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileDrawer">
+          <span></span><span></span><span></span>
+        </button>
+
+        <a href="/" class="logo-link" aria-label="García de Pou — Inicio">
+          <img
+            class="logo-img"
+            src="https://www.garciadepou.com/static/version1776292596/frontend/Etailers/gpou/es_ES/images/logo.svg"
+            alt="García de Pou"
+          >
+        </a>
+
+        <div class="header-search">
+          <button class="search-btn" aria-label="Buscar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <circle cx="11" cy="11" r="7.5" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M17 17l4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <input
+            type="search"
+            class="search-input"
+            placeholder="¿Qué es lo que buscas?"
+            aria-label="Buscar productos"
+          >
+        </div>
+
+        <!-- Carrito: solo visible en mobile -->
+        <div class="cart-pill cart-pill-mobile" role="button" aria-label="Carrito de compra, 0 artículos">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="1.5"/><path d="M16 10a4 4 0 01-8 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span class="cart-count">0</span>
+        </div>
+
+        <nav class="nav-secondary" aria-label="Secciones especiales">
+          <a href="#" class="nav-new">NEW</a>
+          <a href="#">Cotillón</a>
+          <a href="#">Outlet</a>
+          <a href="#" class="nav-external">
+            Personalizados
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="15 3 21 3 21 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="10" y1="14" x2="21" y2="3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- ── Fila 3: nav de categorías (también es la barra sticky) ── -->
+    <div class="header-cats">
+      <div class="wrap header-cats-inner">
+
+        <!-- Escudo: solo visible en estado sticky -->
+        <a href="/" class="logo-shield" aria-label="García de Pou — Inicio">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.3 38" aria-hidden="true">
+            <path fill="#002D72" d="M0 0v18.328c0 9.064 5.722 16.604 14.144 19.525l.355-.123c8.024-2.785 13.787-10.418 13.787-19.402V0H0zm14.148 29.115c-1.99 0-6.72-.693-6.86-3.496L7.278 8.025h1.196v7.468a5.65 5.65 0 0 1 1.09-.642 8.975 8.975 0 0 1 1.681-.556l.383 1.813c-.49.115-.928.262-1.298.43-1.014.461-1.196.908-1.196 1.065 0 .158.182.604 1.196 1.064.929.423 2.277.708 3.817.708s2.889-.285 3.818-.708c1.014-.46 1.196-.906 1.196-1.064 0-.157-.183-.604-1.196-1.065a7.27 7.27 0 0 0-1.409-.455l.417-1.78c1.017.225 2.048.588 2.814 1.14l.023-7.418h1.197l.005 17.464c0 2.91-4.843 3.626-6.865 3.626zm-2.136-16.582h4.262l-.67 5.204h-2.922l-.67-5.204zm9.732-5.54h-7.105v4.547h-.993V6.993H6.543V5.795h15.2v1.198z"/>
+          </svg>
+        </a>
+
+        <!-- Nav de categorías -->
+        <nav class="nav-cats" aria-label="Categorías principales">
+
+          <!-- Un Solo Uso con mega-menú -->
+          <div class="nav-item">
+            <a href="#" class="nav-item-link">Un Solo Uso</a>
+
+            <div class="mega-menu" id="megaUnSoloUso" aria-hidden="true">
+              <div class="mega-inner">
+                <div class="wrap mega-wrap">
+
+                  <!-- Descripción lateral -->
+                  <div class="mega-desc">
+                    <p class="mega-desc-label label">Un solo uso</p>
+                    <p class="mega-desc-title">Envases desechables para comida y artículos de un solo uso para profesionales de la hostelería</p>
+                    <p class="mega-desc-sub">Restaurantes, hoteles y catering. Más de 6.000 referencias disponibles.</p>
+                    <a href="#" class="btn-blue mega-desc-cta">Ver todo Un Solo Uso</a>
+                  </div>
+
+                  <!-- Columnas de enlaces -->
+                  <div class="mega-cols">
+                    <ul class="mega-col">
+                      <li><a href="#">Adornas</a></li>
+                      <li><a href="#">Aluminio / Film estirable</a></li>
+                      <li><a href="#">Baberos</a></li>
+                      <li><a href="#">Bandeja comida para llevar</a></li>
+                      <li><a href="#">Bandejas de plástico desechables</a></li>
+                      <li><a href="#">Bandejas para catering y cajas</a></li>
+                      <li><a href="#">BIONIC</a></li>
+                      <li><a href="#">Blondas</a></li>
+                      <li><a href="#">Bolsas de plástico</a></li>
+                      <li><a href="#">Caminos de mesa</a></li>
+                      <li><a href="#">Conjuntos decorados</a></li>
+                      <li><a href="#">Conos para helados</a></li>
+                      <li><a href="#">Cubiertos desechables</a></li>
+                      <li><a href="#">Cucuruchos de papel</a></li>
+                    </ul>
+                    <ul class="mega-col">
+                      <li><a href="#">DRY COTTON</a></li>
+                      <li><a href="#">Embalajes</a></li>
+                      <li><a href="#">Entretenimientos para niños</a></li>
+                      <li><a href="#">ENVASES DE CARTÓN</a></li>
+                      <li><a href="#">Envases compostables</a></li>
+                      <li><a href="#">Envases Microondas</a></li>
+                      <li><a href="#">Envases de plástico</a></li>
+                      <li><a href="#">Envases termoestables</a></li>
+                      <li><a href="#">Etiquetas adhesivas</a></li>
+                      <li><a href="#">FEEL GREEN</a></li>
+                      <li><a href="#">Madera y Bambú</a></li>
+                      <li><a href="#">Manteles de papel</a></li>
+                      <li><a href="#">Manteles individuales</a></li>
+                      <li><a href="#">PAROLE</a></li>
+                    </ul>
+                    <ul class="mega-col">
+                      <li><a href="#">PAPAS FREE</a></li>
+                      <li><a href="#">Pajitas</a></li>
+                      <li><a href="#">Palomitas</a></li>
+                      <li><a href="#">Papel Antigrasa</a></li>
+                      <li><a href="#">Pastelería</a></li>
+                      <li><a href="#">Posavasas</a></li>
+                      <li><a href="#">Servilletas de papel</a></li>
+                      <li><a href="#">Tarrinas de papel plisado</a></li>
+                      <li><a href="#">Tarrinas para helados</a></li>
+                      <li><a href="#">THEPACK</a></li>
+                      <li><a href="#">TIMES</a></li>
+                      <li><a href="#">Toallitas impregnadas</a></li>
+                      <li><a href="#">Vajilla desechable</a></li>
+                      <li><a href="#">Vasos desechables</a></li>
+                      <li><a href="#">WOOD</a></li>
+                    </ul>
+                  </div>
+
+                </div><!-- /mega-wrap -->
+
+                <!-- Botón cierre -->
+                <button class="mega-close" aria-label="Cerrar menú">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <line x1="5" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="19" y1="5" x2="5" y2="19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </button>
+
+              </div><!-- /mega-inner -->
+
+              <!-- Pie del mega-menú -->
+              <div class="mega-footer">
+                <div class="wrap mega-footer-inner">
+                  <strong>Más de 6.000 productos para la hostelería y restauración</strong>
+                  <span>Gran stock en menaje y material de un solo uso</span>
+                </div>
+              </div>
+
+            </div><!-- /mega-menu -->
+          </div><!-- /nav-item -->
+
+          <a href="#">Rotulación</a>
+          <a href="#">Bar y Buffet</a>
+          <a href="#">Mesa y Accesorios</a>
+          <a href="#">Utensilios de Cocina</a>
+          <a href="#">Limpieza e Higiene</a>
+          <a href="#">Habitaciones y Acogida</a>
+          <a href="#">Take Away</a>
+        </nav>
+
+        <!-- Carrito: solo visible en estado sticky -->
+        <div class="cart-pill sticky-only" role="button" aria-label="Carrito de compra">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="1.5"/><path d="M16 10a4 4 0 01-8 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span class="cart-count">0</span>
+        </div>
+
+      </div>
+    </div>
+
+  </header>
+
+  <!-- ════════════════════════════════════════
+       MOBILE DRAWER — solo mobile
+  ════════════════════════════════════════ -->
+  <div class="drawer-overlay" id="drawerOverlay" hidden></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="drawer-head">
+      <a href="/" class="drawer-logo" aria-label="García de Pou — Inicio">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.3 38" width="24" height="32" aria-hidden="true">
+          <path fill="#002D72" d="M0 0v18.328c0 9.064 5.722 16.604 14.144 19.525l.355-.123c8.024-2.785 13.787-10.418 13.787-19.402V0H0zm14.148 29.115c-1.99 0-6.72-.693-6.86-3.496L7.278 8.025h1.196v7.468a5.65 5.65 0 0 1 1.09-.642 8.975 8.975 0 0 1 1.681-.556l.383 1.813c-.49.115-.928.262-1.298.43-1.014.461-1.196.908-1.196 1.065 0 .158.182.604 1.196 1.064.929.423 2.277.708 3.817.708s2.889-.285 3.818-.708c1.014-.46 1.196-.906 1.196-1.064 0-.157-.183-.604-1.196-1.065a7.27 7.27 0 0 0-1.409-.455l.417-1.78c1.017.225 2.048.588 2.814 1.14l.023-7.418h1.197l.005 17.464c0 2.91-4.843 3.626-6.865 3.626zm-2.136-16.582h4.262l-.67 5.204h-2.922l-.67-5.204zm9.732-5.54h-7.105v4.547h-.993V6.993H6.543V5.795h15.2v1.198z"/>
+        </svg>
+        <span>García de Pou</span>
+      </a>
+      <button class="drawer-close" id="drawerClose" aria-label="Cerrar menú">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><line x1="5" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="19" y1="5" x2="5" y2="19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+
+    <div class="drawer-body">
+      <p class="drawer-label">Categorías</p>
+      <nav class="drawer-nav" aria-label="Categorías principales">
+        <a href="#">Un Solo Uso</a>
+        <a href="#">Rotulación</a>
+        <a href="#">Bar y Buffet</a>
+        <a href="#">Mesa y Accesorios</a>
+        <a href="#">Utensilios de Cocina</a>
+        <a href="#">Limpieza e Higiene</a>
+        <a href="#">Habitaciones y Acogida</a>
+        <a href="#">Take Away</a>
+      </nav>
+
+      <p class="drawer-label">Destacados</p>
+      <nav class="drawer-nav drawer-nav-sm" aria-label="Secciones especiales">
+        <a href="#"><span class="drawer-badge">NEW</span> Novedades</a>
+        <a href="#">Cotillón</a>
+        <a href="#">Outlet</a>
+        <a href="#">Personalizados</a>
+        <a href="#">Looks</a>
+        <a href="#">Blog</a>
+        <a href="#">Catálogos</a>
+        <a href="#">Compra rápida</a>
+      </nav>
+
+      <div class="drawer-footer">
+        <a href="#" class="btn btn-outline-blue" style="width:100%; justify-content:center;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="margin-right:8px"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M4 20c0-4 3.582-7 8-7s8 3 8 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          Mi cuenta
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ════════════════════════════════════════
+       HERO — slider 3 slides
+  ════════════════════════════════════════ -->
+  <section class="hero" id="hero">
+    <div class="swiper hero-swiper">
+      <div class="swiper-wrapper">
+
+        <!-- ── Slide 1: Catálogo 2026 ── -->
+        <div class="swiper-slide">
+          <div class="hero-slide">
+            <div class="hero-content hero-content--catalog">
+              <div class="hero-eyebrow">
+                <div class="hero-line"></div>
+                <span class="label">Novedades 2026</span>
+              </div>
+              <h1 class="hero-title">
+                Catálogo<br>
+                <em>2026</em>
+                disponible
+              </h1>
+              <p class="hero-sub">
+                Más de 10.000 referencias actualizadas. Solicita tu ejemplar físico gratuito o consúltalo online.
+              </p>
+              <div class="hero-ctas">
+                <a href="#" class="btn btn-blue btn-lg">Solicitar catálogo</a>
+                <a href="#" class="btn btn-outline-blue btn-lg">Ver online</a>
+              </div>
+            </div>
+            <div class="hero-media hero-media--catalog">
+              <img src="img/catalogo/hero-01.png" alt="Catálogo García de Pou 2026" loading="eager">
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Slide 2: Equipa la mejor hostelería ── -->
+        <div class="swiper-slide">
+          <div class="hero-slide">
+            <div class="hero-content">
+              <div class="hero-eyebrow">
+                <div class="hero-line"></div>
+                <span class="label">Hostelería &amp; Restauración</span>
+              </div>
+              <h2 class="hero-title" aria-label="Equipa la mejor hostelería">
+                Equipa<br>
+                <em>la mejor</em>
+                hostelería
+              </h2>
+              <p class="hero-sub">
+                Más de 10.000 productos para restaurantes, bares, catering y hostelería profesional.
+              </p>
+              <div class="hero-ctas">
+                <a href="#" class="btn btn-blue btn-lg">Ver catálogo</a>
+                <a href="#" class="btn btn-outline-blue btn-lg">Compra rápida</a>
+              </div>
+            </div>
+            <div class="hero-media">
+              <img src="img/ambient/GDP__DSC8223.jpg" alt="Hostelería profesional" loading="lazy">
+              <div class="hero-badge">
+                <strong>+10K</strong>
+                referencias<br>disponibles
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Slide 3: Take Away & Packaging ── -->
+        <div class="swiper-slide">
+          <div class="hero-slide">
+            <div class="hero-content">
+              <div class="hero-eyebrow">
+                <div class="hero-line"></div>
+                <span class="label">Take Away &amp; Packaging</span>
+              </div>
+              <h2 class="hero-title">
+                Packaging<br>
+                <em>sostenible</em>
+                para llevar
+              </h2>
+              <p class="hero-sub">
+                Envases compostables, bolsas de papel y soluciones eco-friendly para tu negocio de comida para llevar.
+              </p>
+              <div class="hero-ctas">
+                <a href="#" class="btn btn-blue btn-lg">Ver Take Away</a>
+                <a href="#" class="btn btn-outline-blue btn-lg">Productos eco</a>
+              </div>
+            </div>
+            <div class="hero-media">
+              <img src="img/ambient/GDP__DSC1692_muntatge biodegradables.jpg" alt="Packaging sostenible Take Away" loading="lazy">
+              <div class="hero-badge">
+                <strong>ECO</strong>
+                productos<br>sostenibles
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /swiper-wrapper -->
+
+      <!-- Controles: paginación + flechas, lado izquierdo debajo de los CTAs -->
+      <div class="hero-controls">
+        <div class="hero-pagination"></div>
+        <div class="hero-nav">
+          <button class="hero-nav-btn" id="heroPrev" aria-label="Slide anterior">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="hero-nav-btn" id="heroNext" aria-label="Slide siguiente">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 2l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+
+    </div><!-- /hero-swiper -->
+  </section>
+
+  <!-- ════════════════════════════════════════
+       STRIP — marquee negro
+  ════════════════════════════════════════ -->
+  <div class="strip" aria-hidden="true">
+    <div class="strip-track" id="stripTrack">
+      <div class="strip-item"><span class="strip-dot"></span>Un Solo Uso</div>
+      <div class="strip-item"><span class="strip-dot"></span>Bar y Buffet</div>
+      <div class="strip-item"><span class="strip-dot"></span>Mesa y Accesorios</div>
+      <div class="strip-item"><span class="strip-dot"></span>Utensilios de Cocina</div>
+      <div class="strip-item"><span class="strip-dot"></span>Rotulación</div>
+      <div class="strip-item"><span class="strip-dot"></span>Limpieza e Higiene</div>
+      <div class="strip-item"><span class="strip-dot"></span>Nuevos Productos</div>
+      <div class="strip-item"><span class="strip-dot"></span>Ofertas Especiales</div>
+      <!-- duplicado -->
+      <div class="strip-item"><span class="strip-dot"></span>Un Solo Uso</div>
+      <div class="strip-item"><span class="strip-dot"></span>Bar y Buffet</div>
+      <div class="strip-item"><span class="strip-dot"></span>Mesa y Accesorios</div>
+      <div class="strip-item"><span class="strip-dot"></span>Utensilios de Cocina</div>
+      <div class="strip-item"><span class="strip-dot"></span>Rotulación</div>
+      <div class="strip-item"><span class="strip-dot"></span>Limpieza e Higiene</div>
+      <div class="strip-item"><span class="strip-dot"></span>Nuevos Productos</div>
+      <div class="strip-item"><span class="strip-dot"></span>Ofertas Especiales</div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       TAGLINES — frases destacadas
+  ════════════════════════════════════════ -->
+  <div class="taglines">
+    <div class="wrap">
+      <p class="tagline-main">Más de 6.000 productos para la hostelería y restauración</p>
+      <p class="tagline-sub">Gran stock en menaje y material de un solo uso</p>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       PROMO LOOKS — grid editorial
+  ════════════════════════════════════════ -->
+  <section class="promo-looks">
+    <div class="wrap">
+      <div class="promo-looks-grid" data-reveal="scale">
+
+        <div class="look-item">
+          <img src="img/ambient/GDP__DSC5584_M.jpg" alt="" loading="lazy">
+          <div class="look-overlay">
+            <p class="look-title">Restaurante Clásico</p>
+            <p class="look-count">18 productos seleccionados</p>
+          </div>
+        </div>
+
+        <div class="look-item">
+          <img src="img/ambient/GDP__DSC3425.jpg" alt="" loading="lazy">
+          <div class="look-overlay">
+            <p class="look-title">Cafetería Urbana</p>
+            <p class="look-count">22 productos seleccionados</p>
+          </div>
+        </div>
+
+        <div class="look-item">
+          <img src="img/ambient/GDP__DSC4185retocada.jpg" alt="" loading="lazy">
+          <div class="look-overlay">
+            <p class="look-title">Barra de Cócteles</p>
+            <p class="look-count">15 productos seleccionados</p>
+          </div>
+        </div>
+
+        <div class="look-item">
+          <img src="img/ambient/GDP__DSC7916_M.jpg" alt="" loading="lazy">
+          <div class="look-overlay">
+            <p class="look-title">Terraza Mediterránea</p>
+            <p class="look-count">29 productos seleccionados</p>
+          </div>
+        </div>
+
+        <div class="look-item">
+          <img src="img/ambient/GDP__DSC1692_muntatge biodegradables.jpg" alt="" loading="lazy">
+          <div class="look-overlay">
+            <p class="look-title">Take Away</p>
+            <p class="look-count">11 productos seleccionados</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       ARTÍCULOS DESTACADOS — slider
+  ════════════════════════════════════════ -->
+  <section class="offers" id="offers">
+    <div class="wrap">
+      <div class="offers-header">
+        <div>
+          <p class="label" data-reveal>Selección de la semana</p>
+          <h2 class="section-title" data-reveal data-delay="1">Artículos destacados</h2>
+        </div>
+        <div class="offers-header-actions" data-reveal data-delay="2">
+          <div class="swiper-nav">
+            <button class="swiper-btn" id="offersPrev" aria-label="Anterior">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7l5 5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="swiper-btn" id="offersNext" aria-label="Siguiente">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 2l5 5-5 5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+          <a href="#" class="btn btn-outline-blue">Ver todos</a>
+        </div>
+      </div>
+
+      <div class="offers-swiper-wrap">
+        <div class="swiper offers-swiper" id="offersSwiper">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="offer-card">
+                <div class="offer-card-img">
+                  <span class="offer-badge offer-badge--discount">−20%</span>
+                  <img src="img/product/GDP_102.04_C.jpg" alt="Servilletas de papel blancas" loading="lazy">
+                </div>
+                <div class="offer-card-body">
+                  <span class="offer-code">CODE: 120.01</span>
+                  <p class="offer-name">Servilleta de Papel Blanca 2 Capas 33x33cm</p>
+                  <div class="offer-rating">
+                    <span class="offer-rating-stars"><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D4D4D4" stroke-width="1.5" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke-linejoin="round"/></svg></span>
+                    <span class="offer-rating-count">(32)</span>
+                  </div>
+                  <div class="offer-pricing">
+                    <span class="offer-price">8,50€</span>
+                    <span class="offer-price-old">10,60€</span>
+                  </div>
+                  <div class="offer-pack">
+                    <span class="offer-pack-label"><strong>Paquete:</strong> 100 uds</span>
+                    <span class="offer-pack-unit">0,09 €/unidad</span>
+                  </div>
+                  <div class="offer-actions">
+                    <div class="qty-selector">
+                      <button class="qty-btn" onclick="adjustQty(this,-1)">−</button>
+                      <input type="number" class="qty-input" value="1" min="1">
+                      <button class="qty-btn" onclick="adjustQty(this,1)">+</button>
+                    </div>
+                    <button class="btn-add-cart">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="1.8"/><path d="M16 10a4 4 0 01-8 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                      Añadir
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="offer-card">
+                <div class="offer-card-img">
+                  <span class="offer-badge offer-badge--discount">−25%</span>
+                  <img src="img/product/GDP_107.49_C.jpg" alt="Bandeja de aluminio rectangular" loading="lazy">
+                </div>
+                <div class="offer-card-body">
+                  <span class="offer-code">CODE: 231.08</span>
+                  <p class="offer-name">Bandeja Aluminio Rectangular con Tapa 1.000ml Pack 50 uds</p>
+                  <div class="offer-rating">
+                    <span class="offer-rating-stars"><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                    <span class="offer-rating-count">(18)</span>
+                  </div>
+                  <div class="offer-pricing">
+                    <span class="offer-price">9,20€</span>
+                    <span class="offer-price-old">12,30€</span>
+                  </div>
+                  <div class="offer-pack">
+                    <span class="offer-pack-label"><strong>Paquete:</strong> 50 uds</span>
+                    <span class="offer-pack-unit">0,18 €/unidad</span>
+                  </div>
+                  <div class="offer-actions">
+                    <div class="qty-selector">
+                      <button class="qty-btn" onclick="adjustQty(this,-1)">−</button>
+                      <input type="number" class="qty-input" value="1" min="1">
+                      <button class="qty-btn" onclick="adjustQty(this,1)">+</button>
+                    </div>
+                    <button class="btn-add-cart">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="1.8"/><path d="M16 10a4 4 0 01-8 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                      Añadir
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="offer-card">
+                <div class="offer-card-img">
+                  <img src="img/product/GDP_206.72_C.jpg" alt="Bolsa papel kraft con asas" loading="lazy">
+                </div>
+                <div class="offer-card-body">
+                  <span class="offer-code">CODE: 089.32</span>
+                  <p class="offer-name">Bolsa Papel Kraft Natural con Asas Planas 32x12x28cm</p>
+                  <div class="offer-rating">
+                    <span class="offer-rating-stars"><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D4D4D4" stroke-width="1.5" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke-linejoin="round"/></svg></span>
+                    <span class="offer-rating-count">(47)</span>
+                  </div>
+                  <div class="offer-pricing">
+                    <span class="offer-price">14,90€</span>
+                    <span class="offer-price-old">17,50€</span>
+                  </div>
+                  <div class="offer-pack">
+                    <span class="offer-pack-label"><strong>Paquete:</strong> 250 uds</span>
+                    <span class="offer-pack-unit">0,06 €/unidad</span>
+                  </div>
+                  <div class="offer-actions">
+                    <div class="qty-selector">
+                      <button class="qty-btn" onclick="adjustQty(this,-1)">−</button>
+                      <input type="number" class="qty-input" value="1" min="1">
+                      <button class="qty-btn" onclick="adjustQty(this,1)">+</button>
+                    </div>
+                    <button class="btn-add-cart">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="1.8"/><path d="M16 10a4 4 0 01-8 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                      Añadir
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="offer-card">
+                <div class="offer-card-img">
+                  <span class="offer-badge offer-badge--new">Nuevo</span>
+                  <img src="img/product/GDP_228.10_CProducte.jpg" alt="Vaso desechable transparente" loading="lazy">
+                </div>
+                <div class="offer-card-body">
+                  <span class="offer-code">CODE: 155.26</span>
+                  <p class="offer-name">Vaso PP Transparente 200ml</p>
+                  <div class="offer-rating">
+                    <span class="offer-rating-stars"><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D4D4D4" stroke-width="1.5" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke-linejoin="round"/></svg></span>
+                    <span class="offer-rating-count">(21)</span>
+                  </div>
+                  <div class="offer-pricing">
+                    <span class="offer-price">3,95€</span>
+                    <span class="offer-price-old">5,65€</span>
+                  </div>
+                  <div class="offer-pack">
+                    <span class="offer-pack-label"><strong>Paquete:</strong> 100 uds</span>
+                    <span class="offer-pack-unit">0,04 €/unidad</span>
+                  </div>
+                  <div class="offer-actions">
+                    <div class="qty-selector">
+                      <button class="qty-btn" onclick="adjustQty(this,-1)">−</button>
+                      <input type="number" class="qty-input" value="1" min="1">
+                      <button class="qty-btn" onclick="adjustQty(this,1)">+</button>
+                    </div>
+                    <button class="btn-add-cart">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="1.8"/><path d="M16 10a4 4 0 01-8 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                      Añadir
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="offer-card">
+                <div class="offer-card-img">
+                  <span class="offer-badge offer-badge--discount">−18%</span>
+                  <img src="img/product/GDP_191.09_C.jpg" alt="Caja pizza kraft" loading="lazy">
+                </div>
+                <div class="offer-card-body">
+                  <span class="offer-code">CODE: 302.44</span>
+                  <p class="offer-name">Caja Pizza Kraft Blanco Troquelada 33x33x4cm</p>
+                  <div class="offer-rating">
+                    <span class="offer-rating-stars"><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                    <span class="offer-rating-count">(64)</span>
+                  </div>
+                  <div class="offer-pricing">
+                    <span class="offer-price">12,90€</span>
+                    <span class="offer-price-old">15,75€</span>
+                  </div>
+                  <div class="offer-pack">
+                    <span class="offer-pack-label"><strong>Paquete:</strong> 50 uds</span>
+                    <span class="offer-pack-unit">0,26 €/unidad</span>
+                  </div>
+                  <div class="offer-actions">
+                    <div class="qty-selector">
+                      <button class="qty-btn" onclick="adjustQty(this,-1)">−</button>
+                      <input type="number" class="qty-input" value="1" min="1">
+                      <button class="qty-btn" onclick="adjustQty(this,1)">+</button>
+                    </div>
+                    <button class="btn-add-cart">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="1.8"/><path d="M16 10a4 4 0 01-8 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                      Añadir
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       NUESTRAS COLECCIONES — carrusel full width
+  ════════════════════════════════════════ -->
+  <section class="collections" id="collections">
+    <div class="collections-header">
+      <h2 class="section-title" data-reveal>Nuestras colecciones</h2>
+      <a href="#" class="btn btn-outline-blue" data-reveal data-delay="1">Ver todas</a>
+    </div>
+    <div class="collections-track-wrap">
+      <div class="collections-track" id="collectionsTrack">
+        <!-- primera pasada -->
+        <div class="collection-item"><span class="collection-logo lg">Bionic</span></div>
+        <div class="collection-item"><span class="collection-logo">Thepack</span></div>
+        <div class="collection-item"><span class="collection-logo sm">Parole</span></div>
+        <div class="collection-item"><span class="collection-logo">Times</span></div>
+        <div class="collection-item"><span class="collection-logo lg">Wood</span></div>
+        <div class="collection-item"><span class="collection-logo sm">We Forest</span></div>
+        <div class="collection-item"><span class="collection-logo">Oslo</span></div>
+        <div class="collection-item"><span class="collection-logo lg">Kraft</span></div>
+        <div class="collection-item"><span class="collection-logo sm">Bamboo</span></div>
+        <div class="collection-item"><span class="collection-logo">Green</span></div>
+        <!-- duplicado para loop -->
+        <div class="collection-item"><span class="collection-logo lg">Bionic</span></div>
+        <div class="collection-item"><span class="collection-logo">Thepack</span></div>
+        <div class="collection-item"><span class="collection-logo sm">Parole</span></div>
+        <div class="collection-item"><span class="collection-logo">Times</span></div>
+        <div class="collection-item"><span class="collection-logo lg">Wood</span></div>
+        <div class="collection-item"><span class="collection-logo sm">We Forest</span></div>
+        <div class="collection-item"><span class="collection-logo">Oslo</span></div>
+        <div class="collection-item"><span class="collection-logo lg">Kraft</span></div>
+        <div class="collection-item"><span class="collection-logo sm">Bamboo</span></div>
+        <div class="collection-item"><span class="collection-logo">Green</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       CATEGORÍAS — tipográficas
+  ════════════════════════════════════════ -->
+  <section class="categories" id="categories">
+    <div class="wrap cat-header">
+      <h2 class="section-title" data-reveal>Categorías destacadas</h2>
+      <a href="#" class="btn btn-outline-blue" data-reveal data-delay="1">Ver todo el catálogo</a>
+    </div>
+    <div class="wrap">
+
+      <ul class="cat-pills-grid" data-reveal>
+
+        <li><a href="#" class="cat-pill">
+          <span class="cat-pill-thumb"><img src="img/ambient/GDP__DSC1692_muntatge biodegradables.jpg" alt="" loading="lazy"></span>
+          <span class="cat-pill-name">Envases de cartón</span>
+        </a></li>
+
+        <li><a href="#" class="cat-pill">
+          <span class="cat-pill-thumb"><img src="img/ambient/GDP__DSC3006.jpg" alt="" loading="lazy"></span>
+          <span class="cat-pill-name">Servilletas de papel</span>
+        </a></li>
+
+        <li><a href="#" class="cat-pill">
+          <span class="cat-pill-thumb"><img src="img/ambient/GDP_196.59 AMBIENT.jpg" alt="" loading="lazy"></span>
+          <span class="cat-pill-name">Manteles de papel</span>
+        </a></li>
+
+        <li><a href="#" class="cat-pill">
+          <span class="cat-pill-thumb"><img src="img/ambient/GDP_101.30 AMBIENT2.jpg" alt="" loading="lazy"></span>
+          <span class="cat-pill-name">Manteles individuales de papel</span>
+        </a></li>
+
+        <li><a href="#" class="cat-pill">
+          <span class="cat-pill-thumb"><img src="img/ambient/GDP__DSC4185retocada.jpg" alt="" loading="lazy"></span>
+          <span class="cat-pill-name">Vasos desechables</span>
+        </a></li>
+
+        <li><a href="#" class="cat-pill">
+          <span class="cat-pill-thumb"><img src="img/ambient/GDP__DSC2883.jpg" alt="" loading="lazy"></span>
+          <span class="cat-pill-name">Papel antigrasas para alimentos</span>
+        </a></li>
+
+        <li><a href="#" class="cat-pill">
+          <span class="cat-pill-thumb"><img src="img/ambient/GDP__DSC5597_1.jpg" alt="" loading="lazy"></span>
+          <span class="cat-pill-name">Cajas para pasteles</span>
+        </a></li>
+
+        <li><a href="#" class="cat-pill">
+          <span class="cat-pill-thumb"><img src="img/ambient/GDP__DSC5614_1.jpg" alt="" loading="lazy"></span>
+          <span class="cat-pill-name">Cajas para sushi y comida oriental</span>
+        </a></li>
+
+        <li><a href="#" class="cat-pill">
+          <span class="cat-pill-thumb"><img src="img/ambient/GDP__DSC3227.jpg" alt="" loading="lazy"></span>
+          <span class="cat-pill-name">Cubos para palomitas</span>
+        </a></li>
+
+        <li><a href="#" class="cat-pill">
+          <span class="cat-pill-thumb"><img src="img/ambient/GDP__DSC8413_2.jpg" alt="" loading="lazy"></span>
+          <span class="cat-pill-name">Cubos para pollo</span>
+        </a></li>
+
+        <li><a href="#" class="cat-pill">
+          <span class="cat-pill-thumb"><img src="img/ambient/GDP__DSC3446-2.jpg" alt="" loading="lazy"></span>
+          <span class="cat-pill-name">Ensaladeras</span>
+        </a></li>
+
+        <li><a href="#" class="cat-pill">
+          <span class="cat-pill-thumb"><img src="img/ambient/GDP__MG_7804.jpg" alt="" loading="lazy"></span>
+          <span class="cat-pill-name">Envases Fast Food</span>
+        </a></li>
+
+        <li><a href="#" class="cat-pill">
+          <span class="cat-pill-thumb"><img src="img/ambient/GDP__DSC1692_muntatge biodegradables.jpg" alt="" loading="lazy"></span>
+          <span class="cat-pill-name">Envases Take Away</span>
+        </a></li>
+
+        <li><a href="#" class="cat-pill">
+          <span class="cat-pill-thumb"><img src="img/ambient/GDP__DSC2883.jpg" alt="" loading="lazy"></span>
+          <span class="cat-pill-name">Envases de cartón ecológico</span>
+        </a></li>
+
+        <li><a href="#" class="cat-pill">
+          <span class="cat-pill-thumb"><img src="img/ambient/GDP__DSC3006.jpg" alt="" loading="lazy"></span>
+          <span class="cat-pill-name">Bolsas de papel</span>
+        </a></li>
+
+      </ul>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       SECTORES — profesionales
+  ════════════════════════════════════════ -->
+  <section class="sectors" id="sectors">
+    <div class="wrap">
+      <div class="sectors-header">
+        <p class="label">Por tipo de negocio</p>
+        <h2 class="section-title">Productos para profesionales<br>de todos los sectores</h2>
+      </div>
+      <div class="sectors-grid">
+
+        <a href="#" class="sector-card">
+          <div class="sector-card-img">
+            <img src="img/ambient/GDP_196.59 AMBIENT.jpg" alt="Restaurantes" loading="lazy">
+            <div class="sector-card-overlay"><span>Ver productos</span></div>
+          </div>
+          <p class="sector-card-name">Restaurantes</p>
+        </a>
+
+        <a href="#" class="sector-card">
+          <div class="sector-card-img">
+            <img src="img/ambient/GDP_101.30 AMBIENT2.jpg" alt="Hoteles" loading="lazy">
+            <div class="sector-card-overlay"><span>Ver productos</span></div>
+          </div>
+          <p class="sector-card-name">Hoteles</p>
+        </a>
+
+        <a href="#" class="sector-card">
+          <div class="sector-card-img">
+            <img src="img/ambient/GDP__DSC4185retocada.jpg" alt="Bares" loading="lazy">
+            <div class="sector-card-overlay"><span>Ver productos</span></div>
+          </div>
+          <p class="sector-card-name">Bares</p>
+        </a>
+
+        <a href="#" class="sector-card">
+          <div class="sector-card-img">
+            <img src="img/ambient/GDP__DSC8413_2.jpg" alt="Fast Food" loading="lazy">
+            <div class="sector-card-overlay"><span>Ver productos</span></div>
+          </div>
+          <p class="sector-card-name">Fast Food</p>
+        </a>
+
+        <a href="#" class="sector-card">
+          <div class="sector-card-img">
+            <img src="img/ambient/GDP__DSC7916_M.jpg" alt="Cafeterías" loading="lazy">
+            <div class="sector-card-overlay"><span>Ver productos</span></div>
+          </div>
+          <p class="sector-card-name">Cafeterías</p>
+        </a>
+
+        <a href="#" class="sector-card">
+          <div class="sector-card-img">
+            <img src="img/ambient/GDP__DSC2945a.jpg" alt="Pastelerías" loading="lazy">
+            <div class="sector-card-overlay"><span>Ver productos</span></div>
+          </div>
+          <p class="sector-card-name">Pastelerías</p>
+        </a>
+
+        <a href="#" class="sector-card">
+          <div class="sector-card-img">
+            <img src="img/ambient/GDP__DSC3993.jpg" alt="Heladerías" loading="lazy">
+            <div class="sector-card-overlay"><span>Ver productos</span></div>
+          </div>
+          <p class="sector-card-name">Heladerías</p>
+        </a>
+
+        <a href="#" class="sector-card">
+          <div class="sector-card-img">
+            <img src="img/ambient/GDP_Bolsas pan.jpg" alt="Panaderías" loading="lazy">
+            <div class="sector-card-overlay"><span>Ver productos</span></div>
+          </div>
+          <p class="sector-card-name">Panaderías</p>
+        </a>
+
+        <a href="#" class="sector-card">
+          <div class="sector-card-img">
+            <img src="img/ambient/GDP__DSC8090.jpg" alt="Pizzerías" loading="lazy">
+            <div class="sector-card-overlay"><span>Ver productos</span></div>
+          </div>
+          <p class="sector-card-name">Pizzerías</p>
+        </a>
+
+        <a href="#" class="sector-card">
+          <div class="sector-card-img">
+            <img src="img/ambient/GDP__DSC3425.jpg" alt="Food Trucks" loading="lazy">
+            <div class="sector-card-overlay"><span>Ver productos</span></div>
+          </div>
+          <p class="sector-card-name">Food Trucks</p>
+        </a>
+
+        <a href="#" class="sector-card">
+          <div class="sector-card-img">
+            <img src="img/ambient/GDP__DSC2008.jpg" alt="Catering" loading="lazy">
+            <div class="sector-card-overlay"><span>Ver productos</span></div>
+          </div>
+          <p class="sector-card-name">Catering</p>
+        </a>
+
+        <a href="#" class="sector-card">
+          <div class="sector-card-img">
+            <img src="img/ambient/GDP__DSC2046.jpg" alt="Sushi y comida asiática" loading="lazy">
+            <div class="sector-card-overlay"><span>Ver productos</span></div>
+          </div>
+          <p class="sector-card-name">Sushi y comida asiática</p>
+        </a>
+
+        <a href="#" class="sector-card">
+          <div class="sector-card-img">
+            <img src="img/ambient/GDP__DSC2883.jpg" alt="Poké" loading="lazy">
+            <div class="sector-card-overlay"><span>Ver productos</span></div>
+          </div>
+          <p class="sector-card-name">Poké</p>
+        </a>
+
+        <a href="#" class="sector-card">
+          <div class="sector-card-img">
+            <img src="img/ambient/GDP__MG_7804.jpg" alt="Take Away" loading="lazy">
+            <div class="sector-card-overlay"><span>Ver productos</span></div>
+          </div>
+          <p class="sector-card-name">Take Away</p>
+        </a>
+
+        <a href="#" class="sector-card">
+          <div class="sector-card-img">
+            <img src="img/ambient/GDP__DSC1692_muntatge biodegradables.jpg" alt="Smoothies" loading="lazy">
+            <div class="sector-card-overlay"><span>Ver productos</span></div>
+          </div>
+          <p class="sector-card-name">Smoothies</p>
+        </a>
+
+        <a href="#" class="sector-card">
+          <div class="sector-card-img">
+            <img src="img/ambient/GDP__Z8N1310.jpg" alt="Bocadillerías" loading="lazy">
+            <div class="sector-card-overlay"><span>Ver productos</span></div>
+          </div>
+          <p class="sector-card-name">Bocadillerías</p>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       BEST SELLERS
+  ════════════════════════════════════════ -->
+  <section class="bestsellers" id="bestsellers">
+    <div class="wrap">
+      <div class="section-header">
+        <div>
+          <p class="label" data-reveal>Los más comprados</p>
+          <h2 class="section-title" data-reveal data-delay="1">Más vendidos</h2>
+        </div>
+        <a href="#" class="btn btn-outline-blue" data-reveal data-delay="2">Ver todos</a>
+      </div>
+      <div class="products-grid" data-reveal>
+
+        <div class="offer-card">
+          <div class="offer-card-img">
+            <img src="img/product/GDP_104.03_C.jpg" alt="Recipiente aluminio con tapa" loading="lazy">
+          </div>
+          <div class="offer-card-body">
+            <span class="offer-code">CODE: 231.14</span>
+            <p class="offer-name">Recipiente Aluminio Redondo con Tapa 500ml</p>
+            <div class="offer-rating">
+              <span class="offer-rating-stars"><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+              <span class="offer-rating-count">(28)</span>
+            </div>
+            <div class="offer-pricing">
+              <span class="offer-price">7,80€</span>
+              <span class="offer-price-old">9,40€</span>
+            </div>
+            <div class="offer-pack">
+              <span class="offer-pack-label"><strong>Paquete:</strong> 100 uds</span>
+              <span class="offer-pack-unit">0,08 €/unidad</span>
+            </div>
+            <div class="offer-actions">
+              <div class="qty-selector">
+                <button class="qty-btn" onclick="adjustQty(this,-1)">−</button>
+                <input type="number" class="qty-input" value="1" min="1">
+                <button class="qty-btn" onclick="adjustQty(this,1)">+</button>
+              </div>
+              <button class="btn-add-cart">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="1.8"/><path d="M16 10a4 4 0 01-8 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                Añadir
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="offer-card">
+          <div class="offer-card-img">
+            <span class="offer-badge offer-badge--new">Nuevo</span>
+            <img src="img/product/GDP_116.36_C.jpg" alt="Servilletas papel blancas hostelería" loading="lazy">
+          </div>
+          <div class="offer-card-body">
+            <span class="offer-code">CODE: 120.02</span>
+            <p class="offer-name">Servilleta Papel Blanca 1 Capa 30x30cm Caja 6.000 uds</p>
+            <div class="offer-rating">
+              <span class="offer-rating-stars"><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D4D4D4" stroke-width="1.5" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke-linejoin="round"/></svg></span>
+              <span class="offer-rating-count">(53)</span>
+            </div>
+            <div class="offer-pricing">
+              <span class="offer-price">18,40€</span>
+            </div>
+            <div class="offer-pack">
+              <span class="offer-pack-label"><strong>Paquete:</strong> 1 caja</span>
+              <span class="offer-pack-unit">18,40 €/caja</span>
+            </div>
+            <div class="offer-actions">
+              <div class="qty-selector">
+                <button class="qty-btn" onclick="adjustQty(this,-1)">−</button>
+                <input type="number" class="qty-input" value="1" min="1">
+                <button class="qty-btn" onclick="adjustQty(this,1)">+</button>
+              </div>
+              <button class="btn-add-cart">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="1.8"/><path d="M16 10a4 4 0 01-8 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                Añadir
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="offer-card">
+          <div class="offer-card-img">
+            <span class="offer-badge offer-badge--discount">−12%</span>
+            <img src="img/product/GDP_213.99_C.jpg" alt="Vaso cartón café para llevar" loading="lazy">
+          </div>
+          <div class="offer-card-body">
+            <span class="offer-code">CODE: 160.08</span>
+            <p class="offer-name">Vaso Cartón Kraft para Café 240ml con Tapa</p>
+            <div class="offer-rating">
+              <span class="offer-rating-stars"><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D4D4D4" stroke-width="1.5" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke-linejoin="round"/></svg></span>
+              <span class="offer-rating-count">(19)</span>
+            </div>
+            <div class="offer-pricing">
+              <span class="offer-price">6,50€</span>
+            </div>
+            <div class="offer-pack">
+              <span class="offer-pack-label"><strong>Paquete:</strong> 50 uds</span>
+              <span class="offer-pack-unit">0,13 €/unidad</span>
+            </div>
+            <div class="offer-actions">
+              <div class="qty-selector">
+                <button class="qty-btn" onclick="adjustQty(this,-1)">−</button>
+                <input type="number" class="qty-input" value="1" min="1">
+                <button class="qty-btn" onclick="adjustQty(this,1)">+</button>
+              </div>
+              <button class="btn-add-cart">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="1.8"/><path d="M16 10a4 4 0 01-8 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                Añadir
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="offer-card">
+          <div class="offer-card-img">
+            <img src="img/product/GDP_188.62_CProducte.jpg" alt="Mantel papel rollo hostelería" loading="lazy">
+          </div>
+          <div class="offer-card-body">
+            <span class="offer-code">CODE: 110.22</span>
+            <p class="offer-name">Mantel Papel Rollo Blanco 1,20x100m 45g/m²</p>
+            <div class="offer-rating">
+              <span class="offer-rating-stars"><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rating-star" width="13" height="13" viewBox="0 0 24 24" fill="#FFD100" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+              <span class="offer-rating-count">(12)</span>
+            </div>
+            <div class="offer-pricing">
+              <span class="offer-price">11,90€</span>
+            </div>
+            <div class="offer-pack">
+              <span class="offer-pack-label"><strong>Paquete:</strong> 6 rollos</span>
+              <span class="offer-pack-unit">1,98 €/rollo</span>
+            </div>
+            <div class="offer-actions">
+              <div class="qty-selector">
+                <button class="qty-btn" onclick="adjustQty(this,-1)">−</button>
+                <input type="number" class="qty-input" value="1" min="1">
+                <button class="qty-btn" onclick="adjustQty(this,1)">+</button>
+              </div>
+              <button class="btn-add-cart">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="1.8"/><path d="M16 10a4 4 0 01-8 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                Añadir
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="wrap section-footer-mobile">
+      <a href="#" class="btn btn-outline-blue">Ver todos</a>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       CUSTOM — diseños personalizados
+  ════════════════════════════════════════ -->
+  <section class="custom" id="custom" data-variant="blue">
+    <div class="wrap">
+      <a href="#" class="custom-banner" aria-label="Productos personalizados">
+
+        <!-- decoración: rejilla de iconos de packaging en línea -->
+        <div class="custom-pattern" aria-hidden="true">
+          <svg viewBox="0 0 960 280" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <g id="pk-bag"><path d="M0 6h22v26H0zM0 6l4-6h14l4 6M6 0v6M16 0v6" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></g>
+              <g id="pk-cup"><path d="M2 0h18l-2 28H4zM0 6h22" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></g>
+              <g id="pk-cone"><path d="M2 0h18l-8 32z" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M2 6h18" fill="none" stroke="currentColor" stroke-width="1.2"/></g>
+              <g id="pk-fries"><path d="M2 8h18l-2 24H4zM2 8l2-6h14l2 6" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M7 2v6M14 2v6" fill="none" stroke="currentColor" stroke-width="1.2"/></g>
+              <g id="pk-burger"><path d="M0 8h22v18c0 2-2 4-4 4H4c-2 0-4-2-4-4zM0 8l4-8h14l4 8" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></g>
+              <g id="pk-tray"><path d="M0 4h22v4l-4 22H4L0 8z" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M0 8h22" fill="none" stroke="currentColor" stroke-width="1.2"/></g>
+              <g id="pk-box"><path d="M0 8v22h22V8zM0 8l11-6 11 6-11 6z" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M11 14v16" fill="none" stroke="currentColor" stroke-width="1.2"/></g>
+              <g id="pk-envelope"><path d="M0 4h22v24H0z" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M0 4l11 12 11-12" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></g>
+              <g id="pk-wrap"><path d="M0 2h22v28H0z" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M0 10h22M11 2v28" fill="none" stroke="currentColor" stroke-width="1.2"/></g>
+              <g id="pk-pyramid"><path d="M0 32L12 0l12 32M0 32h24M4 24h16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></g>
+              <g id="pk-hole"><ellipse cx="11" cy="14" rx="11" ry="6" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M0 14c0 8 5 14 11 14s11-6 11-14" fill="none" stroke="currentColor" stroke-width="1.2"/></g>
+              <g id="pk-small"><path d="M0 10h22v20H0zM0 10l3-6h16l3 6" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></g>
+            </defs>
+            <!-- fila 1 -->
+            <use href="#pk-bag"      x="450" y="70"/>
+            <use href="#pk-cup"      x="505" y="70"/>
+            <use href="#pk-cone"     x="558" y="68"/>
+            <use href="#pk-fries"    x="608" y="68"/>
+            <!-- fila 2 -->
+            <use href="#pk-small"    x="450" y="118"/>
+            <use href="#pk-tray"     x="505" y="120"/>
+            <use href="#pk-box"      x="558" y="118"/>
+            <use href="#pk-wrap"     x="608" y="116"/>
+            <!-- fila 3 -->
+            <use href="#pk-burger"   x="450" y="168"/>
+            <use href="#pk-hole"     x="505" y="170"/>
+            <use href="#pk-envelope" x="558" y="168"/>
+            <use href="#pk-pyramid"  x="608" y="166"/>
+          </svg>
+        </div>
+
+        <!-- badge vertical -->
+        <div class="custom-badge" aria-hidden="true">
+          <span class="custom-badge-dot"></span>
+          Servicio de personalización
+        </div>
+
+        <!-- Título -->
+        <div class="custom-copy" style="padding: 0px 0px 0px 3px">
+          <h2 class="custom-title">
+            <span class="custom-title-bold">Diseños</span>
+            <span class="custom-title-script">personalizados</span>
+            <svg class="custom-underline" viewBox="0 0 220 18" aria-hidden="true">
+              <path d="M2 13 C 40 3, 90 3, 130 10 S 200 15, 216 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </h2>
+          <p class="custom-sub">Tu logo, tu marca, tu identidad.<br>Impresos en más de 400 referencias.</p>
+          <ul class="custom-features">
+            <li><svg viewBox="0 0 12 12" width="10" height="10"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>Desde 500 uds</li>
+            <li><svg viewBox="0 0 12 12" width="10" height="10"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>Entrega 3–4 semanas</li>
+            <li><svg viewBox="0 0 12 12" width="10" height="10"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>Pruebas digitales gratuitas</li>
+          </ul>
+        </div>
+
+        <!-- CTA -->
+        <div class="custom-cta-wrap">
+          <span class="custom-cta">
+            Productos personalizados
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="custom-cta-hint">+400 referencias disponibles</span>
+        </div>
+
+        <!-- esquinas decorativas -->
+        <span class="custom-corner tl" aria-hidden="true"></span>
+        <span class="custom-corner tr" aria-hidden="true"></span>
+        <span class="custom-corner bl" aria-hidden="true"></span>
+        <span class="custom-corner br" aria-hidden="true"></span>
+
+      </a>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       PORTADAS BANNER
+  ════════════════════════════════════════ -->
+  <section class="portadas-banner" id="portadas-banner" data-reveal>
+    <div class="wrap">
+      <div class="portadas-banner-inner">
+
+        <div class="portadas-banner-copy">
+          <div class="portadas-banner-eyebrow">
+            <div class="hero-line"></div>
+            <span class="label">Catálogos García de Pou</span>
+          </div>
+          <h2 class="portadas-banner-title">
+            Un artista<br>
+            <em>en cada</em>
+            portada
+          </h2>
+          <a href="#" class="btn btn-blue btn-lg">Ver todas las portadas</a>
+        </div>
+
+        <div class="portadas-banner-media">
+          <img src="img/catalogo/banner-portadas.png" alt="Catálogos García de Pou" loading="lazy">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       LOOKS — editorial
+  ════════════════════════════════════════ -->
+  <section class="looks" id="looks">
+    <div class="wrap">
+      <div class="section-header">
+        <div>
+          <p class="label" data-reveal>Inspírate</p>
+          <h2 class="section-title" data-reveal data-delay="1">Looks para tu negocio</h2>
+        </div>
+        <a href="#" class="btn btn-outline-blue" data-reveal data-delay="2">Ver todos los looks</a>
+      </div>
+      <div class="looks-grid" data-reveal="scale">
+        <div class="look-item">
+          <img src="img/ambient/GDP__DSC5597_1.jpg" alt="" loading="lazy">
+          <div class="look-overlay">
+            <p class="look-title">Restaurante Moderno</p>
+            <p class="look-count">24 productos seleccionados</p>
+          </div>
+        </div>
+        <div class="look-item">
+          <img src="img/ambient/GDP__DSC3006.jpg" alt="" loading="lazy">
+          <div class="look-overlay">
+            <p class="look-title">Catering Premium</p>
+            <p class="look-count">18 productos seleccionados</p>
+          </div>
+        </div>
+        <div class="look-item">
+          <img src="img/ambient/GDP__DSC3227.jpg" alt="" loading="lazy">
+          <div class="look-overlay">
+            <p class="look-title">Bar de Copas</p>
+            <p class="look-count">31 productos seleccionados</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       TRUST — Generando confianza desde 1884
+  ════════════════════════════════════════ -->
+  <section class="trust" id="trust">
+    <div class="wrap">
+      <div class="trust-inner">
+
+        <div class="trust-sidebar" data-reveal>
+          <p class="label">Sobre nosotros</p>
+          <h2 class="trust-title">Generando<br>confianza<br>desde 1884</h2>
+          <span class="trust-year">1884</span>
+        </div>
+
+        <div class="trust-pillars">
+
+          <div class="trust-pillar" data-reveal data-delay="1">
+            <div class="trust-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 20h20M4 20V9l8-7 8 7v11"/><path d="M9 20v-6h6v6"/>
+              </svg>
+            </div>
+            <p class="trust-pillar-title">Somos fabricantes</p>
+            <p class="trust-pillar-label">Desde <strong>1884</strong> fabricamos y distribuimos material para hostelería, restauración y colectividades. Control total del proceso productivo, sin intermediarios, para garantizar la máxima calidad y el mejor precio directo de fábrica en cada referencia.</p>
+          </div>
+
+          <div class="trust-pillar" data-reveal data-delay="2">
+            <div class="trust-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
+                <line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/>
+              </svg>
+            </div>
+            <p class="trust-pillar-title">+6.000 referencias</p>
+            <p class="trust-pillar-label">Nuestro <strong>catálogo anual</strong> reúne más de 6.000 referencias de packaging desechable, textil hostelero, menaje, productos de limpieza y equipamiento. Todo lo que necesita un restaurante, hotel, catering o colectividad en un único proveedor.</p>
+          </div>
+
+          <div class="trust-pillar trust-pillar--eco" data-reveal data-delay="3">
+            <div class="trust-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22V12"/><path d="M5 12C5 7 8 4 12 3c4 1 7 4 7 9-3 0-5.5-1-7-3-1.5 2-4 3-7 3z"/>
+              </svg>
+            </div>
+            <p class="trust-pillar-title">Cada día más ECO</p>
+            <p class="trust-pillar-label">Impulsamos nuestra <strong>gama ECO</strong> con materiales biodegradables, reciclados y certificados FSC. Packaging compostable, cartón de origen controlado y alternativas reutilizables para que tu negocio reduzca su huella de carbono sin renunciar a la calidad.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       STATS
+  ════════════════════════════════════════ -->
+  <section class="stats" id="stats">
+    <div class="wrap stats-grid">
+      <div data-reveal data-delay="1">
+        <p class="stat-num">10<span>K</span></p>
+        <p class="stat-label">Referencias disponibles</p>
+      </div>
+      <div data-reveal data-delay="2">
+        <p class="stat-num">24<span>h</span></p>
+        <p class="stat-label">Entrega express</p>
+      </div>
+      <div data-reveal data-delay="3">
+        <p class="stat-num">50<span>+</span></p>
+        <p class="stat-label">Años de experiencia</p>
+      </div>
+      <div data-reveal data-delay="4">
+        <p class="stat-num">15<span>+</span></p>
+        <p class="stat-label">Países de distribución</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       BRANDS — Colecciones
+  ════════════════════════════════════════ -->
+  <section class="brands" id="brands">
+    <div class="wrap">
+      <div class="sectors-header" data-reveal>
+        <p class="label">Colecciones</p>
+        <h2 class="section-title">Soluciones con<br>nombre propio</h2>
+      </div>
+      <div class="sectors-grid" data-reveal>
+
+        <a href="#" class="sector-card brand-card">
+          <div class="sector-card-img">
+            <img src="img/ambient/GDP__DSC1744_2.jpg" alt="Finger Food" loading="lazy">
+            <div class="sector-card-overlay"><span>Ver productos</span></div>
+          </div>
+          <div class="brand-card-logo">
+            <span class="bw bw--fingerfood"><em>Finger</em> Food</span>
+          </div>
+        </a>
+
+        <a href="#" class="sector-card brand-card">
+          <div class="sector-card-img">
+            <img src="img/ambient/GDP__DSC3009_M2.jpg" alt="The Pack" loading="lazy">
+            <div class="sector-card-overlay"><span>Ver productos</span></div>
+          </div>
+          <div class="brand-card-logo">
+            <span class="bw bw--thepack"><span>The</span>Pack</span>
+          </div>
+        </a>
+
+        <a href="#" class="sector-card brand-card">
+          <div class="sector-card-img">
+            <img src="img/ambient/GDP__DSC5560_1_M.jpg" alt="Papel Antigrasa" loading="lazy">
+            <div class="sector-card-overlay"><span>Ver productos</span></div>
+          </div>
+          <div class="brand-card-logo">
+            <span class="bw bw--antigrasa">Papel<br>Antigrasa</span>
+          </div>
+        </a>
+
+        <a href="#" class="sector-card brand-card">
+          <div class="sector-card-img">
+            <img src="img/ambient/GDP__DSC8012.jpg" alt="We Forest" loading="lazy">
+            <div class="sector-card-overlay"><span>Ver productos</span></div>
+          </div>
+          <div class="brand-card-logo">
+            <span class="bw bw--weforest">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22V12"/><path d="M5 12C5 7 8 4 12 3c4 1 7 4 7 9-3 0-5.5-1-7-3-1.5 2-4 3-7 3z"/></svg>
+              We Forest
+            </span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <!-- Logo en blanco sobre negro: invertimos con filtro CSS -->
+          <img
+            class="footer-logo"
+            src="https://www.garciadepou.com/static/version1776292596/frontend/Etailers/gpou/es_ES/images/logo.svg"
+            alt="García de Pou"
+            width="150" height="21"
+          >
+          <p>Suministros profesionales para hostelería y restauración. Más de 50 años equipando los mejores negocios.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Productos</h4>
+          <ul>
+            <li><a href="#">Un Solo Uso</a></li>
+            <li><a href="#">Bar y Buffet</a></li>
+            <li><a href="#">Mesa y Accesorios</a></li>
+            <li><a href="#">Utensilios de Cocina</a></li>
+            <li><a href="#">Rotulación</a></li>
+            <li><a href="#">Limpieza e Higiene</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Empresa</h4>
+          <ul>
+            <li><a href="#">Sobre nosotros</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Catálogos</a></li>
+            <li><a href="#">Looks</a></li>
+            <li><a href="#">Sostenibilidad</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Ayuda</h4>
+          <ul>
+            <li><a href="#">Cómo comprar</a></li>
+            <li><a href="#">Envíos y devoluciones</a></li>
+            <li><a href="#">Mi cuenta</a></li>
+            <li><a href="#">Contacto</a></li>
+            <li><a href="#">Privacidad</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 García de Pou. Todos los derechos reservados.</span>
+        <span>Diseño: Multiplica</span>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ════════════════════════════════════════
+       SCRIPTS
+  ════════════════════════════════════════ -->
+
+  <!-- Swiper -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+    /* ─── HEADER: sombra al hacer scroll (listener pasivo, sin GSAP) ── */
+    (function() {
+      const header = document.getElementById('header');
+      window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 4);
+      }, { passive: true });
+    })();
+
+    /* ─── SCROLL REVEAL — IntersectionObserver ──────────── */
+    /* Los estados iniciales están en CSS ([data-reveal]).
+       El observer añade la clase .visible para hacer la transición. */
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -5% 0px' });
+
+    document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
+
+    /* ─── SWIPER: hero ──────────────────────────────────── */
+    const heroSwiper = new Swiper('.hero-swiper', {
+      loop: true,
+      autoplay: { delay: 6000, disableOnInteraction: false },
+      speed: 700,
+      grabCursor: true,
+      pagination: { el: '.hero-pagination', clickable: true },
+      navigation: { prevEl: '#heroPrev', nextEl: '#heroNext' },
+    });
+
+    /* ─── SWIPER: artículos destacados ──────────────────── */
+    const offersSwiper = new Swiper('#offersSwiper', {
+      slidesPerView: 1.35,
+      spaceBetween: 12,
+      grabCursor: true,
+      navigation: { prevEl: '#offersPrev', nextEl: '#offersNext' },
+      breakpoints: {
+        600:  { slidesPerView: 2.2, spaceBetween: 16 },
+        900:  { slidesPerView: 3.2, spaceBetween: 16 },
+        1200: { slidesPerView: 4,   spaceBetween: 16 },
+      },
+    });
+
+    /* ─── CANTIDAD: +/− en los cards ────────────────────── */
+    function adjustQty(btn, delta) {
+      const input = btn.parentElement.querySelector('.qty-input');
+      input.value = Math.max(1, (parseInt(input.value, 10) || 1) + delta);
+    }
+
+    /* ─── TWEAKS: variantes del banner "Diseños personalizados" ── */
+    const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+      "customVariant": "multicolor"
+    }/*EDITMODE-END*/;
+
+    function applyTweaks(keys) {
+      const section = document.getElementById('custom');
+      if (section && keys.customVariant) section.setAttribute('data-variant', keys.customVariant);
+    }
+    applyTweaks(TWEAK_DEFAULTS);
+
+    const tweakState = { ...TWEAK_DEFAULTS };
+    let tweaksPanel = null;
+
+    function buildTweaksPanel() {
+      const panel = document.createElement('div');
+      panel.id = 'tweaks-panel';
+      panel.innerHTML = `
+        <div class="tw-head">
+          <span class="tw-dot"></span>
+          Tweaks
+        </div>
+        <div class="tw-body">
+          <p class="tw-label">Variante del banner “Diseños personalizados”</p>
+          <div class="tw-options">
+            <button data-v="blue"       class="${tweakState.customVariant==='blue'?'is-active':''}">
+              <span class="tw-sw tw-sw-blue"></span>Corporate blue
+            </button>
+            <button data-v="yellow"     class="${tweakState.customVariant==='yellow'?'is-active':''}">
+              <span class="tw-sw tw-sw-yellow"></span>Yellow accent
+            </button>
+            <button data-v="multicolor" class="${tweakState.customVariant==='multicolor'?'is-active':''}">
+              <span class="tw-sw tw-sw-multi"></span>Multicolor
+            </button>
+          </div>
+        </div>`;
+      panel.querySelectorAll('button[data-v]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const v = btn.dataset.v;
+          tweakState.customVariant = v;
+          applyTweaks(tweakState);
+          panel.querySelectorAll('button[data-v]').forEach(b => b.classList.toggle('is-active', b.dataset.v === v));
+          window.parent.postMessage({ type:'__edit_mode_set_keys', edits:{ customVariant: v } }, '*');
+        });
+      });
+      return panel;
+    }
+
+    window.addEventListener('message', (e) => {
+      const d = e.data || {};
+      if (d.type === '__activate_edit_mode') {
+        if (!tweaksPanel) { tweaksPanel = buildTweaksPanel(); document.body.appendChild(tweaksPanel); }
+        tweaksPanel.classList.add('is-open');
+      } else if (d.type === '__deactivate_edit_mode') {
+        if (tweaksPanel) tweaksPanel.classList.remove('is-open');
+      }
+    });
+    window.parent.postMessage({ type:'__edit_mode_available' }, '*');
+
+    /* ─── MEGA-MENÚ Un Solo Uso ─────────────────── */
+    (function() {
+      const navItem  = document.querySelector('.nav-item');
+      const mega     = document.getElementById('megaUnSoloUso');
+      const closeBtn = mega && mega.querySelector('.mega-close');
+      if (!navItem || !mega) return;
+
+      function closeMega() {
+        mega.setAttribute('aria-hidden', 'true');
+        navItem.classList.remove('mega-open');
+      }
+      if (closeBtn) closeBtn.addEventListener('click', closeMega);
+
+      navItem.addEventListener('mouseenter', () => {
+        mega.setAttribute('aria-hidden', 'false');
+        navItem.classList.add('mega-open');
+      });
+      navItem.addEventListener('mouseleave', () => closeMega());
+
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closeMega();
+      });
+    })();
+
+    /* ─── MOBILE DRAWER ─────────────────────────── */
+    (function() {
+      const burger   = document.getElementById('burgerBtn');
+      const drawer   = document.getElementById('mobileDrawer');
+      const overlay  = document.getElementById('drawerOverlay');
+      const closeBtn = document.getElementById('drawerClose');
+      if (!burger || !drawer || !overlay) return;
+
+      function open() {
+        drawer.classList.add('is-open');
+        overlay.hidden = false;
+        requestAnimationFrame(() => overlay.classList.add('is-open'));
+        drawer.setAttribute('aria-hidden', 'false');
+        burger.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      }
+      function close() {
+        drawer.classList.remove('is-open');
+        overlay.classList.remove('is-open');
+        setTimeout(() => { if (!overlay.classList.contains('is-open')) overlay.hidden = true; }, 300);
+        drawer.setAttribute('aria-hidden', 'true');
+        burger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+      burger.addEventListener('click', open);
+      closeBtn.addEventListener('click', close);
+      overlay.addEventListener('click', close);
+      document.addEventListener('keydown', e => { if (e.key === 'Escape' && drawer.classList.contains('is-open')) close(); });
+    })();
+
+  </script>
+</body>
+</html>
