@@ -32,6 +32,18 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   --gap:       clamp(24px, 4vw, 64px);
   --header-h:  172px;
   --radius:    8px;
+
+  /* Escala tipográfica */
+  --fs-2xs:  10px;   /* badges, códigos, contadores */
+  --fs-xs:   11px;   /* labels, eyebrows */
+  --fs-sm:   12px;   /* secundario, captions */
+  --fs-base: 13px;   /* cuerpo secundario */
+  --fs-md:   14px;   /* cuerpo, botones */
+  --fs-lg:   16px;   /* cuerpo principal */
+  --fs-xl:   18px;   /* subheadings */
+  --fs-2xl:  20px;   /* precios, headings */
+  --fs-3xl:  24px;   /* headings grandes */
+  --fs-4xl:  32px;   /* hero accents */
 }
 
 /* ═══════════════════════════════════════════
@@ -43,7 +55,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding-inline: var(--gap);
 }
 .label {
-  font-size: 11px;
+  font-size: var(--fs-xs);
   font-weight: 600;
   letter-spacing: .14em;
   text-transform: uppercase;
@@ -56,7 +68,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   height: 44px;
   padding: 0 28px;
   font-family: inherit;
-  font-size: 12px;
+  font-size: var(--fs-sm);
   font-weight: 700;
   letter-spacing: .07em;
   text-transform: uppercase;
@@ -65,8 +77,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transition: background .2s, color .2s, border-color .2s;
 }
 /* Tamaños — se combinan con la variante de color: .btn.btn-blue.btn-sm */
-.btn-sm { height: 32px; padding: 0 16px; font-size: 11px; gap: 6px; }
-.btn-lg { height: 56px; padding: 0 48px; font-size: 14px; gap: 10px; letter-spacing: .06em; }
+.btn-sm { height: 32px; padding: 0 16px; font-size: var(--fs-xs); gap: 6px; }
+.btn-lg { height: 56px; padding: 0 48px; font-size: var(--fs-md); gap: 10px; letter-spacing: .06em; }
 /* Primario */
 .btn-blue         { background: var(--blue); color: var(--white); }
 .btn-blue:hover   { background: var(--blue-80); }
@@ -96,7 +108,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   align-items: center;
   gap: 48px;
   padding-right: 48px;
-  font-size: 11px;
+  font-size: var(--fs-xs);
   font-weight: 500;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -144,7 +156,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: flex;
   align-items: center;
   gap: 5px;
-  font-size: 12px;
+  font-size: var(--fs-sm);
   font-weight: 500;
   color: var(--g500);
   padding: 6px 10px;
@@ -160,7 +172,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 12px;
+  font-size: var(--fs-sm);
   font-weight: 500;
   color: var(--g500);
   padding: 6px 10px;
@@ -219,7 +231,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border: none;
   padding: 0 20px 0 4px;
   font-family: inherit;
-  font-size: 14px;
+  font-size: var(--fs-md);
   color: var(--black);
   outline: none;
 }
@@ -235,7 +247,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: flex;
   align-items: center;
   gap: 4px;
-  font-size: 13px;
+  font-size: var(--fs-base);
   font-weight: 600;
   color: var(--g500);
   padding: 6px 16px;
@@ -262,7 +274,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   align-items: center;
   height: 100%;
   padding: 0 14px;
-  font-size: 11px;
+  font-size: var(--fs-xs);
   font-weight: 700;
   letter-spacing: .07em;
   text-transform: uppercase;
@@ -323,21 +335,21 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .mega-desc { display: flex; flex-direction: column; gap: 12px; }
 .mega-desc-label { margin-bottom: 4px; }
 .mega-desc-title {
-  font-size: 14px;
+  font-size: var(--fs-md);
   font-weight: 700;
   line-height: 1.4;
   color: var(--black);
   letter-spacing: -.01em;
 }
 .mega-desc-sub {
-  font-size: 12px;
+  font-size: var(--fs-sm);
   color: var(--g500);
   line-height: 1.5;
 }
 .mega-desc-cta {
   margin-top: 8px;
   align-self: flex-start;
-  font-size: 11px;
+  font-size: var(--fs-xs);
   padding: 10px 16px;
 }
 
@@ -357,7 +369,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .mega-col a {
   display: block;
   padding: 8px 0;
-  font-size: 12px;
+  font-size: var(--fs-sm);
   font-weight: 500;
   color: var(--black);
   text-decoration: none;
@@ -400,7 +412,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding-bottom: 14px;
 }
 .mega-footer strong {
-  font-size: 11px;
+  font-size: var(--fs-xs);
   font-weight: 700;
   letter-spacing: .06em;
   text-transform: uppercase;
@@ -409,7 +421,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border-right: 1px solid var(--g300);
 }
 .mega-footer span {
-  font-size: 11px;
+  font-size: var(--fs-xs);
   color: var(--g500);
   letter-spacing: .04em;
 }
@@ -448,7 +460,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding: 7px 14px;
   background: var(--blue-10);
   border-radius: 999px;
-  font-size: 12px;
+  font-size: var(--fs-sm);
   font-weight: 700;
   letter-spacing: .04em;
   text-transform: uppercase;
@@ -461,7 +473,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .cart-count {
   background: var(--blue);
   color: var(--white);
-  font-size: 10px;
+  font-size: var(--fs-2xs);
   font-weight: 800;
   width: 18px; height: 18px;
   border-radius: 50%;
@@ -520,7 +532,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: block;
 }
 .hero-sub {
-  font-size: 15px;
+  font-size: var(--fs-lg);
   font-weight: 400;
   color: var(--g500);
   line-height: 1.65;
@@ -544,7 +556,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   background: var(--white);
   color: var(--blue);
   padding: 16px 24px;
-  font-size: 11px;
+  font-size: var(--fs-xs);
   font-weight: 700;
   letter-spacing: .06em;
   text-transform: uppercase;
@@ -552,7 +564,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .hero-badge strong {
   display: block;
-  font-size: 32px;
+  font-size: var(--fs-4xl);
   font-weight: 900;
   letter-spacing: -.04em;
   color: var(--blue);
@@ -677,7 +689,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   align-items: center;
   gap: 24px;
   padding-right: 24px;
-  font-size: 11px;
+  font-size: var(--fs-xs);
   font-weight: 700;
   letter-spacing: .14em;
   text-transform: uppercase;
@@ -736,7 +748,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .cat-pill:hover .cat-pill-thumb img { transform: scale(1.08); }
 .cat-pill-name {
   align-self: center;
-  font-size: 13px;
+  font-size: var(--fs-base);
   font-weight: 600;
   line-height: 1.35;
   color: var(--black);
@@ -756,7 +768,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .cat-pills-grid { grid-template-columns: repeat(2, 1fr); }
   .cat-pill { padding: 0; gap: 12px; height: 88px; }
   .cat-pill-thumb { width: 72px; }
-  .cat-pill-name { font-size: 12px; }
+  .cat-pill-name { font-size: var(--fs-sm); }
 }
 @media (max-width: 480px) {
   .cat-pills-grid { grid-template-columns: 1fr; }
@@ -825,7 +837,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   position: absolute;
   top: 8px; left: 8px;
   z-index: 2;
-  font-size: 11px;
+  font-size: var(--fs-xs);
   font-weight: 700;
   letter-spacing: .04em;
   padding: 4px 10px;
@@ -847,14 +859,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   gap: 8px;
 }
 .offer-code {
-  font-size: 10px;
+  font-size: var(--fs-2xs);
   font-weight: 600;
   letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--g300);
 }
 .offer-name {
-  font-size: 13px;
+  font-size: var(--fs-lg);
   font-weight: 600;
   letter-spacing: -.01em;
   line-height: 1.35;
@@ -877,7 +889,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .offer-rating-stars .rating-star { display: block; }
 .offer-rating-count {
-  font-size: 11px;
+  font-size: var(--fs-xs);
   color: var(--g500);
 }
 .offer-pack {
@@ -885,7 +897,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   align-items: baseline;
   justify-content: flex-start;
   gap: 16px;
-  font-size: 11px;
+  font-size: var(--fs-xs);
   color: var(--g500);
 }
 .offer-pack-label strong {
@@ -898,9 +910,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   align-items: baseline;
   gap: 8px;
 }
-.offer-price { font-size: 20px; font-weight: 800; letter-spacing: -.03em; color: var(--black); }
-.offer-price-unit { font-size: 11px; color: var(--g500); }
-.offer-price-old { display: none; font-size: 12px; color: #C0392B; text-decoration: line-through; }
+.offer-price { font-size: var(--fs-2xl); font-weight: 800; letter-spacing: -.03em; color: var(--black); }
+.offer-price-unit { font-size: var(--fs-xs); color: var(--g500); }
+.offer-price-old { display: none; font-size: var(--fs-sm); color: #C0392B; text-decoration: line-through; }
 .offer-card:has(.offer-badge--discount) .offer-price-old { display: inline; }
 .offer-actions {
   display: flex;
@@ -922,7 +934,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
+  font-size: var(--fs-lg);
   font-weight: 400;
   color: var(--g500);
   cursor: pointer;
@@ -939,7 +951,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border-right: 1.5px solid var(--g100);
   text-align: center;
   font-family: inherit;
-  font-size: 13px;
+  font-size: var(--fs-base);
   font-weight: 600;
   color: var(--black);
   outline: none;
@@ -959,7 +971,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border: none;
   border-radius: var(--radius);
   font-family: inherit;
-  font-size: 11px;
+  font-size: var(--fs-xs);
   font-weight: 700;
   letter-spacing: .06em;
   text-transform: uppercase;
@@ -1007,7 +1019,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .collection-item:first-child { border-left: 1px solid var(--g100); }
 .collection-item:hover { background: var(--g50); }
 .collection-logo {
-  font-size: 15px;
+  font-size: var(--fs-lg);
   font-weight: 800;
   letter-spacing: .06em;
   text-transform: uppercase;
@@ -1017,8 +1029,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   user-select: none;
 }
 .collection-item:hover .collection-logo { color: var(--blue); }
-.collection-logo.lg { font-size: 20px; letter-spacing: .04em; }
-.collection-logo.sm { font-size: 12px; letter-spacing: .14em; }
+.collection-logo.lg { font-size: var(--fs-2xl); letter-spacing: .04em; }
+.collection-logo.sm { font-size: var(--fs-sm); letter-spacing: .14em; }
 
 /* ═══════════════════════════════════════════
    SECTORES — profesionales
@@ -1072,7 +1084,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .sector-card:hover .sector-card-overlay { opacity: 1; }
 .sector-card-overlay span {
-  font-size: 11px;
+  font-size: var(--fs-xs);
   font-weight: 700;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -1081,7 +1093,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding-bottom: 2px;
 }
 .sector-card-name {
-  font-size: 14px;
+  font-size: var(--fs-md);
   font-weight: 700;
   letter-spacing: .06em;
   text-transform: uppercase;
@@ -1139,7 +1151,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .product-card:hover .product-card-add { opacity: 1; transform: translateY(0); }
 .product-cat {
-  font-size: 10px;
+  font-size: var(--fs-2xs);
   font-weight: 600;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -1147,13 +1159,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   margin-bottom: 8px;
 }
 .product-name {
-  font-size: 14px;
+  font-size: var(--fs-md);
   font-weight: 600;
   letter-spacing: -.01em;
   line-height: 1.3;
   margin-bottom: 8px;
 }
-.product-price { font-size: 16px; font-weight: 800; letter-spacing: -.02em; }
+.product-price { font-size: var(--fs-lg); font-weight: 800; letter-spacing: -.02em; }
 
 /* ═══════════════════════════════════════════
    PORTADAS BANNER
@@ -1238,13 +1250,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   color: var(--white);
 }
 .look-title {
-  font-size: 18px;
+  font-size: var(--fs-xl);
   font-weight: 800;
   letter-spacing: -.025em;
   text-transform: uppercase;
   margin-bottom: 4px;
 }
-.look-count { font-size: 12px; opacity: .65; }
+.look-count { font-size: var(--fs-sm); opacity: .65; }
 
 /* ═══════════════════════════════════════════
    PROMO LOOKS — grid editorial 5 piezas
@@ -1324,7 +1336,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   line-height: 1.1;
 }
 .trust-pillar-label {
-  font-size: 13px;
+  font-size: var(--fs-base);
   font-weight: 400;
   line-height: 1.65;
   color: var(--g500);
@@ -1350,7 +1362,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .stat-num span { color: rgba(255,255,255,.45); }
 .stat-label {
-  font-size: 11px;
+  font-size: var(--fs-xs);
   font-weight: 500;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -1379,7 +1391,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 /* shared wordmark base */
 .bw {
-  font-size: 15px;
+  font-size: var(--fs-lg);
   font-weight: 900;
   letter-spacing: .04em;
   text-transform: uppercase;
@@ -1394,7 +1406,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .sector-card:hover .bw { color: var(--blue); }
 
 /* FINGER FOOD — italic first word + bold second */
-.bw--fingerfood { font-size: 16px; gap: 7px; letter-spacing: .02em; }
+.bw--fingerfood { font-size: var(--fs-lg); gap: 7px; letter-spacing: .02em; }
 .bw--fingerfood em { font-style: italic; font-weight: 300; }
 
 /* THE PACK — small "The" stacked over bold "Pack" */
@@ -1402,10 +1414,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .bw--thepack span { font-size: 9px; font-weight: 400; letter-spacing: .2em; opacity: .55; }
 
 /* PAPEL ANTIGRASA — condensed two-line */
-.bw--antigrasa { font-size: 13px; letter-spacing: .06em; }
+.bw--antigrasa { font-size: var(--fs-base); letter-spacing: .06em; }
 
 /* WE FOREST — leaf icon + text */
-.bw--weforest { font-size: 14px; letter-spacing: .08em; color: #2d7a4f; }
+.bw--weforest { font-size: var(--fs-md); letter-spacing: .08em; color: #2d7a4f; }
 .sector-card:hover .bw--weforest { color: #1f5a38; }
 
 /* ═══════════════════════════════════════════
@@ -1421,13 +1433,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   margin-bottom: 32px;
 }
 .footer-brand p {
-  font-size: 14px;
+  font-size: var(--fs-md);
   color: rgba(255,255,255,.35);
   line-height: 1.7;
   max-width: 260px;
 }
 .footer-col h4 {
-  font-size: 10px;
+  font-size: var(--fs-2xs);
   font-weight: 700;
   letter-spacing: .14em;
   text-transform: uppercase;
@@ -1436,7 +1448,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .footer-col li { margin-bottom: 12px; }
 .footer-col a {
-  font-size: 14px;
+  font-size: var(--fs-md);
   font-weight: 500;
   color: rgba(255,255,255,.6);
   transition: color .2s;
@@ -1446,7 +1458,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 12px;
+  font-size: var(--fs-sm);
   color: rgba(255,255,255,.25);
 }
 
@@ -1612,7 +1624,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 10px;
+  font-size: var(--fs-2xs);
   font-weight: 700;
   letter-spacing: .18em;
   text-transform: uppercase;
@@ -1688,7 +1700,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 11px;
+  font-size: var(--fs-xs);
   font-weight: 600;
   letter-spacing: .08em;
   text-transform: uppercase;
@@ -1713,7 +1725,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding: 18px 32px;
   background: var(--white);
   color: var(--blue);
-  font-size: 12px;
+  font-size: var(--fs-sm);
   font-weight: 800;
   letter-spacing: .09em;
   text-transform: uppercase;
@@ -1722,7 +1734,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .custom-banner:hover .custom-cta { background: var(--yellow); color: var(--black); }
 .custom-cta-hint {
-  font-size: 10px;
+  font-size: var(--fs-2xs);
   font-weight: 600;
   letter-spacing: .14em;
   text-transform: uppercase;
@@ -1817,7 +1829,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   gap: 8px;
   padding: 14px 18px;
   border-bottom: 1px solid var(--g100);
-  font-size: 11px;
+  font-size: var(--fs-xs);
   font-weight: 700;
   letter-spacing: .14em;
   text-transform: uppercase;
@@ -1826,7 +1838,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 #tweaks-panel .tw-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--yellow); }
 #tweaks-panel .tw-body { padding: 16px 18px 18px; }
 #tweaks-panel .tw-label {
-  font-size: 10px;
+  font-size: var(--fs-2xs);
   font-weight: 600;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -1844,7 +1856,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border-radius: 6px;
   background: var(--white);
   font-family: inherit;
-  font-size: 12px;
+  font-size: var(--fs-sm);
   font-weight: 600;
   letter-spacing: .02em;
   color: var(--black);
@@ -1927,7 +1939,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     font-size: 0;
   }
   .cart-pill-mobile svg { flex-shrink: 0; }
-  .cart-pill-mobile .cart-count { font-size: 10px; }
+  .cart-pill-mobile .cart-count { font-size: var(--fs-2xs); }
 
   .header.scrolled .header-brand { display: block; }
   .header.scrolled .header-cats  { display: none; }
@@ -1953,7 +1965,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   /* si aun así no caben, se apilan */
   @supports (container-type: inline-size) {}
   .hero-badge  { bottom: 16px; right: 16px; padding: 12px 16px; }
-  .hero-badge strong { font-size: 24px; }
+  .hero-badge strong { font-size: var(--fs-3xl); }
 
   /* Fallback apilado cuando el ancho es muy pequeño */
   @media (max-width: 380px) {
@@ -2022,7 +2034,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   }
   .sector-card-img { aspect-ratio: 1; }
   .sector-card-name {
-    font-size: 11px;
+    font-size: var(--fs-xs);
     letter-spacing: .04em;
     padding: 8px 4px;
     text-align: center;
@@ -2059,8 +2071,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .products-grid .btn-add-cart { width: 100%; flex: none; }
 
   .offer-card-body { padding: 12px; gap: 6px; }
-  .offer-name { font-size: 12px; min-height: calc(12px * 1.35 * 3); }
-  .offer-price { font-size: 18px; }
+  .offer-name { font-size: var(--fs-md); min-height: calc(14px * 1.35 * 3); }
+  .offer-price { font-size: var(--fs-xl); }
 }
 
 /* ═══════════════════════════════════════════
@@ -2104,7 +2116,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 14px;
+  font-size: var(--fs-md);
   font-weight: 700;
   letter-spacing: -.01em;
   color: var(--black);
@@ -2129,7 +2141,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .drawer-label {
-  font-size: 11px;
+  font-size: var(--fs-xs);
   font-weight: 700;
   letter-spacing: .14em;
   text-transform: uppercase;
@@ -2148,7 +2160,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   align-items: center;
   gap: 12px;
   padding: 16px 0;
-  font-size: 16px;
+  font-size: var(--fs-lg);
   font-weight: 600;
   letter-spacing: -.01em;
   color: var(--black);
@@ -2158,7 +2170,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .drawer-nav a:hover { color: var(--blue); }
 
 .drawer-nav-sm a {
-  font-size: 14px;
+  font-size: var(--fs-md);
   font-weight: 500;
   padding: 12px 0;
 }
@@ -2169,7 +2181,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding: 2px 8px;
   background: var(--blue);
   color: var(--white);
-  font-size: 10px;
+  font-size: var(--fs-2xs);
   font-weight: 800;
   letter-spacing: .08em;
 }
