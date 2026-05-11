@@ -1964,7 +1964,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .hero-ctas .btn { flex: 1 1 0; justify-content: center; white-space: nowrap; }
   /* si aun así no caben, se apilan */
   @supports (container-type: inline-size) {}
-  .hero-badge  { bottom: 16px; right: 16px; padding: 12px 16px; }
+  .hero-badge  { top: auto; bottom: 16px; right: 16px; padding: 12px 16px; }
   .hero-badge strong { font-size: var(--fs-3xl); }
 
   /* Fallback apilado cuando el ancho es muy pequeño */
