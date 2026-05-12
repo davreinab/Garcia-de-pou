@@ -228,3 +228,105 @@ Ubicado **entre Custom y Looks**. Banner promocional de la colección de portada
 ## Cómo previsualizar
 
 Abrir `index.html` directamente en el navegador. No hace falta servidor local (las dependencias son todas CDN).
+
+---
+
+## Figma — Generación del sistema de diseño
+
+El objetivo es crear un archivo Figma que refleje fielmente el sistema de diseño del proyecto: variables, componentes y páginas. Usar las herramientas MCP de Figma (`mcp__figma__*`) disponibles en Claude Code.
+
+### Proceso recomendado (en orden)
+
+1. Crear el archivo Figma con `generate_figma_design` o `create_new_file`
+2. Definir variables de color y tipografía con `get_variable_defs` / variables
+3. Crear componentes atómicos (botones, badges, cards)
+4. Componer las páginas (Home, Category PLP)
+
+### Variables de color → Figma
+
+| Token CSS | Hex | Nombre en Figma |
+|---|---|---|
+| `--black` | #0A0A0A | Color/Black |
+| `--white` | #FFFFFF | Color/White |
+| `--g50` | #F7F7F7 | Color/Gray/50 |
+| `--g100` | #E8E8E8 | Color/Gray/100 |
+| `--g300` | #ADADAD | Color/Gray/300 |
+| `--g500` | #737373 | Color/Gray/500 |
+| `--blue` | #002D72 | Color/Blue/Primary |
+| `--blue-80` | #1A4490 | Color/Blue/Hover |
+| `--blue-10` | #EBF0F8 | Color/Blue/Tint |
+| `--yellow` | #FFD100 | Color/Yellow |
+
+### Variables de tipografía → Figma
+
+| Uso | Font | Weight | Size | Transform |
+|---|---|---|---|---|
+| Título sección | DM Sans | 900 | 32–48px | UPPERCASE |
+| Eyebrow / label | DM Sans | 600 | 11px | UPPERCASE, ls +0.14em |
+| Body | DM Sans | 400 | 13–14px | — |
+| Acento decorativo | Caveat | 400–600 | variable | — |
+
+### Componentes a crear en Figma
+
+Cada componente debe tener variantes que repliquen los modificadores CSS.
+
+#### Botones — `.btn`
+- **Variantes**: Color (`Blue` / `Outline Blue`) × Tamaño (`SM 32px` / `Default 44px` / `LG 56px`)
+- Radio: 0 (angular). Icon opcional izquierda/derecha.
+
+#### Product Card — `.offer-card`
+- Imagen cuadrada arriba + body abajo (código ref, nombre, rating, precio, pack, qty selector + añadir)
+- Variante: con/sin badge descuento (amarillo `--yellow`)
+
+#### Category Pill — `.cat-pill` / `.cat-pill--sm`
+- Thumb circular + label. Variante SM (56px alto, 200px ancho) para subcat-bar.
+
+#### Sector Card — `.sector-card`
+- Imagen de fondo + overlay azul corporativo + label
+
+#### Look Item — `.look-item`
+- Imagen editorial + overlay gradiente negro + título
+
+#### Header — desktop y mobile
+- Desktop: 3 filas (utility / brand+search / nav)
+- Mobile: hamburger + logo + carrito. Estado `.scrolled` colapsado.
+- Cart Pill (`.cart-pill`): pill azul-10 con escudo y contador
+
+#### Hero Slide
+- Grid 1fr 1fr: copy (eyebrow + h1 + CTAs) + media (imagen)
+- Badge opcional (top-right de media)
+- Controls: paginación bullets + flechas
+
+#### Filter Sidebar — `.cat-filter`
+- Grupo acordeón: header (nombre + chevron + badge contador) + body
+- Tipos de control: checkbox, radio de color (swatch), radio de texto
+
+#### Filter Drawer — mobile
+- Bottom sheet: header "Filtrar y ordenar" + body scroll + footer ("Ver X artículos" + "Borrar todo")
+
+#### Banners
+- **Custom banner** (`#custom`): fondo azul, rejilla de iconos SVG, título mixto DM Sans + Caveat, features, CTA
+- **Portadas banner** (`#portadas-banner`): imagen full-cover + copy superpuesto + botón
+
+### Páginas a generar en Figma
+
+#### 1. Home (`index.html`)
+Secciones en orden: Announcement bar → Header → Hero (3 slides) → Strip → Taglines → Promo looks → Offers slider → Collections → Categories → Sectors → Bestsellers → Custom → Portadas banner → Looks → Trust → Footer
+
+#### 2. Category PLP (`category.html`)
+Secciones: Header → Cat banner → Subcat bar → [Mobile: filter pill-bar] → Cat section (sidebar + grid + highlight + grid + paginación) → SEO text → Footer
+
+### Convenciones de naming en Figma
+
+- Componentes: `NombreComponente/Variante` — ej. `Button/Blue/LG`, `ProductCard/WithBadge`
+- Páginas: `🏠 Home`, `📋 Category PLP`
+- Capas: en español, siguiendo los `id` HTML — ej. `#hero`, `.offer-card`, `.cat-sidebar`
+- Frames de página: `Desktop 1440` / `Mobile 390`
+
+### Notas para la sesión Figma
+
+- Usar `get_design_context` si hay un archivo Figma existente con URL
+- Los tokens de color se mapean 1:1 desde `:root` de `styles.css`
+- El espaciado es 8-point grid: usar múltiplos de 8 para todos los gaps y paddings
+- `border-radius: 0` en la mayoría de componentes — solo circular en botones de icono y cart-pill
+- Las imágenes de producto están en `img/product/` y las ambientales en `img/ambient/`
