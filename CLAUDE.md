@@ -15,9 +15,12 @@ Sitio web corporativo de **García de Pou**, suministros para hostelería y rest
 
 ```
 index.html          # home completa — una sola página
+category.html       # página de listado de productos (PLP)
 styles.css          # todos los estilos, organizados por sección con comentarios ═══
 img/
   ambient/          # fotos de ambiente (hostelería, packaging…)
+  product/          # imágenes de producto
+  logos/            # 33 logos de colecciones propias GDP (PNG 6133×1409px)
   catalog/          # portada catálogo antigua (no usar)
   catalogo/         # assets del catálogo activos
     hero-01.png     # imagen hero slide catálogo

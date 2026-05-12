@@ -1011,27 +1011,22 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  padding: 0 48px;
-  height: 80px;
+  padding: 0 24px;
+  height: 88px;
   border-right: 1px solid var(--g100);
   cursor: pointer;
   transition: background .2s;
 }
 .collection-item:first-child { border-left: 1px solid var(--g100); }
 .collection-item:hover { background: var(--g50); }
-.collection-logo {
-  font-size: var(--fs-lg);
-  font-weight: 800;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  color: var(--g300);
-  transition: color .2s;
-  white-space: nowrap;
-  user-select: none;
+.collection-item img {
+  height: 35px;
+  width: auto;
+  display: block;
+  filter: grayscale(100%) opacity(.45);
+  transition: filter .3s;
 }
-.collection-item:hover .collection-logo { color: var(--blue); }
-.collection-logo.lg { font-size: var(--fs-2xl); letter-spacing: .04em; }
-.collection-logo.sm { font-size: var(--fs-sm); letter-spacing: .14em; }
+.collection-item:hover img { filter: grayscale(0%) opacity(1); }
 
 /* ═══════════════════════════════════════════
    SECTORES — profesionales
