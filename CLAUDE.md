@@ -54,10 +54,31 @@ No hay framework, no hay router, no hay bundler. Mantenerlo así.
 - `--gap: clamp(24px, 4vw, 64px)` — padding horizontal del `.wrap`
 - `--header-h: 172px`
 
-### Sistema de espaciado — 8-point grid
-Todos los espacios, gaps y paddings deben ser **múltiplos de 8** (8, 16, 24, 32, 48, 64, 80, 96…). Excepciones tipográficas menores (2–4px) permitidas solo en detalles de iconografía.
+### Sistema de espaciado — 8-point grid con tokens CSS
 
-**Gap estándar de grids: `16px`** (usado en `.products-grid`, `.sectors-grid`, `.looks-grid`, `.promo-looks-grid` y en el `spaceBetween` del Swiper). No mezclar 10px, 24px, 2px — todo 16px para mantener ritmo coherente.
+**Regla absoluta:** Para toda propiedad `padding`, `margin` o `gap` se usan **siempre las variables `--sp-*`**. Nunca valores px literales en propiedades de espaciado. Nunca clases utilitarias de componente ni `style=""` para spacing.
+
+```css
+/* Escala completa disponible en :root */
+--sp-4:   4px;    /* solo detalles de iconografía */
+--sp-8:   8px;
+--sp-12:  12px;
+--sp-16:  16px;
+--sp-20:  20px;
+--sp-24:  24px;
+--sp-32:  32px;
+--sp-40:  40px;
+--sp-48:  48px;
+--sp-64:  64px;
+--sp-80:  80px;
+--sp-96:  96px;
+```
+
+Excepciones aceptadas: valores de 1–6px para micro-separaciones en iconografía (líneas del hamburger, gaps de marca tipográfica). Deben estar comentados con el motivo.
+
+**Gap estándar de grids: `var(--sp-16)`** — `.products-grid`, `.sectors-grid`, `.looks-grid`, `.promo-looks-grid`, Swiper `spaceBetween`. No mezclar con otros valores.
+
+**Si se necesita un valor que no esté en la escala** (p.ej. 28px, 56px), primero verificar si puede redondearse al múltiplo de 8 más cercano. Si es un valor recurrente y justificado, añadir el token a `:root` antes de usarlo.
 
 ### Componentes establecidos (reutilizar, no reinventar)
 - `.btn` — base de botón. Siempre combinar con variante de color + tamaño:
@@ -66,8 +87,9 @@ Todos los espacios, gaps y paddings deben ser **múltiplos de 8** (8, 16, 24, 32
   - Uso: `<a class="btn btn-blue btn-lg">`. En banners y hero: siempre `btn-lg`. En sección-headers "Ver todos": tamaño default.
 - `.offer-card` — card de producto. Tres layouts según contexto:
   - **Vertical** (`.offer-card-body`) — usado en `.products-grid` y `.cat-grid`. Imagen cuadrada arriba + body con código, nombre, rating, precio, pack, acciones.
-  - **3 columnas** (`.offer-card-info` + `.offer-card-commerce`) — usado en `.offers-grid`. Imagen | info (código+nombre+pack+rating) | comercio (precio+acciones apiladas). Altura fija 192px.
+  - **3 columnas** (`.offer-card-info` + `.offer-card-commerce`) — usado en `.offers-grid`. Imagen | info (código+nombre+pack+rating+precio) | comercio (acciones). En mobile: imagen cuadrada 120×120px + info a la derecha + commerce full-width debajo.
   - **Variante PDP** (`.offer-card--variant`) — simplificado para sliders de "Otros colores/tamaños". Sin acciones, solo imagen + código + nombre + precio + precio/unidad.
+- **`#productsGrid` en home (Más vendidos)** usa `gdpOfferCard` + `offers-grid` (no `gdpProductCard`). El layout 3-col se aplica igual que artículos destacados.
 - `.cat-item` — item de lista de categorías con thumbnail que se revela en hover
 - `.sector-card` — card de sector profesional
 - `.look-item` — card editorial con overlay de gradiente
@@ -272,7 +294,7 @@ Ubicado **entre Custom y Looks**. Banner promocional de la colección de portada
 ## Convenciones a respetar cuando Claude Code edite este proyecto
 
 1. **No introducir frameworks** (React, Vue, Tailwind, etc.) — es HTML/CSS/JS puro a propósito.
-2. **Usar tokens de `:root`** — no hardcodear colores. Si hace falta un color nuevo, añadirlo como token.
+2. **Usar tokens de `:root`** — no hardcodear colores ni spacing. Si hace falta un valor nuevo, añadirlo como token.
 3. **No usar el amarillo `--yellow` como color principal** — solo acentos.
 4. **Mantener el patrón de secciones** — cada sección con su comentario `═══` en CSS y HTML, `id` descriptivo, `.wrap` interior para limitar ancho, `section-title` + `label` eyebrow para los headers.
 5. **Reutilizar componentes existentes** (`.offer-card`, `.btn-blue`, etc.) antes de crear nuevos. **Antes de escribir cualquier CSS nuevo, buscar si ya existe un componente o clase que resuelva el mismo problema.** Si el componente existe pero necesita un contexto diferente (ej. un badge que normalmente es `position:absolute` pero aquí va en flujo), añadir solo el override mínimo necesario (ej. `.pdp-badge-inline { position: static; }`). Nunca duplicar estilos visuales con otro nombre.
@@ -282,6 +304,24 @@ Ubicado **entre Custom y Looks**. Banner promocional de la colección de portada
 9. **Botones en banners y hero siempre `btn-lg`**. En cabeceras de sección ("Ver todos") tamaño default. `btn-sm` solo para acciones secundarias en contextos compactos.
 10. **`html { overflow-x: clip }` — no tocar nunca.** Es la única regla que elimina el desbordamiento horizontal sin crear un scroll container. Si se cambia a `hidden` o `visible`, el header sticky puede romperse o la página puede aparecer descentrada. El `body` ya no necesita `overflow-x: hidden` porque `html` lo gestiona.
 11. **Imágenes de catálogo en `img/catalogo/`** (sin tilde). No usar `img/catalog/` (carpeta antigua).
+12. **Spacing solo con variables `--sp-*`** — Nunca `padding: 24px` literal. Siempre `padding: var(--sp-24)`. Nunca `style=""` para márgenes o paddings; mover siempre a CSS con el selector adecuado.
+13. **Norma de botones "Ver todos" en mobile** — Si un header de sección tiene un botón "Ver todos/Ver más" a la derecha del título, en mobile ese botón se oculta del header (`.section-header > a.btn { display: none }`) y aparece debajo del contenido del módulo en un `.wrap.section-footer-mobile` con `width: 100%`.
+14. **Badges de "Nuevo"** — El `.drawer-badge` del menú mobile y el `.offer-badge--new` de las cards deben tener siempre el mismo color verde (`#C5E63D` / `#2F4A05`). Son el mismo concepto visual.
+
+---
+
+## Decisiones mobile — sesión 2025-05 (resumen)
+
+- **Header mobile** → fondo `var(--blue)`, hamburger blanco, buscador con fondo `var(--blue-10)`
+- **`--gap` en `@media (max-width: 720px)`** → `16px` (override del token global que en desktop es `clamp(24px, 4vw, 64px)`)
+- **`.section-title` en mobile** → `text-align: center`. Los headers flex que tienen el título en un `<div>` hijo necesitan además `width: 100%` en ese div, y los que tienen structure especial (`.collections-header`) necesitan `flex-direction: column; align-items: center`.
+- **`.trust-title br`** → `display: none` en mobile (texto en una línea)
+- **Promo-looks** → grid irregular de desktop se convierte en 2 columnas auto-flow en `@media 720px`; los nth-child del desktop se resetean con `:nth-child(n)`
+- **Stats grid** → `repeat(2,1fr)` en mobile
+- **Brands section (`#brands .sectors-grid`)** → `repeat(2,1fr)` en mobile (4 brand-cards → 2×2)
+- **Offer-card en mobile (offers-grid)** → imagen `aspect-ratio: 1; align-self: start` para que no estire el card. Imagen 120px = mismo ancho que qty-selector, alineando info con botón
+- **Marquee colecciones** → `15s` (antes 30s, doble de rápido)
+- **Footer** → semántica `<nav aria-label>`, `<address>` con `tel:` y email, Schema.org, responsive single-column con separadores visuales, links con `min-height: 44px`
 
 ## Cómo previsualizar
 

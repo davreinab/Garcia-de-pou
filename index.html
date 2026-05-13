@@ -438,6 +438,9 @@
 
       </div>
     </div>
+    <div class="wrap section-footer-mobile">
+      <a href="category.html" class="btn btn-outline-blue">Ver todos</a>
+    </div>
   </section>
 
   <!-- ════════════════════════════════════════
@@ -520,6 +523,9 @@
         <div class="collection-item"><img src="img/logos/WOOD.png" alt="Wood"></div>
       </div>
     </div>
+    <div class="wrap section-footer-mobile">
+      <a href="category.html" class="btn btn-outline-blue">Ver todas las colecciones</a>
+    </div>
   </section>
 
   <!-- ════════════════════════════════════════
@@ -536,6 +542,9 @@
 
       </ul>
 
+    </div>
+    <div class="wrap section-footer-mobile">
+      <a href="category.html" class="btn btn-outline-blue">Ver todo el catálogo</a>
     </div>
   </section>
 
@@ -566,7 +575,7 @@
         </div>
         <a href="category.html" class="btn btn-outline-blue" data-reveal data-delay="2">Ver todos</a>
       </div>
-      <div id="productsGrid" class="products-grid" data-reveal>
+      <div id="productsGrid" class="offers-grid" data-reveal>
 
         <a href="product.html" class="offer-card">
           <div class="offer-card-img">
@@ -756,7 +765,7 @@
         </div>
 
         <!-- Título -->
-        <div class="custom-copy" style="padding: 0px 0px 0px 3px">
+        <div class="custom-copy">
           <h2 class="custom-title">
             <span class="custom-title-bold">Diseños</span>
             <span class="custom-title-script">personalizados</span>
@@ -856,6 +865,9 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="wrap section-footer-mobile">
+      <a href="#" class="btn btn-outline-blue">Ver todos los looks</a>
     </div>
   </section>
 
@@ -1119,7 +1131,7 @@
           stars:5, ratingCount:12, price:'11,90€', priceOld:null,
           packQty:'6 rollos', packUnit:'1,98 €', packUnitLabel:'/rollo' }
       ];
-      document.getElementById('productsGrid').innerHTML = bestsellersData.map(gdpProductCard).join('');
+      document.getElementById('productsGrid').innerHTML = bestsellersData.map(gdpOfferCard).join('');
     })();
 
     /* ─── HEADER: sombra al hacer scroll (listener pasivo, sin GSAP) ── */

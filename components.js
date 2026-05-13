@@ -38,12 +38,12 @@ function gdpOfferCard(d) {
       <span class="offer-rating-stars">${_gdpStars(d.stars)}</span>
       <span class="offer-rating-count">(${d.ratingCount})</span>
     </div>
-  </div>
-  <div class="offer-card-commerce">
     <div class="offer-pricing">
       <span class="offer-price">${d.price}</span>
       ${d.priceOld ? `<span class="offer-price-old">${d.priceOld}</span>` : ''}
     </div>
+  </div>
+  <div class="offer-card-commerce">
     <div class="offer-actions">${_gdpActions()}</div>
   </div>
 </a>`;
@@ -314,8 +314,8 @@ function gdpHeader(opts) {
         <a href="#">Looks</a><a href="#">Blog</a><a href="#">Catálogos</a><a href="#">Compra rápida</a>
       </nav>
       <div class="drawer-footer">
-        <a href="#" class="btn btn-outline-blue" style="width:100%; justify-content:center;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="margin-right:8px"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M4 20c0-4 3.582-7 8-7s8 3 8 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <a href="#" class="btn btn-outline-blue">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M4 20c0-4 3.582-7 8-7s8 3 8 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
           Mi cuenta
         </a>
       </div>
@@ -325,41 +325,55 @@ function gdpHeader(opts) {
 
 // gdpFooter() — returns <footer> HTML
 function gdpFooter() {
-  return `<footer class="footer">
+  return `<footer class="footer" itemscope itemtype="https://schema.org/Organization">
     <div class="wrap">
       <div class="footer-top">
         <div class="footer-brand">
-          <img class="footer-logo" src="https://www.garciadepou.com/static/version1776292596/frontend/Etailers/gpou/es_ES/images/logo.svg" alt="García de Pou" width="150" height="21">
-          <p>Suministros profesionales para hostelería y restauración. Más de 50 años equipando los mejores negocios.</p>
+          <img class="footer-logo" src="https://www.garciadepou.com/static/version1776292596/frontend/Etailers/gpou/es_ES/images/logo.svg" alt="García de Pou" width="150" height="21" itemprop="logo">
+          <p itemprop="description">Suministros profesionales para hostelería y restauración. Más de 50 años equipando los mejores negocios de España y Europa.</p>
+          <address class="footer-contact" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+            <a href="tel:+34972575500" class="footer-contact-link" itemprop="telephone">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              +34 972 575 500
+            </a>
+            <a href="mailto:info@garciadepou.com" class="footer-contact-link" itemprop="email">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              info@garciadepou.com
+            </a>
+          </address>
         </div>
-        <div class="footer-col">
+        <nav class="footer-col" aria-label="Productos">
           <h4>Productos</h4>
           <ul>
             <li><a href="#">Un Solo Uso</a></li><li><a href="#">Bar y Buffet</a></li>
             <li><a href="#">Mesa y Accesorios</a></li><li><a href="#">Utensilios de Cocina</a></li>
             <li><a href="#">Rotulación</a></li><li><a href="#">Limpieza e Higiene</a></li>
           </ul>
-        </div>
-        <div class="footer-col">
+        </nav>
+        <nav class="footer-col" aria-label="Empresa">
           <h4>Empresa</h4>
           <ul>
             <li><a href="#">Sobre nosotros</a></li><li><a href="#">Blog</a></li>
             <li><a href="#">Catálogos</a></li><li><a href="#">Looks</a></li>
             <li><a href="#">Sostenibilidad</a></li>
           </ul>
-        </div>
-        <div class="footer-col">
+        </nav>
+        <nav class="footer-col" aria-label="Ayuda">
           <h4>Ayuda</h4>
           <ul>
             <li><a href="#">Cómo comprar</a></li><li><a href="#">Envíos y devoluciones</a></li>
             <li><a href="#">Mi cuenta</a></li><li><a href="#">Contacto</a></li>
             <li><a href="#">Privacidad</a></li>
           </ul>
-        </div>
+        </nav>
       </div>
       <div class="footer-bottom">
         <span>© 2025 García de Pou. Todos los derechos reservados.</span>
-        <span>Diseño: Multiplica</span>
+        <nav class="footer-legal" aria-label="Legal">
+          <a href="#">Aviso legal</a>
+          <a href="#">Privacidad</a>
+          <a href="#">Cookies</a>
+        </nav>
       </div>
     </div>
   </footer>`;
