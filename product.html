@@ -226,72 +226,116 @@
   ════════════════════════════════════════ -->
   <section class="bought-together" id="boughtTogether" data-reveal>
     <div class="wrap">
-      <p class="label" style="margin-bottom:24px">Comprados juntos habitualmente</p>
-      <div class="bt-inner">
+      <h2 class="section-title" style="margin-bottom:32px">Comprados juntos habitualmente</h2>
 
-        <div class="bt-items" id="btItems">
+      <div class="bt-items" id="btItems">
 
-          <!-- Producto actual — siempre incluido -->
-          <div class="bt-card" data-price="22.55">
-            <img class="bt-card-img" src="img/product/GDP_254.53+54_CPack.jpg" alt="">
-            <span class="bt-card-code">CODE: 211.14</span>
-            <p class="bt-card-name">Tapas para Cajas 254.10 y 254.11</p>
-            <span class="bt-card-price">22,55 €</span>
-            <span class="bt-card-pack">Paquete de 100 unidades</span>
+        <!-- Producto actual — siempre incluido, sin toggle -->
+        <div class="bt-card offer-card" data-price="22.55">
+          <div class="offer-card-img">
+            <img src="img/product/GDP_254.53+54_CPack.jpg" alt="Tapas para Cajas" loading="lazy">
+          </div>
+          <div class="offer-card-body">
+            <span class="offer-code">CODE: 211.14</span>
+            <p class="offer-name">Tapas para Cajas 254.10 y 254.11</p>
+            <div class="offer-pricing"><span class="offer-price">22,55 €</span></div>
+            <div class="offer-pack">
+              <span class="offer-pack-label"><strong>Paquete:</strong></span>
+              <span class="offer-pack-qty">100 uds</span>
+              <span class="offer-pack-unit"><b>0,23 €</b>/ud</span>
+            </div>
             <div class="qty-selector">
               <button class="qty-btn" onclick="adjustQty(this,-1)">−</button>
               <input type="number" class="qty-input" value="1" min="1">
               <button class="qty-btn" onclick="adjustQty(this,1)">+</button>
             </div>
           </div>
-
-          <span class="bt-plus">+</span>
-
-          <!-- Producto sugerido 1 -->
-          <div class="bt-card is-checked" data-price="324.50">
-            <button class="bt-check" aria-pressed="true" onclick="btToggle(this)">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <img class="bt-card-img" src="img/product/GDP_129.35_C.jpg" alt="">
-            <span class="bt-card-code">CODE: 135.37</span>
-            <p class="bt-card-name">Recipientes Rectangulares Aluminio con Tapa</p>
-            <span class="bt-card-price">324,50 €</span>
-            <span class="bt-card-pack">Caja de 2200 unidades</span>
-            <div class="qty-selector">
-              <button class="qty-btn" onclick="adjustQty(this,-1)">−</button>
-              <input type="number" class="qty-input" value="1" min="1">
-              <button class="qty-btn" onclick="adjustQty(this,1)">+</button>
-            </div>
-          </div>
-
-          <span class="bt-plus">+</span>
-
-          <!-- Producto sugerido 2 -->
-          <div class="bt-card is-checked" data-price="63.60">
-            <button class="bt-check" aria-pressed="true" onclick="btToggle(this)">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <img class="bt-card-img" src="img/product/GDP_143.99.jpg" alt="">
-            <span class="bt-card-code">CODE: 167.19</span>
-            <p class="bt-card-name">Bolsas SOS Catering con Asas Kraft</p>
-            <span class="bt-card-price">63,60 €</span>
-            <span class="bt-card-pack">Caja de 250 unidades</span>
-            <div class="qty-selector">
-              <button class="qty-btn" onclick="adjustQty(this,-1)">−</button>
-              <input type="number" class="qty-input" value="1" min="1">
-              <button class="qty-btn" onclick="adjustQty(this,1)">+</button>
-            </div>
-          </div>
-
-        </div><!-- /bt-items -->
-
-        <div class="bt-summary">
-          <p class="bt-total-label">Precio total</p>
-          <p class="bt-total-price" id="btTotalPrice">410,65 €</p>
-          <button class="btn btn-blue btn-lg" id="btCta">AÑADIR 3 ARTÍCULOS</button>
         </div>
 
-      </div><!-- /bt-inner -->
+        <span class="bt-plus">+</span>
+
+        <!-- Sugerido 1 -->
+        <div class="bt-card offer-card is-checked" data-price="324.50">
+          <button class="bt-check" aria-pressed="true" onclick="btToggle(this)">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="offer-card-img">
+            <img src="img/product/GDP_129.35_C.jpg" alt="Recipientes Rectangulares Aluminio" loading="lazy">
+          </div>
+          <div class="offer-card-body">
+            <span class="offer-code">CODE: 135.37</span>
+            <p class="offer-name">Recipientes Rectangulares Aluminio con Tapa</p>
+            <div class="offer-pricing"><span class="offer-price">324,50 €</span></div>
+            <div class="offer-pack">
+              <span class="offer-pack-label"><strong>Paquete:</strong></span>
+              <span class="offer-pack-qty">2200 uds</span>
+              <span class="offer-pack-unit"><b>0,15 €</b>/ud</span>
+            </div>
+            <div class="qty-selector">
+              <button class="qty-btn" onclick="adjustQty(this,-1)">−</button>
+              <input type="number" class="qty-input" value="1" min="1">
+              <button class="qty-btn" onclick="adjustQty(this,1)">+</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sugerido 2 -->
+        <div class="bt-card offer-card is-checked" data-price="63.60">
+          <button class="bt-check" aria-pressed="true" onclick="btToggle(this)">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="offer-card-img">
+            <img src="img/product/GDP_143.99.jpg" alt="Bolsas SOS Catering" loading="lazy">
+          </div>
+          <div class="offer-card-body">
+            <span class="offer-code">CODE: 167.19</span>
+            <p class="offer-name">Bolsas SOS Catering con Asas Kraft</p>
+            <div class="offer-pricing"><span class="offer-price">63,60 €</span></div>
+            <div class="offer-pack">
+              <span class="offer-pack-label"><strong>Paquete:</strong></span>
+              <span class="offer-pack-qty">250 uds</span>
+              <span class="offer-pack-unit"><b>0,25 €</b>/ud</span>
+            </div>
+            <div class="qty-selector">
+              <button class="qty-btn" onclick="adjustQty(this,-1)">−</button>
+              <input type="number" class="qty-input" value="1" min="1">
+              <button class="qty-btn" onclick="adjustQty(this,1)">+</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sugerido 3 -->
+        <div class="bt-card offer-card is-checked" data-price="18.90">
+          <button class="bt-check" aria-pressed="true" onclick="btToggle(this)">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="offer-card-img">
+            <img src="img/product/GDP_107.49-P2.jpg" alt="Servilletas papel blancas" loading="lazy">
+          </div>
+          <div class="offer-card-body">
+            <span class="offer-code">CODE: 120.01</span>
+            <p class="offer-name">Servilleta de Papel Blanca 2 Capas 33×33 cm</p>
+            <div class="offer-pricing"><span class="offer-price">18,90 €</span></div>
+            <div class="offer-pack">
+              <span class="offer-pack-label"><strong>Paquete:</strong></span>
+              <span class="offer-pack-qty">100 uds</span>
+              <span class="offer-pack-unit"><b>0,19 €</b>/ud</span>
+            </div>
+            <div class="qty-selector">
+              <button class="qty-btn" onclick="adjustQty(this,-1)">−</button>
+              <input type="number" class="qty-input" value="1" min="1">
+              <button class="qty-btn" onclick="adjustQty(this,1)">+</button>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /bt-items -->
+
+      <div class="bt-summary">
+        <p class="bt-summary-text"><span id="btCount">4</span> producto(s) por <strong><span id="btTotalPrice">429,55 €</span></strong></p>
+        <button class="btn btn-blue btn-lg" id="btCta">AÑADIR 4 ARTÍCULOS</button>
+      </div>
+
     </div><!-- /wrap -->
   </section>
 
@@ -871,16 +915,14 @@
       const items = document.querySelectorAll('#btItems .bt-card');
       let total = 0, count = 0;
       items.forEach(card => {
-        const active = !card.classList.contains('is-off');
-        if (active) {
+        if (!card.classList.contains('is-off')) {
           total += parseFloat(card.dataset.price || 0);
           count++;
         }
       });
-      const fmt = total.toFixed(2).replace('.', ',');
-      document.getElementById('btTotalPrice').textContent = fmt + ' €';
-      const cta = document.getElementById('btCta');
-      cta.textContent = 'AÑADIR ' + count + ' ARTÍCULO' + (count !== 1 ? 'S' : '');
+      document.getElementById('btTotalPrice').textContent = total.toFixed(2).replace('.', ',') + ' €';
+      document.getElementById('btCount').textContent = count;
+      document.getElementById('btCta').textContent = 'AÑADIR ' + count + ' ARTÍCULO' + (count !== 1 ? 'S' : '');
     }
 
     /* ── Color swatches: mostrar 8, resto oculto con toggle ── */
