@@ -843,6 +843,30 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   justify-content: space-between;
   margin-bottom: 40px;
 }
+/* ── Grid editorial de artículos destacados ── */
+.offers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.offer-card--featured {
+  grid-column: span 2;
+  flex-direction: row;
+}
+.offer-card--featured .offer-card-img {
+  width: 50%;
+  flex-shrink: 0;
+  aspect-ratio: 1;
+  border-radius: var(--radius) 0 0 var(--radius);
+}
+.offer-card--featured .offer-card-body {
+  flex: 1;
+  padding: 24px;
+  justify-content: center;
+}
+.offer-card--featured .offer-price { font-size: var(--fs-3xl); }
+.offer-card--featured .offer-name { -webkit-line-clamp: 4; font-size: var(--fs-base); }
+
 /* ── Swiper overrides para el slider de artículos ── */
 .offers-swiper { overflow: visible; }
 .offers-swiper .swiper-slide { height: auto; }
@@ -2000,6 +2024,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 }
 
+/* ── OFFERS GRID: 3 cols en tablet ── */
+@media (max-width: 1100px) {
+  .offers-grid { grid-template-columns: repeat(3, 1fr); }
+  .offer-card--featured { grid-column: span 2; }
+}
+
 @media (max-width: 720px) {
 
   /* ── HERO: imagen primero, luego texto ── */
@@ -2127,6 +2157,25 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .offer-card-body { padding: 12px; gap: 6px; }
   .offer-name { font-size: var(--fs-md); min-height: calc(14px * 1.35 * 3); }
   .offer-price { font-size: var(--fs-xl); }
+
+  /* ── OFFERS GRID editorial: 2 cols en móvil, card destacada ocupa fila completa ── */
+  .offers-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .offer-card--featured {
+    grid-column: 1 / -1;
+  }
+  .offer-card--featured .offer-card-img { width: 40%; }
+  .offer-card--featured .offer-card-body { padding: 16px; }
+
+  /* ── OFFERS GRID: card destacada en columna en pantallas muy pequeñas ── */
+  @media (max-width: 480px) {
+    .offer-card--featured { flex-direction: column; }
+    .offer-card--featured .offer-card-img {
+      width: 100%;
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+  }
 }
 
 /* ═══════════════════════════════════════════
