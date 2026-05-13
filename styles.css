@@ -3174,9 +3174,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   align-items: center;
   gap: 16px;
 }
-.pdp-actions .qty-selector { flex-shrink: 0; }
-.pdp-actions .qty-selector .qty-btn { height: 56px; width: 40px; }
-.pdp-actions .qty-selector .qty-input { height: 56px; width: 48px; }
+.pdp-actions .qty-selector { flex-shrink: 0; height: 56px; }
+.pdp-actions .qty-selector .qty-btn { width: 40px; }
+.pdp-actions .qty-selector .qty-input { width: 48px; }
 .pdp-actions .btn { flex: 1; justify-content: center; }
 .pdp-custom-btn {
   display: flex;
@@ -3237,6 +3237,120 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .pdp-shipping-sep { display: none; }
   .pdp-actions { flex-wrap: wrap; }
   .pdp-actions .btn { min-width: 100%; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   PDP — Comprados juntos habitualmente
+══════════════════════════════════════════════════════════ */
+.bought-together { padding: 48px 0; border-top: 1px solid var(--g100); }
+.bt-inner { display: flex; align-items: stretch; gap: 0; }
+.bt-items { flex: 1; display: flex; align-items: stretch; gap: 0; min-width: 0; }
+/* Cards fill available space evenly */
+.bt-card {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid var(--g100);
+  margin-right: -1px;           /* collapse adjacent borders */
+  padding: 16px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: opacity .2s;
+}
+.bt-card.is-off { opacity: .35; }
+.bt-card-img { width: 100%; aspect-ratio: 1; object-fit: contain; display: block; margin-bottom: 4px; }
+.bt-card-code {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--g500);
+}
+.bt-card-name {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.bt-card-price {
+  font-size: var(--fs-2xl);
+  font-weight: 800;
+  letter-spacing: -.03em;
+  color: var(--black);
+  line-height: 1;
+  margin-top: auto;       /* pushes price + pack + qty to bottom of card */
+  padding-top: 8px;
+}
+.bt-card-pack { font-size: 11px; color: var(--g500); }
+.bt-card .qty-selector { height: var(--ctrl-h-sm); margin-top: 4px; }
+/* "+" separator between cards */
+.bt-plus {
+  flex-shrink: 0;
+  width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--g300);
+  border-top: 1px solid var(--g100);
+  border-bottom: 1px solid var(--g100);
+}
+/* Checkmark toggle */
+.bt-check {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1.5px solid var(--g300);
+  background: var(--white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: border-color .15s, background .15s;
+}
+.bt-card.is-checked .bt-check { background: var(--blue); border-color: var(--blue); }
+.bt-check svg { display: none; }
+.bt-card.is-checked .bt-check svg { display: block; }
+/* Summary panel — pinned right */
+.bt-summary {
+  flex-shrink: 0;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  padding: 24px 24px 24px 32px;
+  border: 1px solid var(--g100);
+  margin-left: -1px;
+}
+.bt-total-label { font-size: var(--fs-sm); color: var(--g500); margin-bottom: 4px; }
+.bt-total-price { font-size: 28px; font-weight: 900; letter-spacing: -.04em; color: var(--black); }
+.bt-summary .btn { width: 100%; justify-content: center; }
+/* Responsive */
+@media (max-width: 1100px) {
+  .bt-summary { width: 196px; padding: 16px 16px 16px 24px; }
+}
+@media (max-width: 900px) {
+  .bt-inner { flex-direction: column; }
+  .bt-items { flex-wrap: wrap; }
+  .bt-card { flex: 1 1 calc(50% - 16px); margin-right: 0; border: 1px solid var(--g100); }
+  .bt-plus { width: 100%; height: 32px; border: none; }
+  .bt-summary { width: 100%; margin-left: 0; border: 1px solid var(--g100); padding: 24px; flex-direction: row; align-items: center; gap: 24px; }
+  .bt-summary .btn { flex-shrink: 0; width: auto; }
+}
+@media (max-width: 600px) {
+  .bt-card { flex: 1 1 100%; }
+  .bt-summary { flex-direction: column; align-items: flex-start; }
+  .bt-summary .btn { width: 100%; }
 }
 
 /* ══════════════════════════════════════════════════════════
