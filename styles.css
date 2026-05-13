@@ -38,6 +38,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   --header-h:  172px;
   --radius:    8px;
 
+  /* Alturas de controles interactivos — usar siempre estos tokens */
+  --ctrl-h-sm: 32px;   /* controles compactos */
+  --ctrl-h:    40px;   /* controles estándar (qty + btn-add-cart) */
+  --ctrl-h-lg: 48px;   /* controles grandes */
+
   /* Escala tipográfica */
   --fs-2xs:  10px;   /* badges, códigos, contadores */
   --fs-xs:   11px;   /* labels, eyebrows */
@@ -843,29 +848,69 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   justify-content: space-between;
   margin-bottom: 40px;
 }
-/* ── Grid editorial de artículos destacados ── */
+/* ── Grid de artículos destacados: 2 cols externas, 3 cols internas por card ── */
 .offers-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
 }
-.offer-card--featured {
-  grid-column: span 2;
-  flex-direction: row;
+
+/* Card: 3 columnas internas — imagen | info | commerce */
+.offers-grid .offer-card {
+  display: grid;
+  grid-template-columns: 136px 1fr 200px;
+  height: 192px;
 }
-.offer-card--featured .offer-card-img {
-  width: 50%;
-  flex-shrink: 0;
-  aspect-ratio: 1;
+
+/* Col 1: imagen — bottom-right aligned */
+.offers-grid .offer-card-img {
+  aspect-ratio: unset;
+  width: auto;
+  min-width: 0;
+  flex-shrink: unset;
   border-radius: var(--radius) 0 0 var(--radius);
+  background: none;
 }
-.offer-card--featured .offer-card-body {
-  flex: 1;
-  padding: 24px;
-  justify-content: center;
+.offers-grid .offer-card-img img {
+  object-fit: contain;
+  object-position: center;
+  padding: 8px;
 }
-.offer-card--featured .offer-price { font-size: var(--fs-3xl); }
-.offer-card--featured .offer-name { -webkit-line-clamp: 4; font-size: var(--fs-base); }
+
+/* Col 2: código + nombre + rating — top aligned */
+.offers-grid .offer-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 16px;
+  justify-content: flex-start;
+}
+.offers-grid .offer-name {
+  -webkit-line-clamp: 2;
+  min-height: 0;
+  font-size: var(--fs-lg);
+  font-weight: 600;
+}
+
+/* Col 3: precio + pack + acciones — pegado al fondo */
+.offers-grid .offer-card-commerce {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 16px;
+  justify-content: flex-end;
+}
+
+/* Acciones apiladas: qty fila propia, botón ancho completo */
+.offers-grid .offer-actions {
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 0;
+  padding-top: 0;
+}
+.offers-grid .qty-selector  { align-self: stretch; justify-content: space-between; }
+.offers-grid .qty-input     { flex: 1; }
+.offers-grid .btn-add-cart  { width: 100%; flex: none; font-size: var(--fs-sm); }
 
 /* ── Swiper overrides para el slider de artículos ── */
 .offers-swiper { overflow: visible; }
@@ -1006,14 +1051,16 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .qty-selector {
   display: flex;
-  align-items: center;
+  align-items: stretch;
+  height: var(--ctrl-h);           /* altura explícita → el borde queda dentro del box */
   border: 1.5px solid var(--g100);
   border-radius: var(--radius);
   overflow: hidden;
   flex-shrink: 0;
 }
 .qty-btn {
-  width: 32px; height: 40px;
+  width: 32px;
+  height: 100%;                    /* hereda --ctrl-h del padre */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1028,7 +1075,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .qty-btn:hover { background: var(--g50); color: var(--black); }
 .qty-input {
-  width: 40px; height: 40px;
+  width: 40px;
+  height: 100%;                    /* hereda --ctrl-h del padre */
   border: none;
   border-left: 1.5px solid var(--g100);
   border-right: 1.5px solid var(--g100);
@@ -1048,7 +1096,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   align-items: center;
   justify-content: center;
   gap: 8px;
-  height: 40px;
+  height: var(--ctrl-h);           /* mismo token → siempre alineados */
   background: var(--blue);
   color: var(--white);
   border: none;
@@ -2024,10 +2072,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 }
 
-/* ── OFFERS GRID: 3 cols en tablet ── */
+/* ── OFFERS GRID: 1 col externa en tablet ── */
 @media (max-width: 1100px) {
-  .offers-grid { grid-template-columns: repeat(3, 1fr); }
-  .offer-card--featured { grid-column: span 2; }
+  .offers-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 720px) {
@@ -2158,23 +2205,18 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .offer-name { font-size: var(--fs-md); min-height: calc(14px * 1.35 * 3); }
   .offer-price { font-size: var(--fs-xl); }
 
-  /* ── OFFERS GRID editorial: 2 cols en móvil, card destacada ocupa fila completa ── */
-  .offers-grid {
-    grid-template-columns: repeat(2, 1fr);
+  /* ── OFFERS GRID: en móvil la col commerce cae bajo info ── */
+  .offers-grid .offer-card {
+    grid-template-columns: 96px 1fr;
+    grid-template-rows: auto auto;
+    height: auto;
   }
-  .offer-card--featured {
-    grid-column: 1 / -1;
-  }
-  .offer-card--featured .offer-card-img { width: 40%; }
-  .offer-card--featured .offer-card-body { padding: 16px; }
-
-  /* ── OFFERS GRID: card destacada en columna en pantallas muy pequeñas ── */
-  @media (max-width: 480px) {
-    .offer-card--featured { flex-direction: column; }
-    .offer-card--featured .offer-card-img {
-      width: 100%;
-      border-radius: var(--radius) var(--radius) 0 0;
-    }
+  .offers-grid .offer-card-img  { grid-row: 1 / 3; }
+  .offers-grid .offer-card-info { grid-column: 2; grid-row: 1; padding: 12px 12px 8px; }
+  .offers-grid .offer-card-commerce {
+    grid-column: 2; grid-row: 2;
+    padding: 0 12px 12px;
+    justify-content: flex-start;
   }
 }
 
