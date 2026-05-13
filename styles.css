@@ -24,10 +24,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   --g100:     #EEEEEE;
   --g300:     #C4C4C4;
   --g500:     #767676;
+  --g700:     #3D3D3D;   /* gris oscuro: banners, barras de anuncio */
   --yellow:   #FFD100;   /* solo ofertas/badges */
-  --blue:     #002D72;   /* azul corporativo GDP */
-  --blue-80:  #1A4490;
-  --blue-10:  #EBF0F8;
+  --blue:        #002D72;   /* azul corporativo GDP */
+  --blue-80:     #1A4490;
+  --blue-60:     #2C5BA8;   /* hover sobre fondo azul */
+  --blue-10:     #EBF0F8;
+  --white-15:    #ffffff26; /* separadores sobre fondo azul */
+  --terracota:   #8B3A2A;   /* destacados cálidos: banners, campañas, badges */
 
   --container: 100%;
   --gap:       clamp(24px, 4vw, 64px);
@@ -91,7 +95,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
    ANNOUNCEMENT BAR
 ═══════════════════════════════════════════ */
 .announcement {
-  background: var(--blue);
+  background: var(--g700);
   height: 32px;
   display: flex;
   align-items: center;
@@ -148,8 +152,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .util-left  { display: flex; align-items: center; height: 100%; }
 .util-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
 
-.util-partner      { display: flex; align-items: center; padding-right: 16px; }
-.util-partner-logo { height: 22px; width: auto; object-fit: contain; display: block; }
+.util-partner      { display: flex; align-items: center; padding-right: 16px; flex-shrink: 0; }
+.util-partner-logo { height: 22px; width: auto; object-fit: contain; display: block; max-width: none; }
 .util-sep          { width: 1px; height: 18px; background: var(--g100); flex-shrink: 0; margin-right: 8px; }
 
 .util-nav { display: flex; align-items: center; }
@@ -159,15 +163,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   gap: 5px;
   font-size: var(--fs-sm);
   font-weight: 500;
-  color: var(--g500);
+  color: var(--blue);
   padding: 6px 10px;
   border-radius: 4px;
   white-space: nowrap;
   transition: color .15s, background .15s;
 }
-.util-nav a svg { flex-shrink: 0; opacity: .65; transition: opacity .15s; }
-.util-nav a:hover { color: var(--blue); background: var(--g50); }
-.util-nav a:hover svg { opacity: 1; }
+.util-nav a svg { flex-shrink: 0; }
+.util-nav a:hover { background: var(--g50); }
 
 .util-account {
   display: flex;
@@ -175,13 +178,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   gap: 6px;
   font-size: var(--fs-sm);
   font-weight: 500;
-  color: var(--g500);
+  color: var(--blue);
   padding: 6px 10px;
   border-radius: 4px;
   white-space: nowrap;
-  transition: color .15s, background .15s;
+  transition: background .15s;
 }
-.util-account:hover { color: var(--blue); background: var(--g50); }
+.util-account:hover { background: var(--g50); }
 
 /* ── Selector de idioma ── */
 .util-lang { position: relative; }
@@ -191,17 +194,17 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   gap: 6px;
   font-size: var(--fs-sm);
   font-weight: 500;
-  color: var(--g500);
+  color: var(--blue);
   padding: 6px 10px;
   border-radius: 4px;
   background: none;
   border: none;
   cursor: pointer;
   white-space: nowrap;
-  transition: color .15s, background .15s;
+  transition: background .15s;
 }
 .util-lang-btn:hover,
-.util-lang.is-open .util-lang-btn { color: var(--blue); background: var(--g50); }
+.util-lang.is-open .util-lang-btn { background: var(--g50); }
 .util-lang-chevron { transition: transform .2s; }
 .util-lang.is-open .util-lang-chevron { transform: rotate(180deg); }
 .util-lang-dropdown {
@@ -304,18 +307,18 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   gap: 4px;
   font-size: var(--fs-base);
   font-weight: 600;
-  color: var(--g500);
+  color: var(--blue);
   padding: 6px 16px;
   border-left: 1px solid var(--g100);
   white-space: nowrap;
   transition: color .15s;
 }
 .nav-secondary a:first-child { border-left: none; padding-left: 0; }
-.nav-secondary a:hover { color: var(--blue); }
+.nav-secondary a:hover { color: var(--blue-80); }
 .nav-new { color: #D42B2B !important; letter-spacing: .03em; }
 
 /* ── Fila 3: nav de categorías (barra sticky) ── */
-.header-cats { height: 48px; border-bottom: 1px solid var(--g100); position: relative; }
+.header-cats { height: 48px; background: var(--blue); position: relative; }
 .header-cats-inner {
   display: flex;
   align-items: center;
@@ -333,15 +336,15 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-weight: 700;
   letter-spacing: .07em;
   text-transform: uppercase;
-  color: var(--blue);
-  border-right: 1px solid var(--g100);
+  color: var(--white);
+  border-right: 1px solid var(--white-15);
   white-space: nowrap;
   transition: background .15s;
   text-decoration: none;
 }
 .nav-cats > a:first-child,
 .nav-item:first-child > .nav-item-link { padding-left: 0; }
-.nav-cats > a:hover { background: var(--g50); }
+.nav-cats > a:hover { background: var(--blue-60); }
 
 /* ── Nav item con mega-menú ── */
 .nav-item {
@@ -351,7 +354,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   height: 100%;
 }
 .nav-item:hover > .nav-item-link,
-.nav-item > .nav-item-link:focus { background: var(--g50); }
+.nav-item > .nav-item-link:focus { background: var(--blue-60); }
 
 /* ── Mega-menú ── */
 .mega-menu {
@@ -488,9 +491,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   flex-shrink: 0;
   height: 100%;
   padding: 0 18px 0 0;
-  border-right: 1px solid var(--g100);
+  border-right: 1px solid var(--white-15);
 }
-.logo-shield svg { height: 28px; width: auto; }
+.logo-shield svg { height: 28px; width: auto; color: var(--blue); }
+.header.scrolled .logo-shield svg { color: var(--white); }
 
 /* Cart sticky-only */
 .cart-pill.sticky-only { display: none; flex-shrink: 0; }
@@ -499,7 +503,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .header.scrolled .header-utility        { display: none; }
 .header.scrolled .header-brand          { display: none; }
 .header.scrolled .logo-shield           { display: flex; }
-.header.scrolled .cart-pill.sticky-only { display: flex; margin-left: auto; }
+.header.scrolled .cart-pill.sticky-only { display: flex; margin-left: auto; background: var(--white-15); color: var(--white); }
 .header.scrolled .nav-cats > a:first-child,
 .header.scrolled .nav-item:first-child > .nav-item-link { padding-left: 14px; }
 
@@ -1065,8 +1069,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  padding: 0 24px;
-  height: 88px;
+  padding: 0 32px;
+  height: 104px;
   border-right: 1px solid var(--g100);
   cursor: pointer;
   transition: background .2s;
@@ -1074,7 +1078,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .collection-item:first-child { border-left: 1px solid var(--g100); }
 .collection-item:hover { background: var(--g50); }
 .collection-item img {
-  height: 35px;
+  height: 48px;
   width: auto;
   display: block;
   filter: grayscale(100%) opacity(.45);
