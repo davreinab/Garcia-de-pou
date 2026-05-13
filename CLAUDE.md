@@ -220,7 +220,7 @@ Ubicado **entre Custom y Looks**. Banner promocional de la colección de portada
 2. **Usar tokens de `:root`** — no hardcodear colores. Si hace falta un color nuevo, añadirlo como token.
 3. **No usar el amarillo `--yellow` como color principal** — solo acentos.
 4. **Mantener el patrón de secciones** — cada sección con su comentario `═══` en CSS y HTML, `id` descriptivo, `.wrap` interior para limitar ancho, `section-title` + `label` eyebrow para los headers.
-5. **Reutilizar componentes existentes** (`.offer-card`, `.btn-blue`, etc.) antes de crear nuevos.
+5. **Reutilizar componentes existentes** (`.offer-card`, `.btn-blue`, etc.) antes de crear nuevos. **Antes de escribir cualquier CSS nuevo, buscar si ya existe un componente o clase que resuelva el mismo problema.** Si el componente existe pero necesita un contexto diferente (ej. un badge que normalmente es `position:absolute` pero aquí va en flujo), añadir solo el override mínimo necesario (ej. `.pdp-badge-inline { position: static; }`). Nunca duplicar estilos visuales con otro nombre.
 6. **Responsive** con media queries estándar: breakpoints ~1100 / 900 / 720 / 600 / 480.
 7. **DM Sans primero**. Caveat solo para acentos decorativos muy puntuales.
 8. **Reveals on-scroll** — si se añade contenido nuevo, incluir `data-reveal` + `data-delay` opcional (1–6).
