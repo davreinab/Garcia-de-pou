@@ -183,6 +183,60 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .util-account:hover { color: var(--blue); background: var(--g50); }
 
+/* ── Selector de idioma ── */
+.util-lang { position: relative; }
+.util-lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--g500);
+  padding: 6px 10px;
+  border-radius: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color .15s, background .15s;
+}
+.util-lang-btn:hover,
+.util-lang.is-open .util-lang-btn { color: var(--blue); background: var(--g50); }
+.util-lang-chevron { transition: transform .2s; }
+.util-lang.is-open .util-lang-chevron { transform: rotate(180deg); }
+.util-lang-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  background: var(--white);
+  border: 1px solid var(--g100);
+  min-width: 148px;
+  z-index: 300;
+  box-shadow: 0 8px 24px rgba(0,0,0,.08);
+  list-style: none;
+  padding: 4px 0;
+  margin: 0;
+}
+.util-lang-opt {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+  padding: 8px 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--black);
+  text-align: left;
+  transition: background .15s;
+}
+.util-lang-opt span { font-weight: 400; color: var(--g500); }
+.util-lang-opt:hover { background: var(--g50); }
+.util-lang-opt.is-active { color: var(--blue); }
+.util-lang-opt.is-active span { color: var(--blue); }
+
 /* ── Fila 2: barra de marca ── */
 .header-brand { height: 80px; border-bottom: 1px solid var(--g100); }
 .header-brand-inner {
