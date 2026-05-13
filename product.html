@@ -953,7 +953,68 @@
   ════════════════════════════════════════ -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="components.js"></script>
+
   <script>
+    /* ── DATA: render variant swipers ── */
+    (function() {
+      const variantsData = [
+        { href:'#', img:'img/product/GDP_101.01_C.jpg', alt:'',
+          code:'Ref: 217.52', name:"Mantelines Offset 'Azulejos' 70 G/M2 31×43 cm Cuatricromía Celulosa (2000 unid.)",
+          price:'114,80 €', priceUnit:'0,057 €/Unidad' },
+        { href:'#', img:'img/product/GDP_101.01_C.jpg', alt:'',
+          code:'Ref: 217.51', name:"Mantelines Offset 'Bar en Rep. Dominicana' 70 G/M2 31×43 cm Cuatricromía Celulosa (2000 unid.)",
+          price:'114,80 €', priceUnit:'0,057 €/Unidad' },
+        { href:'#', img:'img/product/GDP_101.01_C.jpg', alt:'',
+          code:'Ref: 221.84', name:"Mantelines Offset 'Brindis' 70 G/M2 31×43 cm Cuatricromía Celulosa (2000 unid.)",
+          price:'114,80 €', priceUnit:'0,057 €/Unidad' },
+        { href:'#', img:'img/product/GDP_101.01_C.jpg', alt:'',
+          code:'Ref: 217.49', name:"Mantelines Offset 'Buenos Días Mediterráneo' 70 G/M2 31×43 cm Cuatricromía Celulosa (2000 unid.)",
+          price:'114,80 €', priceUnit:'0,057 €/Unidad' },
+        { href:'#', img:'img/product/GDP_101.01_C.jpg', alt:'',
+          code:'Ref: 114.27', name:"Mantelines Offset 'España' 70 G/M2 31×43 cm Cuatricromía Celulosa (2000 unid.)",
+          price:'114,80 €', priceUnit:'0,057 €/Unidad' },
+        { href:'#', img:'img/product/GDP_101.01_C.jpg', alt:'',
+          code:'Ref: 205.33', name:"Mantelines Offset 'Starfish' 70 G/M2 31×43 cm Cuatricromía Celulosa (2000 unid.)",
+          price:'114,80 €', priceUnit:'0,057 €/Unidad' },
+        { href:'#', img:'img/product/GDP_101.01_C.jpg', alt:'',
+          code:'Ref: 219.11', name:"Mantelines Offset 'Flores de Provenza' 70 G/M2 31×43 cm Cuatricromía Celulosa (2000 unid.)",
+          price:'114,80 €', priceUnit:'0,057 €/Unidad' },
+        { href:'#', img:'img/product/GDP_101.01_C.jpg', alt:'',
+          code:'Ref: 208.44', name:"Mantelines Offset 'Otoño' 70 G/M2 31×43 cm Cuatricromía Celulosa (2000 unid.)",
+          price:'114,80 €', priceUnit:'0,057 €/Unidad' }
+      ];
+      document.querySelector('#variantsSwiper .swiper-wrapper').innerHTML = variantsData.map(gdpVariantCard).join('');
+
+      const sizesData = [
+        { href:'#', img:'img/product/GDP_101.01_C.jpg', alt:'',
+          code:'Ref: 217.40', name:'Mantelines Offset Natural 70 G/M2 30×40 cm Cuatricromía Celulosa (2000 unid.)',
+          price:'98,50 €', priceUnit:'0,049 €/Unidad' },
+        { href:'#', img:'img/product/GDP_101.01_C.jpg', alt:'',
+          code:'Ref: 217.41', name:'Mantelines Offset Natural 70 G/M2 31×43 cm Cuatricromía Celulosa (2000 unid.)',
+          price:'114,80 €', priceUnit:'0,057 €/Unidad' },
+        { href:'#', img:'img/product/GDP_101.01_C.jpg', alt:'',
+          code:'Ref: 217.42', name:'Mantelines Offset Natural 70 G/M2 37×50 cm Cuatricromía Celulosa (2000 unid.)',
+          price:'134,20 €', priceUnit:'0,067 €/Unidad' },
+        { href:'#', img:'img/product/GDP_101.01_C.jpg', alt:'',
+          code:'Ref: 217.43', name:'Mantelines Offset Natural 70 G/M2 40×60 cm Cuatricromía Celulosa (2000 unid.)',
+          price:'152,60 €', priceUnit:'0,076 €/Unidad' },
+        { href:'#', img:'img/product/GDP_101.01_C.jpg', alt:'',
+          code:'Ref: 217.44', name:'Mantelines Offset Natural 70 G/M2 50×70 cm Cuatricromía Celulosa (2000 unid.)',
+          price:'189,90 €', priceUnit:'0,095 €/Unidad' },
+        { href:'#', img:'img/product/GDP_101.01_C.jpg', alt:'',
+          code:'Ref: 217.45', name:'Mantelines Offset Natural 70 G/M2 60×80 cm Cuatricromía Celulosa (2000 unid.)',
+          price:'224,40 €', priceUnit:'0,112 €/Unidad' },
+        { href:'#', img:'img/product/GDP_101.01_C.jpg', alt:'',
+          code:'Ref: 217.46', name:'Mantelines Offset Natural 70 G/M2 70×100 cm Cuatricromía Celulosa (2000 unid.)',
+          price:'278,00 €', priceUnit:'0,139 €/Unidad' },
+        { href:'#', img:'img/product/GDP_101.01_C.jpg', alt:'',
+          code:'Ref: 217.47', name:'Mantelines Offset Natural 70 G/M2 80×120 cm Cuatricromía Celulosa (2000 unid.)',
+          price:'334,60 €', priceUnit:'0,167 €/Unidad' }
+      ];
+      document.querySelector('#sizesSwiper .swiper-wrapper').innerHTML = sizesData.map(gdpVariantCard).join('');
+    })();
+
     /* ── Header scroll ── */
     (function() {
       const header = document.getElementById('header');

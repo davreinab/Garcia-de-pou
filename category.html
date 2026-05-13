@@ -580,7 +580,7 @@
           </div>
 
           <!-- ── Grid 1 ── -->
-          <div class="cat-grid">
+          <div id="catGrid1" class="cat-grid">
 
             <a href="product.html" class="offer-card">
               <div class="offer-card-img">
@@ -784,7 +784,7 @@
           </div><!-- /cat-highlight -->
 
           <!-- ── Grid 2 ── -->
-          <div class="cat-grid">
+          <div id="catGrid2" class="cat-grid">
 
             <a href="product.html" class="offer-card">
               <div class="offer-card-img">
@@ -1075,7 +1075,80 @@
   ════════════════════════════════════════ -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="components.js"></script>
+
   <script>
+    /* ── DATA: render cat grids ── */
+    (function() {
+      const catGrid1Data = [
+        { href:'product.html', img:'img/product/GDP_101.01_C.jpg', alt:'Bandeja Kraft con Asas 28x19 cm',
+          badge:{type:'new',text:'NEW'}, code:'REF: 254.10',
+          name:'Bandeja Kraft con Asas 28×19 cm',
+          stars:4, ratingCount:24, price:'5,63€', priceOld:null,
+          packQty:'100 uds', packUnit:'0,06€', packUnitLabel:'/ud' },
+        { href:'product.html', img:'img/product/GDP_106.30_C.jpg', alt:'Bandeja Kraft con Asas 38x24 cm',
+          badge:{type:'new',text:'NEW'}, code:'REF: 254.11',
+          name:'Bandeja Kraft con Asas 38×24 cm',
+          stars:5, ratingCount:18, price:'8,90€', priceOld:null,
+          packQty:'100 uds', packUnit:'0,09€', packUnitLabel:'/ud' },
+        { href:'product.html', img:'img/product/GDP_107.49-P2.jpg', alt:'Bandeja Doble Cara 30x22 Blanco',
+          badge:null, code:'REF: 221.52',
+          name:'Bandeja Doble Cara 30×22 cm Blanco',
+          stars:4, ratingCount:31, price:'6,42€', priceOld:null,
+          packQty:'50 uds', packUnit:'0,13€', packUnitLabel:'/ud' },
+        { href:'product.html', img:'img/product/GDP_110.75_CPack2.jpg', alt:'Caja para Catering con Tapa 36x26',
+          badge:{type:'discount',text:'−15%'}, code:'REF: 232.40',
+          name:'Caja para Catering con Tapa 36×26 cm',
+          stars:4, ratingCount:12, price:'7,20€', priceOld:'8,47€',
+          packQty:'25 uds', packUnit:'0,29€', packUnitLabel:'/ud' },
+        { href:'product.html', img:'img/product/GDP_129.35_C.jpg', alt:'Bandeja Kraft Rectangular 40x30 cm',
+          badge:null, code:'REF: 220.88',
+          name:'Bandeja Kraft Rectangular 40×30 cm',
+          stars:5, ratingCount:8, price:'9,15€', priceOld:null,
+          packQty:'50 uds', packUnit:'0,18€', packUnitLabel:'/ud' },
+        { href:'product.html', img:'img/product/GDP_143.99.jpg', alt:'Caja para Catering Kraft 42x32 cm',
+          badge:{type:'discount',text:'−20%'}, code:'REF: 232.55',
+          name:'Caja para Catering Kraft 42×32 cm',
+          stars:4, ratingCount:22, price:'11,04€', priceOld:'13,80€',
+          packQty:'20 uds', packUnit:'0,55€', packUnitLabel:'/ud' },
+        { href:'product.html', img:'img/product/GDP_169.44_CProducte.jpg', alt:'Bandeja Redonda de Lujo Ø32 cm',
+          badge:null, code:'REF: 270.01',
+          name:'Bandeja Redonda de Lujo Ø32 cm',
+          stars:4, ratingCount:7, price:'13,81€', priceOld:null,
+          packQty:'50 uds', packUnit:'0,28€', packUnitLabel:'/ud' },
+        { href:'product.html', img:'img/product/GDP_213.99_CMpack.jpg', alt:'Bandeja con Asas Oro Negro 38x24 cm',
+          badge:null, code:'REF: 254.72',
+          name:'Bandeja con Asas Oro/Negro 38×24 cm',
+          stars:4, ratingCount:15, price:'14,50€', priceOld:null,
+          packQty:'50 uds', packUnit:'0,29€', packUnitLabel:'/ud' }
+      ];
+      document.getElementById('catGrid1').innerHTML = catGrid1Data.map(gdpProductCard).join('');
+
+      const catGrid2Data = [
+        { href:'product.html', img:'img/product/GDP_251.97_CM.jpg', alt:'Caja para Bandejas 36x26 cm',
+          badge:null, code:'REF: 232.60',
+          name:'Caja para Bandejas de Catering 36×26 cm',
+          stars:5, ratingCount:19, price:'6,95€', priceOld:null,
+          packQty:'25 uds', packUnit:'0,28€', packUnitLabel:'/ud' },
+        { href:'product.html', img:'img/product/GDP_254.53+54_CPack.jpg', alt:'Bandeja con Asas Negro Oro 28x19 cm',
+          badge:{type:'discount',text:'−10%'}, code:'REF: 254.53',
+          name:'Bandeja con Asas Negro/Oro 28×19 cm',
+          stars:4, ratingCount:43, price:'5,95€', priceOld:'6,61€',
+          packQty:'100 uds', packUnit:'0,06€', packUnitLabel:'/ud' },
+        { href:'product.html', img:'img/product/GDP_101.01_C.jpg', alt:'Bandeja Kraft con Asas 44x32 cm',
+          badge:null, code:'REF: 254.15',
+          name:'Bandeja Kraft con Asas 44×32 cm',
+          stars:4, ratingCount:6, price:'12,30€', priceOld:null,
+          packQty:'25 uds', packUnit:'0,49€', packUnitLabel:'/ud' },
+        { href:'product.html', img:'img/product/GDP_106.30_C.jpg', alt:'Caja para Bandejas de Catering 42x30 cm',
+          badge:null, code:'REF: 232.70',
+          name:'Caja para Bandejas de Catering 42×30 cm',
+          stars:5, ratingCount:11, price:'18,90€', priceOld:null,
+          packQty:'20 uds', packUnit:'0,95€', packUnitLabel:'/ud' }
+      ];
+      document.getElementById('catGrid2').innerHTML = catGrid2Data.map(gdpProductCard).join('');
+    })();
+
     /* ── Header scroll ── */
     (function() {
       const header = document.getElementById('header');

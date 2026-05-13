@@ -5,7 +5,7 @@ Sitio web corporativo de **García de Pou**, suministros para hostelería y rest
 ## Stack
 
 - HTML5 + CSS puro (sin preprocesadores, sin build)
-- JS vanilla en `<script>` inline al final del `index.html`
+- JS vanilla: `components.js` (funciones de render compartidas) + `<script>` inline al final de cada página
 - Dependencias externas vía CDN:
   - **DM Sans** + **Caveat** (Google Fonts)
   - **Swiper 11** (slider hero + slider "Artículos destacados")
@@ -16,6 +16,8 @@ Sitio web corporativo de **García de Pou**, suministros para hostelería y rest
 ```
 index.html          # home completa — una sola página
 category.html       # página de listado de productos (PLP)
+product.html        # página de detalle de producto (PDP)
+components.js       # funciones de render de cards (gdpOfferCard, gdpProductCard, gdpVariantCard)
 styles.css          # todos los estilos, organizados por sección con comentarios ═══
 img/
   ambient/          # fotos de ambiente (hostelería, packaging…)
@@ -62,7 +64,10 @@ Todos los espacios, gaps y paddings deben ser **múltiplos de 8** (8, 16, 24, 32
   - **Color**: `.btn-blue` (primario, fondo azul) · `.btn-outline-blue` (ghost)
   - **Tamaño**: `.btn-sm` (h 32px) · *(default)* (h 44px) · `.btn-lg` (h 56px)
   - Uso: `<a class="btn btn-blue btn-lg">`. En banners y hero: siempre `btn-lg`. En sección-headers "Ver todos": tamaño default.
-- `.offer-card` — card de producto (imagen cuadrada + body con pricing + qty + añadir). **Sin borde** (eliminado).
+- `.offer-card` — card de producto. Tres layouts según contexto:
+  - **Vertical** (`.offer-card-body`) — usado en `.products-grid` y `.cat-grid`. Imagen cuadrada arriba + body con código, nombre, rating, precio, pack, acciones.
+  - **3 columnas** (`.offer-card-info` + `.offer-card-commerce`) — usado en `.offers-grid`. Imagen | info (código+nombre+pack+rating) | comercio (precio+acciones apiladas). Altura fija 192px.
+  - **Variante PDP** (`.offer-card--variant`) — simplificado para sliders de "Otros colores/tamaños". Sin acciones, solo imagen + código + nombre + precio + precio/unidad.
 - `.cat-item` — item de lista de categorías con thumbnail que se revela en hover
 - `.sector-card` — card de sector profesional
 - `.look-item` — card editorial con overlay de gradiente
@@ -82,7 +87,7 @@ Todos los espacios, gaps y paddings deben ser **múltiplos de 8** (8, 16, 24, 32
 4. **Strip** — marquee azul con categorías
 5. **Taglines** — par de frases destacadas centradas
 6. **Promo looks** — grid editorial de 5 piezas
-7. **Offers** — slider Swiper de artículos destacados (`.offer-card`)
+7. **Offers** — grid CSS 2 columnas (`.offers-grid`) de artículos destacados con layout 3-col interno (`.offer-card`)
 8. **Collections** — marquee infinito de logos de marcas
 9. **Categories** — lista tipográfica con numeración 01–12 y thumbnails revelables
 10. **Sectors** — grid 4×4 de sectores profesionales
@@ -91,6 +96,56 @@ Todos los espacios, gaps y paddings deben ser **múltiplos de 8** (8, 16, 24, 32
 13. **Portadas banner** ⭐ — banner "Un artista en cada portada" (ver detalle abajo)
 14. **Looks** — grid editorial 2×2
 15. **Trust** — "Generando confianza desde 1884" con 5 pilares
+
+## Sistema de render de cards (`components.js`)
+
+Las cards de producto se generan por JavaScript para que cualquier cambio de estructura HTML se aplique a todos los contextos desde un único fichero.
+
+### Funciones exportadas
+
+| Función | Layout | Usado en |
+|---|---|---|
+| `gdpOfferCard(d)` | 3 columnas (imagen \| info \| comercio) | `#offersGrid` en `index.html` |
+| `gdpProductCard(d)` | Vertical estándar | `#productsGrid` (index), `#catGrid1`, `#catGrid2` (category) |
+| `gdpVariantCard(d)` | Simplificado, envuelto en `swiper-slide` | `#variantsSwiper`, `#sizesSwiper` en `product.html` |
+
+### Cómo modificar datos de producto
+
+Cada página tiene un IIFE al inicio de su `<script>` inline con los arrays de datos:
+- `offersData` / `bestsellersData` → `index.html`
+- `catGrid1Data` / `catGrid2Data` → `category.html`
+- `variantsData` / `sizesData` → `product.html`
+
+Para cambiar texto, precio o badge de una card: editar el objeto en el array correspondiente.
+Para cambiar la estructura HTML de todas las cards de un tipo: editar la función en `components.js`.
+
+### Estructura del objeto de datos
+
+```js
+// gdpOfferCard y gdpProductCard comparten estos campos:
+{
+  href, img, alt,
+  badge: { type: 'discount'|'new', text: '−25%'|'Nuevo' } | null,
+  code, name,
+  stars,        // 1–5
+  ratingCount,
+  price, priceOld,   // priceOld: null si no hay precio tachado
+  packQty, packUnit, packUnitLabel   // ej. '50 uds', '0,18 €', '/unidad'
+}
+
+// gdpVariantCard:
+{ href, img, alt, code, name, price, priceUnit }
+```
+
+### Tokens de altura de controles
+
+```css
+--ctrl-h-sm: 32px;
+--ctrl-h:    40px;   /* qty-selector + btn-add-cart — siempre iguales */
+--ctrl-h-lg: 48px;
+```
+
+---
 
 ## Hero — slider Swiper (sección `#hero`)
 

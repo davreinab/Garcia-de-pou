@@ -770,7 +770,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ═══════════════════════════════════════════
    CATEGORIES — píldoras con thumbnail
 ═══════════════════════════════════════════ */
-.categories { padding: 96px 0; background: var(--white); }
+.categories { padding: 96px 0; background: var(--white); border-top: 1px solid var(--g100); }
 .cat-header {
   display: flex;
   align-items: flex-end;
@@ -1116,7 +1116,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 ═══════════════════════════════════════════ */
 .collections {
   padding: 64px 0;
-  border-top: 1px solid var(--g100);
   overflow: hidden;
 }
 .collections-header {
@@ -1153,10 +1152,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   height: 48px;
   width: auto;
   display: block;
-  filter: grayscale(100%) opacity(.45);
+  filter: opacity(.8);
   transition: filter .3s;
 }
-.collection-item:hover img { filter: grayscale(0%) opacity(1); }
+.collection-item:hover img { filter: opacity(1); }
 
 /* ═══════════════════════════════════════════
    SECTORES — profesionales
