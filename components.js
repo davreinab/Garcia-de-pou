@@ -13,8 +13,8 @@ function _gdpStars(n) {
 }
 function _gdpBadge(b) {
   if (!b) return '';
-  const c = b.type === 'discount' ? 'offer-badge offer-badge--discount' : 'offer-badge offer-badge--new';
-  return `<span class="${c}">${b.text}</span>`;
+  if (b.type === 'new') return `<span class="offer-badge offer-badge--new"><img src="img/is-new.webp" alt="Nuevo" loading="lazy"></span>`;
+  return `<span class="offer-badge offer-badge--discount">${b.text}</span>`;
 }
 function _gdpActions() {
   return `<div class="qty-selector"><button class="qty-btn" onclick="adjustQty(this,-1)">−</button><input type="number" class="qty-input" value="1" min="1"><button class="qty-btn" onclick="adjustQty(this,1)">+</button></div><button class="btn-add-cart">${_CI} Añadir</button>`;
@@ -31,7 +31,7 @@ function gdpOfferCard(d) {
   return `<a href="${d.href}" class="offer-card">
   <div class="offer-card-img">${_gdpBadge(d.badge)}<img src="${d.img}" alt="${d.alt}" loading="lazy">${d.brand ? `<span class="offer-brand-wrap"><img src="${d.brand}" alt="" class="offer-brand-logo" aria-hidden="true"></span>` : ''}</div>
   <div class="offer-card-info">
-    <span class="offer-code">${d.code}</span>
+    <span class="offer-code${d.dot ? ' offer-code--dot' : ''}">${d.code}</span>
     <p class="offer-name">${d.name}</p>
     <div class="offer-pack">
       <span class="offer-pack-label"><strong>Paquete:</strong></span>
@@ -58,7 +58,7 @@ function gdpProductCard(d) {
   return `<a href="${d.href}" class="offer-card">
   <div class="offer-card-img">${_gdpBadge(d.badge)}<img src="${d.img}" alt="${d.alt}" loading="lazy">${d.brand ? `<span class="offer-brand-wrap"><img src="${d.brand}" alt="" class="offer-brand-logo" aria-hidden="true"></span>` : ''}</div>
   <div class="offer-card-body">
-    <span class="offer-code">${d.code}</span>
+    <span class="offer-code${d.dot ? ' offer-code--dot' : ''}">${d.code}</span>
     <p class="offer-name">${d.name}</p>
     <div class="offer-rating">
       <span class="offer-rating-stars">${_gdpStars(d.stars)}</span>
@@ -82,7 +82,7 @@ function gdpVariantCard(d) {
   return `<div class="swiper-slide"><a href="${d.href}" class="offer-card offer-card--variant">
   <div class="offer-card-img"><img src="${d.img}" alt="${d.alt}" loading="lazy"></div>
   <div class="offer-card-body">
-    <span class="offer-code">${d.code}</span>
+    <span class="offer-code${d.dot ? ' offer-code--dot' : ''}">${d.code}</span>
     <p class="offer-name">${d.name}</p>
     <div class="offer-pricing"><span class="offer-price">${d.price}</span></div>
     <span class="offer-price-unit">${d.priceUnit}</span>
@@ -94,7 +94,7 @@ function gdpVariantCard(d) {
 
 // Sector card — for .sectors-grid
 function gdpSectorCard(d) {
-  return `<a href="${d.href||'#'}" class="sector-card">
+  return `<a href="${d.href||'category.html'}" class="sector-card">
   <div class="sector-card-img">
     <img src="${d.img}" alt="${d.name}" loading="lazy">
     <div class="sector-card-overlay"><span>Ver productos</span></div>
@@ -105,13 +105,13 @@ function gdpSectorCard(d) {
 
 // Look item — for .promo-looks-grid
 function gdpLookItem(d) {
-  return `<div class="look-item">
+  return `<a href="${d.href||'category.html'}" class="look-item">
   <img src="${d.img}" alt="" loading="lazy">
   <div class="look-overlay">
     <p class="look-title">${d.title}</p>
     <p class="look-count">${d.count} productos seleccionados</p>
   </div>
-</div>`;
+</a>`;
 }
 
 // Category pill — for .cat-pills-grid
@@ -313,7 +313,7 @@ function gdpHeader(opts) {
       </nav>
       <p class="drawer-label">Destacados</p>
       <nav class="drawer-nav drawer-nav-sm" aria-label="Secciones especiales">
-        <a href="#"><span class="drawer-badge">NEW</span> Novedades</a>
+        <a href="#"><img src="img/is-new.webp" alt="Nuevo" class="drawer-badge-new"> Novedades</a>
         <a href="#">Cotillón</a><a href="#">Outlet</a><a href="#">Personalizados</a>
         <a href="#">Looks</a><a href="#">Blog</a><a href="#">Catálogos</a><a href="#">Compra rápida</a>
       </nav>
