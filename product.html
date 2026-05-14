@@ -37,6 +37,11 @@
   <div id="gdpHeader"></div>
 
   <!-- ════════════════════════════════════════
+       BREADCRUMB STRIP (mobile only — rendered by JS)
+  ════════════════════════════════════════ -->
+  <div id="gdpBreadcrumb"></div>
+
+  <!-- ════════════════════════════════════════
        PDP — parte superior (galería + ficha)
   ════════════════════════════════════════ -->
   <main class="pdp-main">
@@ -184,7 +189,7 @@
               </div>
             </div>
 
-            <div class="pdp-actions">
+            <div class="pdp-actions" id="pdpActions">
               <div class="qty-selector">
                 <button class="qty-btn" onclick="adjustQty(this,-1)">−</button>
                 <input type="number" class="qty-input" value="1" min="1">
@@ -783,6 +788,27 @@
   <!-- ════════════════════════════════════════
        SCRIPTS
   ════════════════════════════════════════ -->
+  <!-- PDP sticky add-to-cart bar -->
+  <div class="pdp-sticky-bar" id="pdpStickyBar" aria-hidden="true">
+    <div class="wrap pdp-sticky-inner">
+      <div class="pdp-sticky-product">
+        <img src="img/product/GDP_101.01_C.jpg" alt="" class="pdp-sticky-thumb" aria-hidden="true">
+        <span class="pdp-sticky-name">Tapas sin ventana para cajas 254.72 Thepack 22×15×2 cm Natural Cartón Nano-Micro (50 unid.)</span>
+      </div>
+      <div class="pdp-sticky-actions">
+        <div class="qty-selector">
+          <button class="qty-btn" onclick="adjustQty(this,-1)">−</button>
+          <input type="number" class="qty-input pdp-sticky-qty" value="1" min="1">
+          <button class="qty-btn" onclick="adjustQty(this,1)">+</button>
+        </div>
+        <a href="#" class="btn btn-blue">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="1.8"/><path d="M16 10a4 4 0 01-8 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          Añadir
+        </a>
+      </div>
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="components.js"></script>
@@ -790,6 +816,11 @@
   <script>
     gdpMountHeader({activeCat: 'Un Solo Uso'});
     gdpMountFooter();
+    gdpMountBreadcrumb([
+      { href: '#', label: 'Un Solo Uso' },
+      { href: 'category.html', label: 'Bandejas para catering y cajas' },
+      { label: 'Cajas para catering' }
+    ]);
 
     /* ── DATA: render variant swipers ── */
     (function() {
@@ -1036,6 +1067,31 @@
         if (optLabel && label) optLabel.textContent = label;
       });
     });
+
+    // Sticky add-to-cart bar: show when main CTA scrolls out of view
+    (function () {
+      const actions = document.getElementById('pdpActions');
+      const bar = document.getElementById('pdpStickyBar');
+      const stickyQty = bar.querySelector('.pdp-sticky-qty');
+      if (!actions || !bar) return;
+
+      let hasBeenVisible = false;
+      const obs = new IntersectionObserver(function (entries) {
+        const visible = entries[0].isIntersecting;
+        if (visible) hasBeenVisible = true;
+        if (!hasBeenVisible) return;
+        bar.classList.toggle('is-visible', !visible);
+        bar.setAttribute('aria-hidden', visible ? 'true' : 'false');
+      }, { threshold: 0 });
+      obs.observe(actions);
+
+      // keep sticky qty in sync with main qty
+      const mainQty = actions.querySelector('.qty-input');
+      if (mainQty && stickyQty) {
+        mainQty.addEventListener('input', function () { stickyQty.value = this.value; });
+        stickyQty.addEventListener('input', function () { mainQty.value = this.value; });
+      }
+    })();
   </script>
 </body>
 </html>

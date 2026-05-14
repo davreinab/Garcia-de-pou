@@ -391,3 +391,25 @@ function gdpMountFooter() {
   if (!m) return;
   m.outerHTML = gdpFooter();
 }
+
+// ── Breadcrumb strip (mobile only) ─────────────────────────────────────────
+// items: [{ href, label }, ...] — last item without href = current page
+// House icon is always rendered as the sticky-left first element.
+const _BC_HOUSE = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>';
+function gdpBreadcrumb(items) {
+  const scrollItems = items.map(item => {
+    const el = item.href
+      ? `<a href="${item.href}" class="cat-bc-item">${item.label}</a>`
+      : `<span class="cat-bc-item cat-bc-current">${item.label}</span>`;
+    return `<span class="cat-bc-sep" aria-hidden="true">/</span>${el}`;
+  }).join('');
+  return `<nav class="cat-bc-strip" aria-label="Ruta de navegación">
+  <a href="index.html" class="cat-bc-home" aria-label="Inicio">${_BC_HOUSE}</a>
+  <div class="cat-bc-scroll">${scrollItems}</div>
+</nav>`;
+}
+function gdpMountBreadcrumb(items) {
+  const m = document.getElementById('gdpBreadcrumb');
+  if (!m) return;
+  m.outerHTML = gdpBreadcrumb(items);
+}
