@@ -3294,7 +3294,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ── Gallery (left) ── */
 .pdp-gallery {
   display: grid;
-  grid-template-columns: 88px 1fr;
+  grid-template-columns: 44px 1fr;
   gap: var(--sp-16);
   position: sticky;
   top: 80px;
@@ -3305,8 +3305,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   gap: var(--sp-8);
 }
 .pdp-thumb {
-  width: 88px;
-  height: 88px;
+  width: 44px;
+  height: 44px;
   background: var(--g50);
   border: 1.5px solid var(--g100);
   padding: 6px;
@@ -3348,9 +3348,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   color: var(--white);
 }
 
-.pdp-main-img {
+.pdp-main-wrap {
   grid-column: 2;
-  grid-row: 1; /* explícito para que .pdp-img-nav pueda solaparse en la misma celda */
+  grid-row: 1;
+  position: relative; /* contiene las flechas en absoluto */
+}
+.pdp-main-img {
   aspect-ratio: 1;
   background: var(--g50);
   position: relative;
@@ -3382,19 +3385,15 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .pdp-img-btn:hover { background: var(--blue); color: var(--white); }
 .pdp-img-btn--save { top: 16px; right: 16px; }
 .pdp-img-nav {
-  grid-column: 2;
-  grid-row: 1;
-  align-self: end;
-  justify-self: start;
+  position: absolute;
+  bottom: var(--sp-16);
+  left: var(--sp-16);
   z-index: 2;
   display: flex;
   gap: var(--sp-8);
-  padding: 0 0 var(--sp-16) var(--sp-16);
-  pointer-events: none;
 }
 .pdp-img-nav .pdp-img-btn {
-  position: static; /* override base position:absolute — here flex handles layout */
-  pointer-events: all;
+  position: static; /* override base position:absolute — inside flex container */
 }
 
 /* ── Info (right) ── */
@@ -3604,8 +3603,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ── PDP Responsive ── */
 @media (max-width: 1100px) {
   .pdp-layout { gap: var(--sp-40); }
-  .pdp-gallery { grid-template-columns: 72px 1fr; }
-  .pdp-thumb { width: 72px; height: 72px; }
+  .pdp-gallery { grid-template-columns: 44px 1fr; }
 }
 @media (max-width: 900px) {
   .pdp-layout { grid-template-columns: 1fr; gap: var(--sp-32); }
@@ -3636,7 +3634,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     min-width: 0;
   }
   .pdp-thumbs::-webkit-scrollbar { display: none; }
-  .pdp-thumb { width: 72px; min-width: 72px; height: 72px; flex-shrink: 0; }
+  .pdp-thumb { width: 44px; min-width: 44px; height: 44px; flex-shrink: 0; }
 }
 @media (max-width: 600px) {
   .pdp-shipping { flex-direction: column; align-items: flex-start; gap: var(--sp-12); }

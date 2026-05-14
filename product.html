@@ -78,24 +78,22 @@
             </div>
           </div>
 
-          <!-- Imagen principal -->
-          <div class="pdp-main-img">
-            <img src="img/product/GDP_101.01_C.jpg" alt="Bandeja Kraft con Asas 44×32 cm" id="pdpMainImg">
-
-            <!-- Botón guardar -->
-            <button class="pdp-img-btn pdp-img-btn--save" aria-label="Guardar en favoritos">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
-            </button>
-          </div>
-
-          <!-- Flechas de navegación — fuera de pdp-main-img para no quedar recortadas por overflow:hidden -->
-          <div class="pdp-img-nav">
-            <button class="pdp-img-btn" aria-label="Imagen anterior">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <button class="pdp-img-btn" aria-label="Imagen siguiente">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
+          <!-- Imagen principal + flechas en wrapper con position:relative -->
+          <div class="pdp-main-wrap">
+            <div class="pdp-main-img">
+              <img src="img/product/GDP_101.01_C.jpg" alt="Bandeja Kraft con Asas 44×32 cm" id="pdpMainImg">
+              <button class="pdp-img-btn pdp-img-btn--save" aria-label="Guardar en favoritos">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+            <div class="pdp-img-nav">
+              <button class="pdp-img-btn" aria-label="Imagen anterior">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <button class="pdp-img-btn" aria-label="Imagen siguiente">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
           </div>
 
         </div><!-- /pdp-gallery -->
