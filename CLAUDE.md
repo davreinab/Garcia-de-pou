@@ -23,6 +23,7 @@ img/
   ambient/          # fotos de ambiente (hostelería, packaging…)
   product/          # imágenes de producto
   logos/            # 33 logos de colecciones propias GDP (PNG 6133×1409px)
+  thepack.svg       # logo de marca The Pack — usado en cards con campo brand
   catalog/          # portada catálogo antigua (no usar)
   catalogo/         # assets del catálogo activos
     hero-01.png     # imagen hero slide catálogo
@@ -76,7 +77,7 @@ No hay framework, no hay router, no hay bundler. Mantenerlo así.
 
 Excepciones aceptadas: valores de 1–6px para micro-separaciones en iconografía (líneas del hamburger, gaps de marca tipográfica). Deben estar comentados con el motivo.
 
-**Gap estándar de grids: `var(--sp-16)`** — `.products-grid`, `.sectors-grid`, `.looks-grid`, `.promo-looks-grid`, Swiper `spaceBetween`. No mezclar con otros valores.
+**Gap estándar de grids: `var(--sp-16)`** — `.sectors-grid`, `.looks-grid`, `.promo-looks-grid`, Swiper `spaceBetween`. No mezclar con otros valores.
 
 **Si se necesita un valor que no esté en la escala** (p.ej. 28px, 56px), primero verificar si puede redondearse al múltiplo de 8 más cercano. Si es un valor recurrente y justificado, añadir el token a `:root` antes de usarlo.
 
@@ -86,10 +87,9 @@ Excepciones aceptadas: valores de 1–6px para micro-separaciones en iconografí
   - **Tamaño**: `.btn-sm` (h 32px) · *(default)* (h 44px) · `.btn-lg` (h 56px)
   - Uso: `<a class="btn btn-blue btn-lg">`. En banners y hero: siempre `btn-lg`. En sección-headers "Ver todos": tamaño default.
 - `.offer-card` — card de producto. Tres layouts según contexto:
-  - **Vertical** (`.offer-card-body`) — usado en `.products-grid` y `.cat-grid`. Imagen cuadrada arriba + body con código, nombre, rating, precio, pack, acciones.
-  - **3 columnas** (`.offer-card-info` + `.offer-card-commerce`) — usado en `.offers-grid`. Imagen | info (código+nombre+pack+rating+precio) | comercio (acciones). En mobile: imagen cuadrada 120×120px + info a la derecha + commerce full-width debajo.
+  - **Vertical** (`.offer-card-body`) — usado en `.cat-grid`. Imagen cuadrada arriba + body con código, nombre, precio, pack, acciones + enlace personalizable.
+  - **Lista** (`.cat-grid--list`) — modifier que convierte el grid en lista horizontal. Imagen 156px | contenido (grid 2 col: info + acciones). Usado en `#offersGrid` (2 col) y en `category.html` cuando el usuario activa la vista lista.
   - **Variante PDP** (`.offer-card--variant`) — simplificado para sliders de "Otros colores/tamaños". Sin acciones, solo imagen + código + nombre + precio + precio/unidad.
-- **`#productsGrid` en home (Más vendidos)** usa `gdpOfferCard` + `offers-grid` (no `gdpProductCard`). El layout 3-col se aplica igual que artículos destacados.
 - `.cat-item` — item de lista de categorías con thumbnail que se revela en hover
 - `.sector-card` — card de sector profesional
 - `.look-item` — card editorial con overlay de gradiente
@@ -101,6 +101,8 @@ Excepciones aceptadas: valores de 1–6px para micro-separaciones en iconografí
 - Hover en cards: `box-shadow: 0 4px 24px rgba(0,0,0,.07)` + `transform: scale(1.05)` en la imagen con `transition: transform .6s cubic-bezier(.16,1,.3,1)`
 - Reveals on-scroll vía `data-reveal` + `data-delay` (IntersectionObserver)
 
+---
+
 ## Secciones del home (orden actual)
 
 1. **Announcement bar** — marquee azul con claims (envío gratis, +10.000 referencias…)
@@ -109,15 +111,17 @@ Excepciones aceptadas: valores de 1–6px para micro-separaciones en iconografí
 4. **Strip** — marquee azul con categorías
 5. **Taglines** — par de frases destacadas centradas
 6. **Promo looks** — grid editorial de 5 piezas
-7. **Offers** — grid CSS 2 columnas (`.offers-grid`) de artículos destacados con layout 3-col interno (`.offer-card`)
+7. **Offers** (`#offersGrid`) — `offers-grid cat-grid--list`, 2 columnas, vista lista, `gdpProductCard`
 8. **Collections** — marquee infinito de logos de marcas
 9. **Categories** — lista tipográfica con numeración 01–12 y thumbnails revelables
 10. **Sectors** — grid 4×4 de sectores profesionales
-11. **Bestsellers** — grid 4 columnas de `.offer-card`
+11. **Bestsellers** (`#productsGrid`) — `cat-grid`, 4 columnas, vista vertical, `gdpProductCard`
 12. **Custom** ⭐ — banner "Diseños personalizados" (ver detalle abajo)
 13. **Portadas banner** ⭐ — banner "Un artista en cada portada" (ver detalle abajo)
 14. **Looks** — grid editorial 2×2
 15. **Trust** — "Generando confianza desde 1884" con 5 pilares
+
+---
 
 ## Sistema de render de cards (`components.js`)
 
@@ -127,8 +131,8 @@ Las cards de producto se generan por JavaScript para que cualquier cambio de est
 
 | Función | Layout | Usado en |
 |---|---|---|
-| `gdpOfferCard(d)` | 3 columnas (imagen \| info \| comercio) | `#offersGrid` en `index.html` |
-| `gdpProductCard(d)` | Vertical estándar | `#productsGrid` (index), `#catGrid1`, `#catGrid2` (category) |
+| `gdpOfferCard(d)` | 3 columnas (imagen \| info \| comercio) — **no se usa actualmente** | — |
+| `gdpProductCard(d)` | Vertical (`.cat-grid`) o lista (`.cat-grid--list`) | `#offersGrid`, `#productsGrid` (index); `#catGrid1`, `#catGrid2` (category) |
 | `gdpVariantCard(d)` | Simplificado, envuelto en `swiper-slide` | `#variantsSwiper`, `#sizesSwiper` en `product.html` |
 
 ### Cómo modificar datos de producto
@@ -144,12 +148,14 @@ Para cambiar la estructura HTML de todas las cards de un tipo: editar la funció
 ### Estructura del objeto de datos
 
 ```js
-// gdpOfferCard y gdpProductCard comparten estos campos:
+// gdpProductCard — campos completos:
 {
   href, img, alt,
   badge: { type: 'discount'|'new', text: '−25%'|'Nuevo' } | null,
+  brand: 'img/thepack.svg' | undefined,   // logo de marca, se muestra sobre la imagen (bottom-left)
+  personalizable: true | undefined,        // si true, muestra enlace "Personalizable" bajo el CTA
   code, name,
-  stars,        // 1–5
+  stars,        // 1–5 (las estrellas están ocultas globalmente con CSS, pero el campo se mantiene)
   ratingCount,
   price, priceOld,   // priceOld: null si no hay precio tachado
   packQty, packUnit, packUnitLabel   // ej. '50 uds', '0,18 €', '/unidad'
@@ -165,6 +171,125 @@ Para cambiar la estructura HTML de todas las cards de un tipo: editar la funció
 --ctrl-h-sm: 32px;
 --ctrl-h:    40px;   /* qty-selector + btn-add-cart — siempre iguales */
 --ctrl-h-lg: 48px;
+```
+
+### `.offer-personalizable` — enlace "Personalizable"
+
+Renderizado dentro de `.offer-actions` como **`<span>`** (nunca `<a>` — el card ya es un `<a>` y anidar anchors rompe el HTML). Siempre presente en el DOM; cuando `personalizable` no está en los datos se renderiza con clase `offer-personalizable--hidden` (`visibility: hidden`) para mantener la altura uniforme en todos los cards verticales de la misma fila.
+
+```js
+// En components.js — se añade al final de offer-actions en gdpProductCard y gdpOfferCard:
+${_gdpPersonalizable(d.personalizable)}
+```
+
+```css
+.offer-personalizable        { flex-basis: 100%; justify-content: center; padding: var(--sp-4) 0; … }
+.offer-personalizable--hidden { visibility: hidden; }
+/* En contextos flex-direction:column (lista, offers-grid): flex-wrap: nowrap en offer-actions */
+```
+
+### Logo de marca en cards (`.offer-brand-wrap`)
+
+Posición: esquina inferior-izquierda de `.offer-card-img`, `position: absolute`.
+
+```js
+// En components.js — dentro de offer-card-img:
+${d.brand ? `<span class="offer-brand-wrap"><img src="${d.brand}" alt="" class="offer-brand-logo" aria-hidden="true"></span>` : ''}
+```
+
+```css
+.offer-brand-wrap  { position: absolute; bottom: var(--sp-8); left: var(--sp-8); background: var(--white); }
+.offer-brand-logo  { display: block; height: 30px; width: unset; }
+```
+
+### Estrellas de valoración — ocultas globalmente
+
+```css
+.offer-rating { display: none; }
+```
+
+Los campos `stars` y `ratingCount` se mantienen en los datos para no perder la información; solo están ocultos visualmente.
+
+---
+
+## Vista lista / grid en categoría (`category.html`)
+
+Toggle `.cat-view-toggle` a la derecha del selector "Ordenar por" — **solo desktop** (oculto en mobile).
+
+```html
+<div class="cat-view-toggle">
+  <button class="cat-view-btn" data-view="grid" aria-label="Vista cuadrícula">…</button>
+  <button class="cat-view-btn is-active" data-view="list" aria-label="Vista lista">…</button>
+</div>
+```
+
+JS inline en `category.html`: al hacer clic, añade/quita `.cat-grid--list` en `#catGrid1` y `#catGrid2`, y marca `is-active` en el botón correspondiente. **La vista grid es la predeterminada.**
+
+### `.cat-grid--list` — layout horizontal
+
+Modifier que se aplica sobre `.cat-grid`. Convierte cada card en fila horizontal:
+
+```
+[imagen 156px] | [info: código, nombre, precio, pack] [acciones: qty + btn + personalizable]
+```
+
+- Imagen: `width: 156px; min-width: 156px; aspect-ratio: 1`
+- Body: `display: grid; grid-template-columns: 1fr 160px`
+- Acciones: `grid-column: 2; grid-row: 1 / -1; align-self: end; flex-direction: column; flex-wrap: nowrap`
+
+**Especificidad:** `.cat-grid.cat-grid--list` (doble clase) para el override de columnas del grid; `.cat-grid--list .offer-card` para los estilos internos de la card.
+
+---
+
+## PDP — sticky add-to-cart bar (`.pdp-sticky-bar`)
+
+Aparece anclada al pie de la pantalla cuando el CTA principal (`#pdpActions`) sale del viewport hacia arriba. **No se muestra al entrar en la página** — solo después de que el CTA haya sido visible al menos una vez (`hasBeenVisible` flag con `IntersectionObserver`).
+
+- **Desktop**: thumbnail producto + nombre + qty selector + botón añadir (alineados a la derecha)
+- **Mobile**: solo qty selector + botón añadir
+- El qty selector de la sticky bar se sincroniza con el del formulario principal mediante un `input` event listener
+- Clase `.is-visible` (añadida/quitada por JS) controla la aparición con `transform: translateY`
+
+---
+
+## PDP — galería de imágenes
+
+### Flechas de navegación (`.pdp-img-nav`)
+
+Las flechas están **fuera** de `.pdp-main-img` (que tiene `overflow: hidden`) como elemento hermano dentro de `.pdp-gallery`. Se posicionan con CSS grid overlay — misma celda que la imagen principal:
+
+```css
+.pdp-img-nav {
+  grid-column: 2;
+  grid-row: 1;          /* superpuesto sobre .pdp-main-img */
+  align-self: end;
+  justify-self: start;
+  padding: 0 0 var(--sp-16) var(--sp-16);
+  pointer-events: none;
+}
+.pdp-img-nav .pdp-img-btn {
+  position: static;     /* override de position:absolute del base */
+  pointer-events: all;
+}
+```
+
+**No usar `position: absolute` con offset en píxels fijos** — al cambiar el ancho de la columna de miniaturas (88px desktop / 72px en 1100px) el offset quedaría desalineado. El enfoque de grid-overlay se adapta automáticamente.
+
+---
+
+## Header — nav centrado
+
+El nav de categorías está centrado en ambos estados (normal y sticky):
+
+```css
+/* Normal */
+.header-cats-inner { justify-content: center; }
+/* El primer ítem lleva border-left para que todos tengan borde a ambos lados */
+.nav-cats .nav-item:first-child .nav-item-link { padding-left: 14px; border-left: 1px solid var(--white-15); }
+
+/* Sticky */
+.header.scrolled .nav-cats { flex: 1; justify-content: center; }
+.header.scrolled .logo-shield { border-right: none; } /* el escudo no tiene borde derecho en sticky */
 ```
 
 ---
@@ -206,8 +331,7 @@ Convertido de split estático a **Swiper 3 slides** con loop y autoplay (6 s).
 - `width: 100%` **NO** se aplica a `.swiper-wrapper` — Swiper lo gestiona por JS con inline style.
 - `.hero-controls` vive dentro de `.swiper.hero-swiper` pero fuera de `.swiper-wrapper` (patrón correcto de Swiper).
 - El parallax GSAP del hero original está **desactivado** (comentado).
-- Las IDs antiguas (`#heroTitle`, `#heroMedia`…) ya no existen; las animaciones CSS de entrada quedaron sin efecto y pueden limpiarse.
-- `html` tiene `overflow-x: clip` (no `hidden`). **`clip` no crea scroll container** → `position: sticky` del header funciona. **No cambiar esto.** Si se quita, la página vuelve a descentralizarse cuando algún elemento desborda horizontalmente.
+- `html` tiene `overflow-x: clip` (no `hidden`). **`clip` no crea scroll container** → `position: sticky` del header funciona. **No cambiar esto.**
 
 ---
 
@@ -243,18 +367,16 @@ Ubicado **entre Bestsellers y Looks**. Banner horizontal que promociona el servi
 
 ### Decisiones de diseño tomadas
 - **Descartado el gradiente multicolor** de la referencia original — no encaja con la sobriedad del resto del site. Se usa el azul corporativo como fondo principal.
-- **Iconografía** en SVG line-art reproduce los iconos de packaging del original (bolsa, vaso, cono, fries, hamburguesa, caja, sobre, etc.) definidos con `<defs>` y colocados con `<use>` en rejilla 4×3.
-- **Mezcla tipográfica** intencional: "DISEÑOS" en DM Sans 900 uppercase (tono del site) + "personalizados" en Caveat (homenaje al script manuscrito del original).
-- **CTA sin animación de desplazamiento** en hover (solo cambio de color blanco → `--blue-80`) — por feedback explícito del usuario ("quitar la animación del hover en el botón porque se mueve todo y molesta").
+- **Iconografía** en SVG line-art reproduce los iconos de packaging del original.
+- **Mezcla tipográfica** intencional: "DISEÑOS" en DM Sans 900 uppercase + "personalizados" en Caveat.
+- **CTA sin animación de desplazamiento** en hover — por feedback explícito ("quitar la animación del hover en el botón porque se mueve todo y molesta").
 - **3 variantes** conmutables vía `data-variant` en `.custom`:
   - `blue` (por defecto) — fondo azul corporativo
   - `yellow` — fondo `--g50` con acentos amarillos, título en azul
-  - `multicolor` — homenaje al gradiente original con paleta controlada (cian → magenta → amarillo, `mix-blend-mode: screen`)
+  - `multicolor` — homenaje al gradiente original
 
 ### Tweaks panel
 En `index.html` hay un panel flotante `#tweaks-panel` que permite alternar en vivo las 3 variantes del banner. El estado se persiste en el bloque JSON entre los marcadores `/*EDITMODE-BEGIN*/ … /*EDITMODE-END*/` al inicio del `<script>`.
-
-Si se edita fuera del editor inline, simplemente cambiar `data-variant="blue"` en `<section class="custom">` o la clave `customVariant` en el JSON de defaults.
 
 ---
 
@@ -283,11 +405,10 @@ Ubicado **entre Custom y Looks**. Banner promocional de la colección de portada
 ```
 
 ### Decisiones de diseño
-- Imagen como **fondo completo** (`position: absolute; inset: 0; object-fit: cover`) — cubre todo el banner.
-- Texto HTML superpuesto (no texto embebido en la imagen) — misma tipografía que el hero (peso 900 uppercase + `<em>` italic 300).
+- Imagen como **fondo completo** (`position: absolute; inset: 0; object-fit: cover`).
+- Texto HTML superpuesto — misma tipografía que el hero (peso 900 uppercase + `<em>` italic 300).
 - Botón **siempre `btn-lg`** en este contexto.
-- `padding-bottom: 96px` en la sección para mantener el mismo ritmo espacial que el resto del site.
-- **Mobile**: columna única, `min-height: 280px`, texto y botón visibles sobre la imagen.
+- **Mobile**: columna única, `min-height: 280px`.
 
 ---
 
@@ -297,31 +418,32 @@ Ubicado **entre Custom y Looks**. Banner promocional de la colección de portada
 2. **Usar tokens de `:root`** — no hardcodear colores ni spacing. Si hace falta un valor nuevo, añadirlo como token.
 3. **No usar el amarillo `--yellow` como color principal** — solo acentos.
 4. **Mantener el patrón de secciones** — cada sección con su comentario `═══` en CSS y HTML, `id` descriptivo, `.wrap` interior para limitar ancho, `section-title` + `label` eyebrow para los headers.
-5. **Reutilizar componentes existentes** (`.offer-card`, `.btn-blue`, etc.) antes de crear nuevos. **Antes de escribir cualquier CSS nuevo, buscar si ya existe un componente o clase que resuelva el mismo problema.** Si el componente existe pero necesita un contexto diferente (ej. un badge que normalmente es `position:absolute` pero aquí va en flujo), añadir solo el override mínimo necesario (ej. `.pdp-badge-inline { position: static; }`). Nunca duplicar estilos visuales con otro nombre.
+5. **Reutilizar componentes existentes** antes de crear nuevos. Antes de escribir CSS nuevo, buscar si ya existe una clase que resuelva el mismo problema. Si el componente existe pero necesita un contexto diferente, añadir solo el override mínimo necesario. Nunca duplicar estilos visuales con otro nombre.
 6. **Responsive** con media queries estándar: breakpoints ~1100 / 900 / 720 / 600 / 480.
 7. **DM Sans primero**. Caveat solo para acentos decorativos muy puntuales.
 8. **Reveals on-scroll** — si se añade contenido nuevo, incluir `data-reveal` + `data-delay` opcional (1–6).
 9. **Botones en banners y hero siempre `btn-lg`**. En cabeceras de sección ("Ver todos") tamaño default. `btn-sm` solo para acciones secundarias en contextos compactos.
-10. **`html { overflow-x: clip }` — no tocar nunca.** Es la única regla que elimina el desbordamiento horizontal sin crear un scroll container. Si se cambia a `hidden` o `visible`, el header sticky puede romperse o la página puede aparecer descentrada. El `body` ya no necesita `overflow-x: hidden` porque `html` lo gestiona.
-11. **Imágenes de catálogo en `img/catalogo/`** (sin tilde). No usar `img/catalog/` (carpeta antigua).
-12. **Spacing solo con variables `--sp-*`** — Nunca `padding: 24px` literal. Siempre `padding: var(--sp-24)`. Nunca `style=""` para márgenes o paddings; mover siempre a CSS con el selector adecuado.
-13. **Norma de botones "Ver todos" en mobile** — Si un header de sección tiene un botón "Ver todos/Ver más" a la derecha del título, en mobile ese botón se oculta del header (`.section-header > a.btn { display: none }`) y aparece debajo del contenido del módulo en un `.wrap.section-footer-mobile` con `width: 100%`.
-14. **Badges de "Nuevo"** — El `.drawer-badge` del menú mobile y el `.offer-badge--new` de las cards deben tener siempre el mismo color verde (`#C5E63D` / `#2F4A05`). Son el mismo concepto visual.
+10. **`html { overflow-x: clip }` — no tocar nunca.** Es la única regla que elimina el desbordamiento horizontal sin crear un scroll container. Si se cambia a `hidden`, el header sticky puede romperse.
+11. **Imágenes en `img/`** — todas las imágenes usadas en el proyecto deben estar en `img/` o sus subcarpetas. No usar rutas a `unused-img/`.
+12. **Spacing solo con variables `--sp-*`** — Nunca `padding: 24px` literal. Nunca `style=""` para márgenes o paddings.
+13. **Norma de botones "Ver todos" en mobile** — Se ocultan del header y aparecen debajo del contenido en un `.wrap.section-footer-mobile`.
+14. **Badges de "Nuevo"** — `.drawer-badge` y `.offer-badge--new` deben tener siempre el mismo color verde (`#C5E63D` / `#2F4A05`).
+15. **Nunca anidar `<a>` dentro de `<a>`** — las cards son `<a>`, por lo que cualquier elemento interactivo interno (como `.offer-personalizable`) debe ser `<span>`, `<button>` u otro elemento no-anchor.
 
 ---
 
 ## Decisiones mobile — sesión 2025-05 (resumen)
 
 - **Header mobile** → fondo `var(--blue)`, hamburger blanco, buscador con fondo `var(--blue-10)`
-- **`--gap` en `@media (max-width: 720px)`** → `16px` (override del token global que en desktop es `clamp(24px, 4vw, 64px)`)
-- **`.section-title` en mobile** → `text-align: center`. Los headers flex que tienen el título en un `<div>` hijo necesitan además `width: 100%` en ese div, y los que tienen structure especial (`.collections-header`) necesitan `flex-direction: column; align-items: center`.
+- **`--gap` en `@media (max-width: 720px)`** → `16px` (override del token global)
+- **`.section-title` en mobile** → `text-align: center`
 - **`.trust-title br`** → `display: none` en mobile (texto en una línea)
-- **Promo-looks** → grid irregular de desktop se convierte en 2 columnas auto-flow en `@media 720px`; los nth-child del desktop se resetean con `:nth-child(n)`
+- **Promo-looks** → grid irregular de desktop se convierte en 2 columnas auto-flow en `@media 720px`
 - **Stats grid** → `repeat(2,1fr)` en mobile
-- **Brands section (`#brands .sectors-grid`)** → `repeat(2,1fr)` en mobile (4 brand-cards → 2×2)
-- **Offer-card en mobile (offers-grid)** → imagen `aspect-ratio: 1; align-self: start` para que no estire el card. Imagen 120px = mismo ancho que qty-selector, alineando info con botón
-- **Marquee colecciones** → `15s` (antes 30s, doble de rápido)
-- **Footer** → semántica `<nav aria-label>`, `<address>` con `tel:` y email, Schema.org, responsive single-column con separadores visuales, links con `min-height: 44px`
+- **Brands section (`#brands .sectors-grid`)** → `repeat(2,1fr)` en mobile
+- **Offer-card en mobile (offers-grid)** → imagen `aspect-ratio: 1; align-self: start`
+- **Marquee colecciones** → `15s`
+- **Footer** → semántica `<nav aria-label>`, `<address>`, Schema.org, responsive single-column
 
 ## Cómo previsualizar
 
@@ -332,13 +454,6 @@ Abrir `index.html` directamente en el navegador. No hace falta servidor local (l
 ## Figma — Generación del sistema de diseño
 
 El objetivo es crear un archivo Figma que refleje fielmente el sistema de diseño del proyecto: variables, componentes y páginas. Usar las herramientas MCP de Figma (`mcp__figma__*`) disponibles en Claude Code.
-
-### Proceso recomendado (en orden)
-
-1. Crear el archivo Figma con `generate_figma_design` o `create_new_file`
-2. Definir variables de color y tipografía con `get_variable_defs` / variables
-3. Crear componentes atómicos (botones, badges, cards)
-4. Componer las páginas (Home, Category PLP)
 
 ### Variables de color → Figma
 
@@ -366,65 +481,43 @@ El objetivo es crear un archivo Figma que refleje fielmente el sistema de diseñ
 
 ### Componentes a crear en Figma
 
-Cada componente debe tener variantes que repliquen los modificadores CSS.
-
 #### Botones — `.btn`
 - **Variantes**: Color (`Blue` / `Outline Blue`) × Tamaño (`SM 32px` / `Default 44px` / `LG 56px`)
 - Radio: 0 (angular). Icon opcional izquierda/derecha.
 
 #### Product Card — `.offer-card`
-- Imagen cuadrada arriba + body abajo (código ref, nombre, rating, precio, pack, qty selector + añadir)
-- Variante: con/sin badge descuento (amarillo `--yellow`)
+- Vista vertical: imagen cuadrada + body (código, nombre, precio, pack, qty+añadir, personalizable)
+- Vista lista: imagen 156px + info (2 col: contenido | acciones)
+- Variantes: con/sin badge · con/sin logo marca · con/sin enlace personalizable
 
 #### Category Pill — `.cat-pill` / `.cat-pill--sm`
-- Thumb circular + label. Variante SM (56px alto, 200px ancho) para subcat-bar.
+- Thumb circular + label.
 
-#### Sector Card — `.sector-card`
-- Imagen de fondo + overlay azul corporativo + label
-
-#### Look Item — `.look-item`
-- Imagen editorial + overlay gradiente negro + título
+#### Sector Card, Look Item, Cart Pill — sin cambios respecto a la implementación CSS.
 
 #### Header — desktop y mobile
-- Desktop: 3 filas (utility / brand+search / nav)
+- Desktop: 3 filas (utility / brand+search / nav centrado)
 - Mobile: hamburger + logo + carrito. Estado `.scrolled` colapsado.
-- Cart Pill (`.cart-pill`): pill azul-10 con escudo y contador
 
-#### Hero Slide
-- Grid 1fr 1fr: copy (eyebrow + h1 + CTAs) + media (imagen)
-- Badge opcional (top-right de media)
-- Controls: paginación bullets + flechas
+#### PDP — sticky bar
+- Desktop: thumb + nombre a la izquierda · qty + botón a la derecha
+- Mobile: solo qty + botón
 
-#### Filter Sidebar — `.cat-filter`
-- Grupo acordeón: header (nombre + chevron + badge contador) + body
-- Tipos de control: checkbox, radio de color (swatch), radio de texto
-
-#### Filter Drawer — mobile
-- Bottom sheet: header "Filtrar y ordenar" + body scroll + footer ("Ver X artículos" + "Borrar todo")
+#### Filter Sidebar / Filter Drawer — sin cambios.
 
 #### Banners
-- **Custom banner** (`#custom`): fondo azul, rejilla de iconos SVG, título mixto DM Sans + Caveat, features, CTA
+- **Custom banner** (`#custom`): fondo azul, rejilla SVG, título DM Sans + Caveat, CTA
 - **Portadas banner** (`#portadas-banner`): imagen full-cover + copy superpuesto + botón
 
 ### Páginas a generar en Figma
 
 #### 1. Home (`index.html`)
-Secciones en orden: Announcement bar → Header → Hero (3 slides) → Strip → Taglines → Promo looks → Offers slider → Collections → Categories → Sectors → Bestsellers → Custom → Portadas banner → Looks → Trust → Footer
+Announcement bar → Header → Hero (3 slides) → Strip → Taglines → Promo looks → Offers (lista 2 col) → Collections → Categories → Sectors → Bestsellers (grid 4 col) → Custom → Portadas banner → Looks → Trust → Footer
 
 #### 2. Category PLP (`category.html`)
-Secciones: Header → Cat banner → Subcat bar → [Mobile: filter pill-bar] → Cat section (sidebar + grid + highlight + grid + paginación) → SEO text → Footer
+Header → Cat banner → Subcat bar → [Mobile: filter pill-bar] → Cat section (sidebar + toggle vista + grid/lista + paginación) → SEO text → Footer
 
 ### Convenciones de naming en Figma
-
-- Componentes: `NombreComponente/Variante` — ej. `Button/Blue/LG`, `ProductCard/WithBadge`
+- Componentes: `NombreComponente/Variante` — ej. `Button/Blue/LG`, `ProductCard/Lista/ConBadge`
 - Páginas: `🏠 Home`, `📋 Category PLP`
-- Capas: en español, siguiendo los `id` HTML — ej. `#hero`, `.offer-card`, `.cat-sidebar`
 - Frames de página: `Desktop 1440` / `Mobile 390`
-
-### Notas para la sesión Figma
-
-- Usar `get_design_context` si hay un archivo Figma existente con URL
-- Los tokens de color se mapean 1:1 desde `:root` de `styles.css`
-- El espaciado es 8-point grid: usar múltiplos de 8 para todos los gaps y paddings
-- `border-radius: 0` en la mayoría de componentes — solo circular en botones de icono y cart-pill
-- Las imágenes de producto están en `img/product/` y las ambientales en `img/ambient/`

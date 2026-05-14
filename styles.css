@@ -350,10 +350,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .header-cats-inner {
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 100%;
   width: 100%;
 }
-.nav-cats { display: flex; align-items: center; flex: 1; height: 100%; }
+.nav-cats { display: flex; align-items: center; height: 100%; }
 .nav-cats > a,
 .nav-item > .nav-item-link {
   display: flex;
@@ -371,7 +372,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   text-decoration: none;
 }
 .nav-cats > a:first-child,
-.nav-item:first-child > .nav-item-link { padding-left: 0; }
+.nav-item:first-child > .nav-item-link {
+  padding-left: 14px;
+  border-left: 1px solid var(--white-15);
+}
 .nav-cats > a:hover { background: var(--blue-60); }
 
 /* ── Nav item con mega-menú ── */
@@ -513,6 +517,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 /* Escudo: solo en sticky */
+.header.scrolled .logo-shield { border-right: none; }
 .logo-shield {
   display: none;
   align-items: center;
@@ -532,8 +537,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .header.scrolled .header-brand          { display: none; }
 .header.scrolled .logo-shield           { display: flex; }
 .header.scrolled .cart-pill.sticky-only { display: flex; margin-left: auto; background: var(--white-15); color: var(--white); }
-.header.scrolled .nav-cats > a:first-child,
-.header.scrolled .nav-item:first-child > .nav-item-link { padding-left: 14px; }
+.header.scrolled .nav-cats { flex: 1; justify-content: center; }
 
 /* ── Burger + cart-pill-mobile (ocultos en desktop) ── */
 .burger-btn { display: none; }
@@ -927,6 +931,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* Acciones en columna: qty + botón ancho completo */
 .offers-grid .offer-actions {
   flex-direction: column;
+  flex-wrap: nowrap;
   gap: 6px;
   margin-top: 0;
   padding-top: 0;
@@ -984,6 +989,21 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border-radius: var(--radius) var(--radius) 0 0;
 }
 .offer-card-img img { object-fit: contain; object-position: center; padding: var(--sp-8); }
+.offer-brand-wrap {
+  position: absolute;
+  bottom: var(--sp-8);
+  left: var(--sp-8);
+  background: var(--white);
+  padding: 0;
+  z-index: 3;
+  pointer-events: none;
+  line-height: 0;
+}
+.offer-brand-logo {
+  display: block;
+  height: 28px;
+  width: unset;
+}
 .offer-badge {
   position: absolute;
   top: 8px; left: 8px;
@@ -1029,9 +1049,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   overflow: hidden;
 }
 .offer-rating {
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  display: none;
 }
 .offer-rating-stars {
   display: inline-flex;
@@ -1067,11 +1085,26 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .offer-card:has(.offer-badge--discount) .offer-price-old { display: inline; }
 .offer-actions {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: var(--sp-8);
   margin-top: auto;
   padding-top: var(--sp-12);
 }
+.offer-personalizable {
+  flex-basis: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px; /* icon + text micro-gap */
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--blue);
+  letter-spacing: .01em;
+  padding: var(--sp-4) 0;
+  cursor: pointer;
+}
+.offer-personalizable--hidden { visibility: hidden; }
 .qty-selector {
   display: flex;
   align-items: stretch;
@@ -2718,22 +2751,22 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ── Cat products grid ── */
 .cat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-16); margin-bottom: var(--sp-40); }
 
-/* ── List view modifier — doble clase para ganar a los breakpoints de .cat-grid ── */
-.cat-grid.cat-grid--list {
-  grid-template-columns: 1fr;
-  gap: var(--sp-12);
-}
-.cat-grid.cat-grid--list .offer-card {
-  flex-direction: row; /* column → row: imagen izquierda, body derecha */
+/* ── List view modifier — card horizontal ── */
+/* El nº de columnas lo gestiona el grid padre (cat-grid → 1 col, offers-grid → 2 col) */
+.cat-grid.cat-grid--list { grid-template-columns: 1fr; gap: var(--sp-12); }
+
+.cat-grid--list .offer-card {
+  display: flex;
+  flex-direction: row;
   height: auto;
 }
-.cat-grid.cat-grid--list .offer-card .offer-card-img {
-  width: 100px;
-  min-width: 100px;
+.cat-grid--list .offer-card .offer-card-img {
+  width: 156px;
+  min-width: 156px;
   aspect-ratio: 1;
   border-radius: var(--radius) 0 0 var(--radius);
 }
-.cat-grid.cat-grid--list .offer-card .offer-card-body {
+.cat-grid--list .offer-card .offer-card-body {
   flex: 1;
   min-width: 0;
   padding: var(--sp-16);
@@ -2743,47 +2776,27 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   column-gap: var(--sp-24);
   align-items: start;
 }
-/* todo el contenido textual va a la columna izquierda */
-.cat-grid.cat-grid--list .offer-card .offer-code,
-.cat-grid.cat-grid--list .offer-card .offer-name,
-.cat-grid.cat-grid--list .offer-card .offer-rating,
-.cat-grid.cat-grid--list .offer-card .offer-pricing,
-.cat-grid.cat-grid--list .offer-card .offer-pack { grid-column: 1; }
-.cat-grid.cat-grid--list .offer-card .offer-name {
-  min-height: 0;
-  -webkit-line-clamp: 2;
-}
-/* acciones: columna derecha, span todas las filas, ancladas al bottom */
-.cat-grid.cat-grid--list .offer-card .offer-actions {
+.cat-grid--list .offer-card .offer-code,
+.cat-grid--list .offer-card .offer-name,
+.cat-grid--list .offer-card .offer-rating,
+.cat-grid--list .offer-card .offer-pricing,
+.cat-grid--list .offer-card .offer-pack { grid-column: 1; }
+.cat-grid--list .offer-card .offer-name { min-height: 0; -webkit-line-clamp: 2; }
+.cat-grid--list .offer-card .offer-actions {
   grid-column: 2;
   grid-row: 1 / -1;
   align-self: end;
   flex-direction: column;
+  flex-wrap: nowrap;
   align-items: stretch;
   margin-top: 0;
   padding-top: 0;
   gap: var(--sp-8);
 }
-.cat-grid.cat-grid--list .offer-card .offer-actions .qty-selector {
-  width: 100%;
-  flex-shrink: 0;
-}
-.cat-grid.cat-grid--list .offer-card .offer-actions .qty-btn {
-  width: var(--ctrl-h);  /* cuadrado: mismo ancho que alto */
-  flex-shrink: 0;
-  flex-grow: 0;
-}
-.cat-grid.cat-grid--list .offer-card .offer-actions .qty-input {
-  flex: 1 1 0;
-  width: 0;    /* fuerza que el tamaño real lo gestione flex-grow */
-  min-width: 0;
-}
-.cat-grid.cat-grid--list .offer-card .offer-actions .btn-add-cart {
-  flex: none;
-  height: var(--ctrl-h);
-  width: 100%;
-  justify-content: center;
-}
+.cat-grid--list .offer-card .offer-actions .qty-selector { width: 100%; flex-shrink: 0; }
+.cat-grid--list .offer-card .offer-actions .qty-btn { width: var(--ctrl-h); flex-shrink: 0; flex-grow: 0; }
+.cat-grid--list .offer-card .offer-actions .qty-input { flex: 1 1 0; width: 0; min-width: 0; }
+.cat-grid--list .offer-card .offer-actions .btn-add-cart { flex: none; height: var(--ctrl-h); width: 100%; justify-content: center; }
 
 /* ── Trust mini bar ── */
 .cat-trust {
@@ -3338,11 +3351,19 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .pdp-img-btn:hover { background: var(--blue); color: var(--white); }
 .pdp-img-btn--save { top: 16px; right: 16px; }
 .pdp-img-nav {
-  position: absolute;
-  bottom: 16px;
-  left: 16px;
+  grid-column: 2;
+  grid-row: 1;
+  align-self: end;
+  justify-self: start;
+  z-index: 2;
   display: flex;
   gap: var(--sp-8);
+  padding: 0 0 var(--sp-16) var(--sp-16);
+  pointer-events: none;
+}
+.pdp-img-nav .pdp-img-btn {
+  position: static; /* override base position:absolute — here flex handles layout */
+  pointer-events: all;
 }
 
 /* ── Info (right) ── */

@@ -19,13 +19,17 @@ function _gdpBadge(b) {
 function _gdpActions() {
   return `<div class="qty-selector"><button class="qty-btn" onclick="adjustQty(this,-1)">−</button><input type="number" class="qty-input" value="1" min="1"><button class="qty-btn" onclick="adjustQty(this,1)">+</button></div><button class="btn-add-cart">${_CI} Añadir</button>`;
 }
+const _PENCIL = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+function _gdpPersonalizable(show) {
+  return `<span class="offer-personalizable${show ? '' : ' offer-personalizable--hidden'}"${show ? '' : ' aria-hidden="true"'}>${_PENCIL} Personalizable</span>`;
+}
 
 // ── Product cards ──────────────────────────────────────────────────────────
 
 // 3-column layout — for .offers-grid
 function gdpOfferCard(d) {
   return `<a href="${d.href}" class="offer-card">
-  <div class="offer-card-img">${_gdpBadge(d.badge)}<img src="${d.img}" alt="${d.alt}" loading="lazy"></div>
+  <div class="offer-card-img">${_gdpBadge(d.badge)}<img src="${d.img}" alt="${d.alt}" loading="lazy">${d.brand ? `<span class="offer-brand-wrap"><img src="${d.brand}" alt="" class="offer-brand-logo" aria-hidden="true"></span>` : ''}</div>
   <div class="offer-card-info">
     <span class="offer-code">${d.code}</span>
     <p class="offer-name">${d.name}</p>
@@ -44,7 +48,7 @@ function gdpOfferCard(d) {
     </div>
   </div>
   <div class="offer-card-commerce">
-    <div class="offer-actions">${_gdpActions()}</div>
+    <div class="offer-actions">${_gdpActions()}${_gdpPersonalizable(d.personalizable)}</div>
   </div>
 </a>`;
 }
@@ -52,7 +56,7 @@ function gdpOfferCard(d) {
 // Vertical layout — for .products-grid and .cat-grid
 function gdpProductCard(d) {
   return `<a href="${d.href}" class="offer-card">
-  <div class="offer-card-img">${_gdpBadge(d.badge)}<img src="${d.img}" alt="${d.alt}" loading="lazy"></div>
+  <div class="offer-card-img">${_gdpBadge(d.badge)}<img src="${d.img}" alt="${d.alt}" loading="lazy">${d.brand ? `<span class="offer-brand-wrap"><img src="${d.brand}" alt="" class="offer-brand-logo" aria-hidden="true"></span>` : ''}</div>
   <div class="offer-card-body">
     <span class="offer-code">${d.code}</span>
     <p class="offer-name">${d.name}</p>
@@ -68,7 +72,7 @@ function gdpProductCard(d) {
       <span class="offer-pack-label"><strong>Paquete:</strong> ${d.packQty}</span>
       <span class="offer-pack-unit"><b>${d.packUnit}</b>${d.packUnitLabel}</span>
     </div>
-    <div class="offer-actions">${_gdpActions()}</div>
+    <div class="offer-actions">${_gdpActions()}${_gdpPersonalizable(d.personalizable)}</div>
   </div>
 </a>`;
 }
