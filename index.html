@@ -872,6 +872,34 @@
   </section>
 
   <!-- ════════════════════════════════════════
+       VIDEO CORPORATIVO
+  ════════════════════════════════════════ -->
+  <section class="video-module" id="video-module" data-reveal>
+    <div class="wrap">
+      <div class="video-module-inner">
+        <span class="video-corner tl"></span>
+        <span class="video-corner tr"></span>
+        <span class="video-corner bl"></span>
+        <span class="video-corner br"></span>
+
+        <div class="video-module-copy">
+          <p class="label video-module-label">García de Pou en vídeo</p>
+          <h2 class="video-module-title">Fabricantes de confianza<br>desde 1884</h2>
+          <p class="video-module-desc">Conoce de cerca nuestra fábrica, nuestros procesos y el equipo que trabaja cada día para llevar el mejor producto de hostelería a tu negocio.</p>
+        </div>
+
+        <button class="video-module-thumb" id="videoThumbBtn" aria-label="Reproducir vídeo corporativo García de Pou">
+          <img src="https://img.youtube.com/vi/u1NAW3iLbNM/maxresdefault.jpg" alt="Vídeo corporativo García de Pou" loading="lazy">
+          <span class="video-play-btn" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </span>
+        </button>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
        TRUST — Generando confianza desde 1884
   ════════════════════════════════════════ -->
   <section class="trust" id="trust">
@@ -1013,6 +1041,21 @@
   <!-- ════════════════════════════════════════
        SCRIPTS
   ════════════════════════════════════════ -->
+
+  <!-- Video lightbox -->
+  <div class="video-lightbox" id="videoLightbox" role="dialog" aria-modal="true" aria-label="Vídeo corporativo García de Pou" hidden>
+    <div class="video-lightbox-backdrop" id="videoBackdrop"></div>
+    <div class="video-lightbox-content">
+      <button class="video-lightbox-close" id="videoClose" aria-label="Cerrar vídeo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+      <div class="video-lightbox-frame">
+        <iframe id="videoIframe" src="" title="Vídeo corporativo García de Pou" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
 
   <!-- Swiper -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -1344,6 +1387,40 @@
       });
     })();
 
+    /* ─── VIDEO LIGHTBOX ──────────────────── */
+    (function() {
+      const thumbBtn  = document.getElementById('videoThumbBtn');
+      const lightbox  = document.getElementById('videoLightbox');
+      const iframe    = document.getElementById('videoIframe');
+      const backdrop  = document.getElementById('videoBackdrop');
+      const closeBtn  = document.getElementById('videoClose');
+      if (!thumbBtn || !lightbox) return;
+      const YT_SRC = 'https://www.youtube.com/embed/u1NAW3iLbNM?autoplay=1&rel=0';
+
+      function openLightbox() {
+        iframe.src = YT_SRC;
+        lightbox.hidden = false;
+        requestAnimationFrame(() => lightbox.classList.add('is-open'));
+        document.body.style.overflow = 'hidden';
+      }
+      function closeLightbox() {
+        lightbox.classList.remove('is-open');
+        lightbox.addEventListener('transitionend', function once() {
+          lightbox.hidden = true;
+          iframe.src = '';
+          document.body.style.overflow = '';
+          lightbox.removeEventListener('transitionend', once);
+        }, { once: true });
+      }
+      thumbBtn.addEventListener('click', openLightbox);
+      closeBtn.addEventListener('click', closeLightbox);
+      backdrop.addEventListener('click', closeLightbox);
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && lightbox.classList.contains('is-open')) closeLightbox();
+      });
+    })();
+
   </script>
+
 </body>
 </html>

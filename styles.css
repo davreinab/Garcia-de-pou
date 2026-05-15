@@ -2041,6 +2041,165 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 /* ═══════════════════════════════════════════
+   VIDEO CORPORATIVO
+═══════════════════════════════════════════ */
+.video-module { padding: var(--sp-48) 0; }
+.video-module-inner {
+  position: relative;
+  background: var(--blue);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: var(--sp-64);
+  padding: var(--sp-64);
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+.video-corner {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border: 2px solid rgba(255,255,255,.25);
+  pointer-events: none;
+}
+.video-corner.tl { top: 20px; left: 20px; border-right: none; border-bottom: none; }
+.video-corner.tr { top: 20px; right: 20px; border-left: none; border-bottom: none; }
+.video-corner.bl { bottom: 20px; left: 20px; border-right: none; border-top: none; }
+.video-corner.br { bottom: 20px; right: 20px; border-left: none; border-top: none; }
+.video-module-label { color: rgba(255,255,255,.6); }
+.video-module-title {
+  font-size: clamp(28px, 3.5vw, 48px);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -.04em;
+  color: var(--white);
+  line-height: 1;
+  margin: var(--sp-12) 0 var(--sp-20);
+}
+.video-module-desc {
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(255,255,255,.72);
+  max-width: 380px;
+}
+.video-module-thumb {
+  position: relative;
+  display: block;
+  aspect-ratio: 16/9;
+  width: 100%;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  overflow: hidden;
+  background: var(--black);
+}
+.video-module-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: .82;
+  transition: transform .6s cubic-bezier(.16,1,.3,1), opacity .3s;
+}
+.video-module-thumb:hover img { transform: scale(1.04); opacity: .65; }
+.video-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  transition: transform .3s cubic-bezier(.16,1,.3,1), background .2s, color .2s;
+}
+.video-play-btn svg { width: 28px; height: 28px; margin-left: 4px; /* optical centering */ }
+.video-module-thumb:hover .video-play-btn {
+  transform: translate(-50%, -50%) scale(1.12);
+  background: var(--yellow);
+  color: var(--black);
+}
+
+/* Lightbox */
+.video-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s;
+}
+.video-lightbox.is-open { opacity: 1; pointer-events: auto; }
+.video-lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.88);
+  cursor: pointer;
+}
+.video-lightbox-content {
+  position: relative;
+  width: min(960px, 90vw);
+  z-index: 1;
+}
+.video-lightbox-frame {
+  position: relative;
+  aspect-ratio: 16/9;
+  width: 100%;
+  background: var(--black);
+}
+.video-lightbox-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+.video-lightbox-close {
+  position: absolute;
+  top: -48px;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: rgba(255,255,255,.12);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background .2s;
+}
+.video-lightbox-close:hover { background: rgba(255,255,255,.24); }
+.video-lightbox-close svg { width: 18px; height: 18px; }
+
+/* VIDEO — responsive */
+@media (max-width: 900px) {
+  .video-module-inner {
+    grid-template-columns: 1fr;
+    gap: var(--sp-40);
+    padding: 56px var(--sp-32);
+  }
+  .video-module-desc { max-width: none; }
+}
+@media (max-width: 600px) {
+  .video-module-inner { padding: var(--sp-48) var(--sp-24); }
+  .video-play-btn { width: 56px; height: 56px; }
+  .video-play-btn svg { width: 22px; height: 22px; }
+  .video-lightbox-content { width: 95vw; }
+  .video-lightbox-close { top: -44px; }
+}
+
+/* ═══════════════════════════════════════════
    TWEAKS — panel flotante
 ═══════════════════════════════════════════ */
 #tweaks-panel {
