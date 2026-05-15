@@ -44,17 +44,18 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   --ctrl-h:    40px;   /* controles estándar (qty + btn-add-cart) */
   --ctrl-h-lg: 48px;   /* controles grandes */
 
-  /* Escala tipográfica */
+  /* Escala tipográfica
+     Figma text styles → Heading/XL · Label/SM · Body/SM · Body/MD · Body/LG · Accent/Script */
   --fs-2xs:  10px;   /* badges, códigos, contadores */
-  --fs-xs:   11px;   /* labels, eyebrows */
+  --fs-xs:   11px;   /* Label/SM — labels, eyebrows */
   --fs-sm:   12px;   /* secundario, captions */
-  --fs-base: 13px;   /* cuerpo secundario */
-  --fs-md:   14px;   /* cuerpo, botones */
-  --fs-lg:   16px;   /* cuerpo principal */
+  --fs-base: 13px;   /* Body/SM — cuerpo secundario */
+  --fs-md:   14px;   /* Body/MD — cuerpo, botones */
+  --fs-lg:   16px;   /* Body/LG — cuerpo principal */
   --fs-xl:   18px;   /* subheadings */
   --fs-2xl:  20px;   /* precios, headings */
-  --fs-3xl:  24px;   /* headings grandes */
-  --fs-4xl:  32px;   /* hero accents */
+  --fs-3xl:  24px;   /* Accent/Script — Caveat decorativo */
+  --fs-4xl:  32px;   /* Heading/XL — títulos de sección */
 
   /* ── Escala de espaciado — 8-point grid ──────────────────────────────────
      Usar SIEMPRE estas variables para padding, margin y gap.
@@ -87,6 +88,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   margin-inline: auto;
   padding-inline: var(--gap);
 }
+/* Figma text style: Label/SM */
 .label {
   font-size: var(--fs-xs);
   font-weight: 600;
@@ -1315,6 +1317,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   justify-content: space-between;
   margin-bottom: var(--sp-48);
 }
+/* Figma text style: Heading/XL */
 .section-title {
   font-size: clamp(22px, 2.5vw, 36px);
   font-weight: 900;
