@@ -13,7 +13,7 @@ function _gdpStars(n) {
 }
 function _gdpBadge(b) {
   if (!b) return '';
-  if (b.type === 'new') return `<span class="offer-badge offer-badge--new"><img src="img/is-new.webp" alt="Nuevo" loading="lazy"></span>`;
+  if (b.type === 'new') return `<span class="offer-badge offer-badge--new"><img src="img/new-tag.png" alt="Nuevo" loading="lazy"></span>`;
   return `<span class="offer-badge offer-badge--discount">${b.text}</span>`;
 }
 function _gdpActions() {
@@ -313,7 +313,7 @@ function gdpHeader(opts) {
       </nav>
       <p class="drawer-label">Destacados</p>
       <nav class="drawer-nav drawer-nav-sm" aria-label="Secciones especiales">
-        <a href="#"><img src="img/is-new.webp" alt="Nuevo" class="drawer-badge-new"> Novedades</a>
+        <a href="#"><img src="img/new-tag.png" alt="Nuevo" class="drawer-badge-new"> Novedades</a>
         <a href="#">Cotillón</a><a href="#">Outlet</a><a href="#">Personalizados</a>
         <a href="#">Looks</a><a href="#">Blog</a><a href="#">Catálogos</a><a href="#">Compra rápida</a>
       </nav>

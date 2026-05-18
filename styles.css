@@ -6,6 +6,7 @@
 html { font-size: 16px; overflow-x: clip; }
 body {
   font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 16px;
   background: #fff;
   color: #0A0A0A;
   overflow-x: clip;
@@ -47,10 +48,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   /* Escala tipográfica
      Figma text styles → Heading/XL · Label/SM · Body/SM · Body/MD · Body/LG · Accent/Script */
   --fs-2xs:  10px;   /* badges, códigos, contadores */
-  --fs-xs:   11px;   /* Label/SM — labels, eyebrows */
-  --fs-sm:   12px;   /* secundario, captions */
-  --fs-base: 13px;   /* Body/SM — cuerpo secundario */
-  --fs-md:   14px;   /* Body/MD — cuerpo, botones */
+  --fs-xs:   14px;   /* Label/SM — labels, eyebrows */
+  --fs-sm:   16px;   /* secundario, captions */
+  --fs-base: 14px;   /* Body/SM — cuerpo secundario */
+  --fs-md:   16px;   /* Body/MD — cuerpo, botones */
   --fs-lg:   16px;   /* Body/LG — cuerpo principal */
   --fs-xl:   18px;   /* subheadings */
   --fs-2xl:  20px;   /* precios, headings */
@@ -1030,7 +1031,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .offer-badge--new img {
   display: block;
-  height: 36px;
+  height: 44px;
   width: auto;
 }
 .offer-card-body {
@@ -1041,22 +1042,19 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   gap: var(--sp-8);
 }
 .offer-code {
-  font-size: var(--fs-2xs);
-  font-weight: 600;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--g300);
+  font-size: var(--fs-base);
+  color: var(--g500);
   display: flex;
   align-items: center;
+  gap: 6px;
 }
 .offer-code--dot::before {
   content: '';
   display: inline-block;
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background: #E63946;
-  margin-right: 5px; /* micro-gap icon/text */
+  background: #EE333E;
   flex-shrink: 0;
 }
 .offer-name {
