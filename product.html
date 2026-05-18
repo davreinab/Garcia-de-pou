@@ -163,7 +163,6 @@
                 <button class="pdp-color-opt" aria-label="Coral" style="background:#E74C3C"></button>
                 <button class="pdp-color-opt" aria-label="Menta" style="background:#A8D8B9"></button>
                 <button class="pdp-color-opt" aria-label="Pizarra" style="background:#607D8B"></button>
-                <button class="pdp-color-more" id="pdpColorMore"></button>
               </div>
             </div>
 
@@ -206,12 +205,12 @@
             <!-- Barra de envío -->
             <div class="pdp-shipping">
               <div class="pdp-shipping-item">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="1" y="3" width="15" height="13" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M16 8h4l3 3v5h-7V8z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="5.5" cy="18.5" r="2.5" stroke="currentColor" stroke-width="1.5"/><circle cx="18.5" cy="18.5" r="2.5" stroke="currentColor" stroke-width="1.5"/></svg>
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><rect x="1" y="3" width="15" height="13" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M16 8h4l3 3v5h-7V8z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="5.5" cy="18.5" r="2.5" stroke="currentColor" stroke-width="1.5"/><circle cx="18.5" cy="18.5" r="2.5" stroke="currentColor" stroke-width="1.5"/></svg>
                 <span>Transporte gratis a partir de 40€ IVA Inc. <a href="#">Más info</a></span>
               </div>
               <div class="pdp-shipping-sep"></div>
               <div class="pdp-shipping-item">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><polyline points="12 6 12 12 16 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><polyline points="12 6 12 12 16 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 <span>Envío rápido. Entrega en 24–48h en Península</span>
               </div>
             </div>
@@ -954,27 +953,6 @@
       document.getElementById('btCta').textContent = 'AÑADIR ' + count + ' ARTÍCULO' + (count !== 1 ? 'S' : '');
     }
 
-    /* ── Color swatches: mostrar 8, resto oculto con toggle ── */
-    (function() {
-      const VISIBLE = 8;
-      const opts = document.getElementById('pdpColorOpts');
-      const moreBtn = document.getElementById('pdpColorMore');
-      if (!opts || !moreBtn) return;
-      const swatches = Array.from(opts.querySelectorAll('.pdp-color-opt'));
-      const total = swatches.length;
-      if (total <= VISIBLE) return;
-      const hidden = total - VISIBLE;
-      let expanded = false;
-      swatches.slice(VISIBLE).forEach(s => s.classList.add('is-hidden'));
-      moreBtn.textContent = '+' + hidden + ' más';
-      moreBtn.style.display = 'flex';
-      moreBtn.style.alignItems = 'center';
-      moreBtn.addEventListener('click', function() {
-        expanded = !expanded;
-        swatches.slice(VISIBLE).forEach(s => s.classList.toggle('is-hidden', !expanded));
-        moreBtn.textContent = expanded ? 'Ver menos' : '+' + hidden + ' más';
-      });
-    })();
 
     /* ── Ficha técnica: accordions ── */
     document.querySelectorAll('.pdp-accordion-head').forEach(head => {

@@ -7,6 +7,7 @@ html { font-size: 16px; overflow-x: clip; }
 body {
   font-family: 'DM Sans', system-ui, sans-serif;
   font-size: 16px;
+  line-height: 1.2;
   background: #fff;
   color: #0A0A0A;
   overflow-x: clip;
@@ -843,8 +844,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .cat-pill-name {
   align-self: center;
   font-size: var(--fs-base);
-  font-weight: 600;
-  line-height: 1.35;
+  font-weight: 400;
+  line-height: 1.2;
   color: var(--black);
   text-wrap: pretty;
   transition: color .2s;
@@ -2620,7 +2621,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: var(--fs-xs);
+  font-size: 12px; /* SEO breadcrumb — deliberadamente pequeño */
   font-weight: 600;
   letter-spacing: .08em;
   text-transform: uppercase;
@@ -2787,6 +2788,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .subcat-bar:hover .subcat-next-btn { opacity: 1; }
 .subcat-next-btn:hover { border-color: var(--blue); background: var(--blue); color: var(--white); }
+
+@media (min-width: 721px) {
+  .subcat-wrap { height: auto; padding-block: var(--sp-12); align-items: flex-start; }
+  .subcat-swiper .swiper-wrapper { flex-wrap: wrap; gap: var(--sp-8); transform: none !important; }
+  .subcat-swiper .swiper-slide { width: auto !important; margin-right: 0 !important; }
+  .subcat-next-btn { display: none; }
+}
 
 /* ── Category main layout ── */
 .cat-section { background: var(--white); padding: var(--sp-24) 0 var(--sp-48); }
@@ -3546,15 +3554,18 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .pdp-img-btn--save { top: 16px; right: 16px; }
 .pdp-img-nav {
   position: absolute;
-  bottom: var(--sp-16);
-  left: var(--sp-16);
+  inset: 0;
   z-index: 2;
-  display: flex;
-  gap: var(--sp-8);
+  pointer-events: none;
 }
 .pdp-img-nav .pdp-img-btn {
-  position: static; /* override base position:absolute — inside flex container */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: all;
 }
+.pdp-img-nav .pdp-img-btn:first-child { left: var(--sp-16); }
+.pdp-img-nav .pdp-img-btn:last-child  { right: var(--sp-16); }
 
 /* ── Info (right) ── */
 .pdp-info {
@@ -3739,12 +3750,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: flex;
   align-items: center;
   gap: 0;
-  padding: var(--sp-16) var(--sp-24);
+  padding: var(--sp-16);
 }
 .pdp-shipping-item {
   display: flex;
   align-items: center;
-  gap: var(--sp-8);
+  gap: var(--sp-16);
   font-size: var(--fs-md);
   color: var(--black);
   flex: 1;
@@ -3806,7 +3817,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ══════════════════════════════════════════════════════════
    PDP — Comprados juntos habitualmente
 ══════════════════════════════════════════════════════════ */
-.bought-together { padding: var(--sp-24) 0; background: var(--g50); }
+.bought-together { padding: var(--sp-24) 0; }
 .bought-together .section-title { margin-bottom: var(--sp-32); }
 /* Cards en fila — 4 columnas + separador + */
 .bt-items { display: flex; align-items: stretch; gap: var(--sp-32); }
