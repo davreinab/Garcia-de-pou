@@ -365,7 +365,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   align-items: center;
   height: 100%;
   padding: 0 14px;
-  font-size: var(--fs-xs);
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: .07em;
   text-transform: uppercase;
@@ -3521,6 +3521,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   grid-row: 1;
   position: relative; /* contiene las flechas en absoluto */
 }
+.pdp-main-img .offer-brand-wrap { padding: var(--sp-4); background: transparent; }
+.pdp-main-img .offer-brand-logo { height: 24px; }
 .pdp-main-img {
   aspect-ratio: 1;
   background: var(--g50);
@@ -3571,7 +3573,15 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .pdp-info {
   display: flex;
   flex-direction: column;
-  gap: var(--sp-32);
+  gap: var(--sp-16);
+}
+.pdp-info > * + * {
+  border-top: 1px solid var(--g100);
+  padding-top: var(--sp-16);
+}
+.pdp-purchase--shipping {
+  border-top: none;
+  padding-top: 0;
 }
 
 .pdp-title {
@@ -3589,6 +3599,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   align-items: center;
   gap: var(--sp-16);
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 .pdp-ref-item {
   display: flex;
@@ -3687,6 +3698,16 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .pdp-color-more:hover { border-color: var(--blue); background: var(--blue-10); }
 
 /* ── Precio + acciones ── */
+.pdp-badge-new {
+  position: absolute;
+  top: var(--sp-16);
+  left: var(--sp-16);
+  z-index: 2;
+  background: none;
+  padding: 0;
+}
+.pdp-main-img .pdp-badge-new img { height: 48px; width: 48px; object-fit: contain; mix-blend-mode: normal; }
+
 .pdp-purchase { display: flex; flex-direction: column; gap: var(--sp-16); }
 
 .pdp-pricing-row {
@@ -3728,21 +3749,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .pdp-actions .qty-selector .qty-btn { width: 40px; }
 .pdp-actions .qty-selector .qty-input { width: 48px; }
 .pdp-actions .btn { flex: 1; justify-content: center; }
-.pdp-custom-btn {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: none;
-  border: none;
-  font-size: var(--fs-sm);
-  font-weight: 600;
-  color: var(--blue);
-  cursor: pointer;
-  white-space: nowrap;
-  flex-shrink: 0;
-  text-decoration: none;
-}
-.pdp-custom-btn:hover { color: var(--blue-80); }
 
 /* ── Barra de envío ── */
 .pdp-shipping {
@@ -3789,7 +3795,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     grid-template-rows: auto auto;
     gap: var(--sp-12);
   }
-  .pdp-main-img { grid-column: 1; grid-row: 1; }
+  .pdp-main-wrap { grid-column: 1; grid-row: 1; }
+  .pdp-main-img .offer-brand-logo { height: 16px; }
   .pdp-thumbs {
     grid-column: 1;
     grid-row: 2;
@@ -3811,7 +3818,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .pdp-shipping { flex-direction: column; align-items: flex-start; gap: var(--sp-12); }
   .pdp-shipping-sep { display: none; }
   .pdp-actions { flex-wrap: wrap; }
-  .pdp-actions .pdp-custom-btn { width: 100%; justify-content: center; }
+  .pdp-actions .btn { min-width: calc(50% - var(--sp-8)); }
 }
 
 /* ══════════════════════════════════════════════════════════
