@@ -3127,7 +3127,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     grid-column: 2;
     min-width: 0;
   }
-  .cat-grid .offer-card .offer-name { min-height: 0; }
+  .cat-grid .offer-card .offer-name { min-height: 0; font-size: var(--fs-base); }
   /* acciones full-width + personalizable sin espacio si no existe */
   .cat-grid .offer-card .offer-actions {
     grid-column: 1 / -1;
