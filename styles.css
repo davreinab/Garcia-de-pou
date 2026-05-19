@@ -986,13 +986,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .offer-card:hover { box-shadow: 0 4px 24px rgba(0,0,0,.07); }
 .offer-card-img {
   aspect-ratio: 1;
-  overflow: hidden;
+  overflow: visible;
   background: var(--white);
   position: relative;
   flex-shrink: 0;
   border-radius: var(--radius) var(--radius) 0 0;
 }
-.offer-card-img img { object-fit: contain; object-position: center; padding: var(--sp-8); }
+.offer-card-img img { object-fit: contain; object-position: center; }
 .offer-brand-wrap {
   position: absolute;
   bottom: var(--sp-8);
@@ -1010,7 +1010,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .offer-badge {
   position: absolute;
-  top: 8px; left: 8px;
+  top: 0; left: 8px;
   z-index: 2;
   font-size: var(--fs-xs);
   font-weight: 700;
@@ -3114,7 +3114,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     width: 100%;
     min-width: 0;
     border-radius: var(--radius);
-    overflow: hidden;
   }
   .cat-grid .offer-card .offer-card-body {
     display: contents;
