@@ -3097,30 +3097,64 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 @media (max-width: 600px) {
   .cat-grid { grid-template-columns: 1fr; gap: var(--sp-12); }
 
-  /* card horizontal: imagen izquierda, body derecha */
+  /* CODEX 2026-05-19: mobile PLP card = top media/content + bottom full-width actions */
   .cat-grid .offer-card {
     display: grid;
     grid-template-columns: 120px 1fr;
+    grid-auto-rows: auto;
+    column-gap: var(--sp-12);
+    row-gap: var(--sp-8);
     align-items: start;
+    padding: var(--sp-12);
   }
   .cat-grid .offer-card .offer-card-img {
     grid-column: 1;
-    grid-row: 1;
+    grid-row: 1 / span 4;
     aspect-ratio: 1;
+    width: 100%;
+    min-width: 0;
+    border-radius: var(--radius);
     overflow: hidden;
   }
   .cat-grid .offer-card .offer-card-body {
-    grid-column: 2;
-    grid-row: 1;
-    padding: var(--sp-12);
+    display: contents;
   }
+  .cat-grid .offer-card .offer-code,
+  .cat-grid .offer-card .offer-name,
+  .cat-grid .offer-card .offer-rating,
+  .cat-grid .offer-card .offer-pricing,
+  .cat-grid .offer-card .offer-pack {
+    grid-column: 2;
+    min-width: 0;
+  }
+  .cat-grid .offer-card .offer-name { min-height: 0; }
   /* acciones full-width + personalizable sin espacio si no existe */
   .cat-grid .offer-card .offer-actions {
-    flex-wrap: nowrap;
+    grid-column: 1 / -1;
+    flex-wrap: wrap;
     width: 100%;
+    margin-top: 0;
+    padding-top: var(--sp-8);
+    border-top: 1px solid var(--g100);
   }
-  .cat-grid .offer-card .offer-actions .qty-selector { flex-shrink: 0; }
-  .cat-grid .offer-card .offer-actions .btn-add-cart { flex: 1; justify-content: center; }
+  .cat-grid .offer-card .offer-actions .qty-selector {
+    flex: 1 1 0;
+    width: auto;
+    min-width: 0;
+    justify-content: space-between;
+  }
+  .cat-grid .offer-card .offer-actions .qty-input {
+    flex: 1 1 0;
+    width: 0;
+    min-width: 0;
+  }
+  .cat-grid .offer-card .offer-actions .btn-add-cart {
+    flex: 1 1 0;
+    width: auto;
+    min-width: 0;
+    justify-content: center;
+  }
+  .cat-grid .offer-card .offer-personalizable { flex-basis: 100%; }
   .cat-grid .offer-card .offer-personalizable--hidden { display: none; }
 }
 
