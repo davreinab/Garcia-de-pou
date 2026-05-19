@@ -3114,6 +3114,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     grid-row: 1;
     padding: var(--sp-12);
   }
+  /* acciones full-width + personalizable sin espacio si no existe */
+  .cat-grid .offer-card .offer-actions {
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+  .cat-grid .offer-card .offer-actions .qty-selector { flex-shrink: 0; }
+  .cat-grid .offer-card .offer-actions .btn-add-cart { flex: 1; justify-content: center; }
+  .cat-grid .offer-card .offer-personalizable--hidden { display: none; }
 }
 
 @media (max-width: 720px) {
@@ -3406,13 +3414,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   vertical-align: middle;
 }
 
-.drawer-footer {
-  margin-top: var(--sp-32);
-  padding-top: var(--sp-24);
-  border-top: 1px solid var(--g100);
-}
+.drawer-footer { margin-top: var(--sp-16); }
 .drawer-footer .btn { width: 100%; justify-content: center; }
 .drawer-footer .btn svg { margin-right: var(--sp-8); }
+.drawer-lang { margin-top: 0; width: 100%; }
+.drawer-lang .util-lang-btn { width: 100%; justify-content: flex-start; gap: var(--sp-8); }
+.drawer-lang .util-lang-btn .util-lang-chevron { margin-left: auto; }
+.drawer-lang .util-lang-dropdown { width: 100%; }
 
 /* Drawer solo visible por debajo de 1200px */
 @media (min-width: 1201px) {

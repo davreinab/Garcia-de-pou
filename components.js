@@ -318,10 +318,26 @@ function gdpHeader(opts) {
         <a href="#">Looks</a><a href="#">Blog</a><a href="#">Catálogos</a><a href="#">Compra rápida</a>
       </nav>
       <div class="drawer-footer">
-        <a href="#" class="btn btn-outline-blue">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M4 20c0-4 3.582-7 8-7s8 3 8 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-          Mi cuenta
-        </a>
+        <nav class="drawer-nav drawer-nav-sm" aria-label="Cuenta">
+          <a href="#">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M4 20c0-4 3.582-7 8-7s8 3 8 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            Mi cuenta
+          </a>
+        </nav>
+        <div class="util-lang drawer-lang" id="drawerLang">
+          <button class="util-lang-btn" aria-haspopup="listbox" aria-expanded="false">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M12 3c-2.2 2.8-3.5 5.6-3.5 9s1.3 6.2 3.5 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M12 3c2.2 2.8 3.5 5.6 3.5 9s-1.3 6.2-3.5 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M3 12h18M3.5 7.5h17M3.5 16.5h17" stroke="currentColor" stroke-width="1.5"/></svg>
+            <span class="util-lang-current">Español</span>
+            <svg class="util-lang-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="util-lang-dropdown" role="listbox" hidden>
+            <li role="option"><button class="util-lang-opt is-active" data-lang="ES">ES <span>Español</span></button></li>
+            <li role="option"><button class="util-lang-opt" data-lang="EN">EN <span>English</span></button></li>
+            <li role="option"><button class="util-lang-opt" data-lang="FR">FR <span>Français</span></button></li>
+            <li role="option"><button class="util-lang-opt" data-lang="PT">PT <span>Português</span></button></li>
+            <li role="option"><button class="util-lang-opt" data-lang="DE">DE <span>Deutsch</span></button></li>
+          </ul>
+        </div>
       </div>
     </div>
   </aside>`;
