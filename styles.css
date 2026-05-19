@@ -3153,7 +3153,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     min-width: 0;
     justify-content: center;
   }
-  .cat-grid .offer-card .offer-personalizable { flex-basis: 100%; }
+  .cat-grid .offer-card .offer-personalizable { flex-basis: 100%; font-size: var(--fs-base); }
   .cat-grid .offer-card .offer-personalizable--hidden { display: none; }
 }
 
