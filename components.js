@@ -24,6 +24,15 @@ const _PENCIL = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none"><pa
 function _gdpPersonalizable(show) {
   return `<span class="offer-personalizable${show ? '' : ' offer-personalizable--hidden'}"${show ? '' : ' aria-hidden="true"'}>${_PENCIL} Personalizable</span>`;
 }
+function _gdpFinishes(d, mod) {
+  const finishes = Array.isArray(d.finishes) && d.finishes.length ? d.finishes : [];
+  const total = Math.min(24, Math.max(0, Number(d.finishCount) || finishes.length));
+  if (total < 1) return '';
+  const visible = total > 2 ? finishes.slice(0, 1) : finishes.slice(0, total);
+  const more = total > 2 ? `<span class="offer-finish-more">+${total}</span>` : '';
+  const swatches = visible.map(c => `<span class="offer-finish-swatch" style="background:${c}"></span>`).join('');
+  return `<span class="offer-finishes offer-finishes--${mod}" aria-label="${total} acabados disponibles">${swatches}${more}</span>`;
+}
 
 // ── Product cards ──────────────────────────────────────────────────────────
 
@@ -61,7 +70,9 @@ function gdpProductCard(d) {
   <div class="offer-card-body">
     <div class="offer-card-copy">
       <span class="offer-save" aria-label="Guardar en favoritos">${_SAVE}</span>
-      <span class="offer-code${d.dot ? ' offer-code--dot' : ''}">${d.code}</span>
+      <div class="offer-code-row">
+        <span class="offer-code${d.dot ? ' offer-code--dot' : ''}">${d.code}</span>
+      </div>
       <p class="offer-name">${d.name}</p>
     </div>
     <div class="offer-card-buy-meta">
@@ -69,9 +80,12 @@ function gdpProductCard(d) {
         <span class="offer-rating-stars">${_gdpStars(d.stars)}</span>
         <span class="offer-rating-count">(${d.ratingCount})</span>
       </div>
-      <div class="offer-pricing">
-        <span class="offer-price">${d.price}</span>
-        ${d.priceOld ? `<span class="offer-price-old">${d.priceOld}</span>` : ''}
+      <div class="offer-price-row">
+        <div class="offer-pricing">
+          <span class="offer-price">${d.price}</span>
+          ${d.priceOld ? `<span class="offer-price-old">${d.priceOld}</span>` : ''}
+        </div>
+        ${_gdpFinishes(d, 'price')}
       </div>
       <div class="offer-pack">
         <span class="offer-pack-label"><strong>Paquete:</strong> ${d.packQty}</span>
@@ -84,14 +98,26 @@ function gdpProductCard(d) {
 }
 
 // Variant card (swiper-slide) — for .pdp-variants
+// Igual que gdpProductCard pero sin: badge, acabados, personalizable, acciones
 function gdpVariantCard(d) {
   return `<div class="swiper-slide"><a href="${d.href}" class="offer-card offer-card--variant">
   <div class="offer-card-img"><img src="${d.img}" alt="${d.alt}" loading="lazy"></div>
   <div class="offer-card-body">
-    <span class="offer-code${d.dot ? ' offer-code--dot' : ''}">${d.code}</span>
-    <p class="offer-name">${d.name}</p>
-    <div class="offer-pricing"><span class="offer-price">${d.price}</span></div>
-    <span class="offer-price-unit">${d.priceUnit}</span>
+    <div class="offer-card-copy">
+      <span class="offer-save" aria-label="Guardar en favoritos">${_SAVE}</span>
+      <div class="offer-code-row">
+        <span class="offer-code">${d.code}</span>
+      </div>
+      <p class="offer-name">${d.name}</p>
+    </div>
+    <div class="offer-card-buy-meta">
+      <div class="offer-price-row">
+        <div class="offer-pricing">
+          <span class="offer-price">${d.price}</span>
+        </div>
+      </div>
+      <span class="offer-price-unit">${d.priceUnit}</span>
+    </div>
   </div>
 </a></div>`;
 }

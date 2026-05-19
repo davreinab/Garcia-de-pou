@@ -1,4 +1,4 @@
-# García de Pou — Contexto para Claude Code
+# García de Pou — Contexto para Codex
 
 Sitio web corporativo de **García de Pou**, suministros para hostelería y restauración. Proyecto estático (HTML + CSS + JS vanilla) con un sistema de diseño ya establecido que **debe respetarse**.
 
@@ -412,7 +412,7 @@ Ubicado **entre Custom y Looks**. Banner promocional de la colección de portada
 
 ---
 
-## Convenciones a respetar cuando Claude Code edite este proyecto
+## Convenciones a respetar cuando Codex edite este proyecto
 
 1. **No introducir frameworks** (React, Vue, Tailwind, etc.) — es HTML/CSS/JS puro a propósito.
 2. **Usar tokens de `:root`** — no hardcodear colores ni spacing. Si hace falta un valor nuevo, añadirlo como token.
@@ -455,7 +455,7 @@ Abrir `index.html` directamente en el navegador. No hace falta servidor local (l
 
 Rama de trabajo subida: `codex/mobile-category-card-actions`.
 
-Punto de recuperación previo a Codex: rama `checkpoint-claude-handoff-2026-05-19`, commit `316e55c` (`Checkpoint: estado Claude antes de Codex`).
+Punto de recuperación previo a Codex: rama `checkpoint-Codex-handoff-2026-05-19`, commit `316e55c` (`Checkpoint: estado Codex antes de Codex`).
 
 ### Cambios realizados por Codex
 
@@ -527,7 +527,7 @@ Rama creada desde `codex/mobile-category-card-actions` para aislar cambios crít
 
 ## Figma — Generación del sistema de diseño
 
-El objetivo es crear un archivo Figma que refleje fielmente el sistema de diseño del proyecto: variables, componentes y páginas. Usar las herramientas MCP de Figma (`mcp__figma__*`) disponibles en Claude Code.
+El objetivo es crear un archivo Figma que refleje fielmente el sistema de diseño del proyecto: variables, componentes y páginas. Usar las herramientas MCP de Figma (`mcp__figma__*`) disponibles en Codex.
 
 ### Variables de color → Figma
 
