@@ -451,6 +451,39 @@ Abrir `index.html` directamente en el navegador. No hace falta servidor local (l
 
 ---
 
+## Handoff Codex — 2026-05-19
+
+Rama de trabajo subida: `codex/mobile-category-card-actions`.
+
+Punto de recuperación previo a Codex: rama `checkpoint-claude-handoff-2026-05-19`, commit `316e55c` (`Checkpoint: estado Claude antes de Codex`).
+
+### Cambios realizados por Codex
+
+- PLP mobile (`category.html` / `.cat-grid .offer-card`): la card de producto se rehizo para mobile con imagen izquierda, contenido derecha y acciones debajo. El layout está marcado en CSS con el comentario `CODEX 2026-05-19`.
+- Home mobile (`index.html` / `.offers-grid` en "Artículos destacados"): se igualó el responsive de estas cards al patrón mobile del PLP.
+- `components.js`: `gdpProductCard` ahora agrupa la información en:
+  - `.offer-card-copy` → corazón, referencia y nombre.
+  - `.offer-card-buy-meta` → rating, precio y paquete.
+  En desktop los wrappers son neutros mediante `display: contents`; en mobile sirven para alinear jerarquía vertical.
+- Favoritos: el icono de guardar pasa a corazón outline. En PDP (`product.html`) se quitó el círculo/borde del botón de guardar, pero las flechas de galería mantienen su botón circular.
+- Breadcrumb mobile: `.cat-bc-strip` queda a 12px, regular, menos alto y alineado más a la izquierda.
+- Botones primarios: `.btn-blue` y `.btn-add-cart` usan `font-weight: 500`.
+
+### Puntos sensibles
+
+- Los ajustes visuales de imagen, badges y marca para las cards deben quedar limitados a mobile (`@media (max-width: 600px)`) en `.cat-grid` y `.offers-grid`. No mover esos overrides a reglas base: en desktop rompe las cards.
+- `.offer-brand-wrap` debe seguir absoluto; ponerlo en flujo cambia la altura de las imágenes entre cards con/sin marca.
+- En las cards mobile, `.offer-card-copy` y `.offer-card-buy-meta` comparten `grid-row: 1` para crear jerarquía: copy arriba y precio/pack abajo.
+- Como la card completa es un `<a>`, el icono de favorito dentro de card es un `<span>` visual, no un `<button>`, para evitar interactivos anidados.
+
+### Verificación usada
+
+- `node -c components.js`
+- extracción/compilación de scripts inline para `product.html` cuando se tocó PDP
+- `git diff --check`
+
+---
+
 ## Figma — Generación del sistema de diseño
 
 El objetivo es crear un archivo Figma que refleje fielmente el sistema de diseño del proyecto: variables, componentes y páginas. Usar las herramientas MCP de Figma (`mcp__figma__*`) disponibles en Claude Code.
